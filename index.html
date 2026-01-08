@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name - Undergraduate Researcher</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;600&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1a1a2e;
+            --secondary: #16213e;
+            --accent: #0f4c75;
+            --highlight: #3282b8;
+            --text: #2d3436;
+            --text-light: #636e72;
+            --bg: #fafafa;
+            --card-bg: #ffffff;
+            --border: #e1e8ed;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            line-height: 1.7;
+            color: var(--text);
+            background: var(--bg);
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        .background-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(135deg, #fafafa 0%, #f0f0f0 100%);
+        }
+
+        .background-animation::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(50, 130, 184, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .background-animation::after {
+            content: '';
+            position: absolute;
+            bottom: -20%;
+            left: -5%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(15, 76, 117, 0.06) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 25s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(30px, -50px) rotate(120deg); }
+            66% { transform: translate(-20px, 20px) rotate(240deg); }
+        }
+
+        /* Header */
+        header {
+            background: var(--card-bg);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--highlight);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--highlight);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 8rem 0 6rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 3.5rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            letter-spacing: -1px;
+        }
+
+        .hero-text .subtitle {
+            font-size: 1.3rem;
+            color: var(--highlight);
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+
+        .profile-image {
+            width: 300px;
+            height: 300px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            position: relative;
+            animation: fadeInRight 1s ease-out 0.3s backwards;
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, transparent 60%, rgba(50, 130, 184, 0.2));
+        }
+
+        /* Placeholder for profile image */
+        .profile-placeholder {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--accent), var(--highlight));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 6rem;
+            color: white;
+            font-family: 'Crimson Pro', serif;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            padding: 0.9rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+            border: 2px solid transparent;
+        }
+
+        .btn-primary {
+            background: var(--highlight);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(50, 130, 184, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--accent);
+            border-color: var(--accent);
+        }
+
+        .btn-secondary:hover {
+            background: var(--accent);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 5rem 0;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .section-header {
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .section-header .underline {
+            width: 60px;
+            height: 4px;
+            background: var(--highlight);
+            border-radius: 2px;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+        }
+
+        .about-text p {
+            margin-bottom: 1.2rem;
+            color: var(--text-light);
+            font-size: 1.05rem;
+        }
+
+        .interests {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            height: fit-content;
+        }
+
+        .interests h3 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.4rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        .interests ul {
+            list-style: none;
+        }
+
+        .interests li {
+            padding: 0.7rem 0;
+            color: var(--text-light);
+            border-bottom: 1px solid var(--border);
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .interests li:last-child {
+            border-bottom: none;
+        }
+
+        .interests li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--highlight);
+            font-weight: bold;
+        }
+
+        /* Education Section */
+        .education-item {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .education-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            border-color: var(--highlight);
+        }
+
+        .education-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .education-header h3 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 0.3rem;
+        }
+
+        .education-header .degree {
+            font-size: 1.1rem;
+            color: var(--text);
+            font-weight: 500;
+        }
+
+        .education-header .date {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            white-space: nowrap;
+        }
+
+        .education-details {
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        .education-details p {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            border-color: var(--highlight);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, var(--accent), var(--highlight));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+            font-family: 'Crimson Pro', serif;
+        }
+
+        .project-content {
+            padding: 1.8rem;
+        }
+
+        .project-content h3 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.4rem;
+            color: var(--primary);
+            margin-bottom: 0.8rem;
+        }
+
+        .project-content p {
+            color: var(--text-light);
+            margin-bottom: 1.2rem;
+            font-size: 0.95rem;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+        }
+
+        .tag {
+            background: rgba(50, 130, 184, 0.1);
+            color: var(--highlight);
+            padding: 0.4rem 0.9rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        /* Contact Section */
+        .contact-content {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-content p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            background: var(--card-bg);
+            border: 2px solid var(--border);
+            border-radius: 10px;
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .contact-link:hover {
+            border-color: var(--highlight);
+            color: var(--highlight);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 5rem;
+        }
+
+        footer p {
+            opacity: 0.8;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .profile-image {
+                margin: 0 auto;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                gap: 1.5rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+        }
+
+        /* Scroll animations */
+        @media (prefers-reduced-motion: no-preference) {
+            .fade-in {
+                opacity: 0;
+                animation: fadeInUp 0.8s ease-out forwards;
+            }
+
+            .fade-in:nth-child(1) { animation-delay: 0.1s; }
+            .fade-in:nth-child(2) { animation-delay: 0.2s; }
+            .fade-in:nth-child(3) { animation-delay: 0.3s; }
+        }
+    </style>
+</head>
+<body>
+    <div class="background-animation"></div>
+
+    <header>
+        <nav>
+            <a href="#" class="logo">YourName</a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1>Hi, I'm Your Name</h1>
+                        <p class="subtitle">Undergraduate Student | Aspiring Researcher</p>
+                        <p>I'm a [Your Year] year [Your Major] student at [Your University], passionate about [Your Research Interest]. I'm applying to graduate programs to pursue research in [Specific Field].</p>
+                        <div class="cta-buttons">
+                            <a href="#projects" class="btn btn-primary">View My Work</a>
+                            <a href="your-cv.pdf" class="btn btn-secondary" target="_blank">Download CV</a>
+                        </div>
+                    </div>
+                    <div class="profile-image">
+                        <!-- Replace this div with: <img src="your-photo.jpg" alt="Your Name"> -->
+                        <div class="profile-placeholder">YN</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="container">
+                <div class="section-header">
+                    <h2>About Me</h2>
+                    <div class="underline"></div>
+                </div>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>
+                            I'm currently pursuing my undergraduate degree in [Your Major] at [Your University], where I've discovered my passion for [Research Area]. My academic journey has been shaped by hands-on research experience and a deep curiosity about [Specific Topic].
+                        </p>
+                        <p>
+                            Through my coursework and research projects, I've developed strong skills in [Skill 1], [Skill 2], and [Skill 3]. I'm particularly interested in [Specific Research Question or Problem], and I hope to contribute to this field through innovative research during my graduate studies.
+                        </p>
+                        <p>
+                            Outside of academics, I enjoy [Hobby 1], [Hobby 2], and [Hobby 3]. I believe that maintaining diverse interests helps me approach research problems with fresh perspectives.
+                        </p>
+                    </div>
+                    <div class="interests">
+                        <h3>Research Interests</h3>
+                        <ul>
+                            <li>Interest Area 1</li>
+                            <li>Interest Area 2</li>
+                            <li>Interest Area 3</li>
+                            <li>Interest Area 4</li>
+                            <li>Interest Area 5</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="education">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Education</h2>
+                    <div class="underline"></div>
+                </div>
+                <div class="education-item fade-in">
+                    <div class="education-header">
+                        <div>
+                            <h3>Your University Name</h3>
+                            <p class="degree">Bachelor of Science in [Your Major]</p>
+                        </div>
+                        <span class="date">Expected May 2026</span>
+                    </div>
+                    <div class="education-details">
+                        <p><strong>GPA:</strong> X.XX/4.0</p>
+                        <p><strong>Relevant Coursework:</strong> Course 1, Course 2, Course 3, Course 4, Course 5</p>
+                        <p><strong>Honors & Awards:</strong> Award 1, Award 2, Award 3</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Projects & Research</h2>
+                    <div class="underline"></div>
+                </div>
+                <div class="projects-grid">
+                    <div class="project-card fade-in">
+                        <div class="project-image">
+                            <!-- Replace with: <img src="project1.jpg" alt="Project 1"> -->
+                            P1
+                        </div>
+                        <div class="project-content">
+                            <h3>Project Title 1</h3>
+                            <p>Brief description of your first major project or research experience. Explain the problem you addressed, your methodology, and key findings or results.</p>
+                            <div class="project-tags">
+                                <span class="tag">Python</span>
+                                <span class="tag">Machine Learning</span>
+                                <span class="tag">Data Analysis</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card fade-in">
+                        <div class="project-image">
+                            P2
+                        </div>
+                        <div class="project-content">
+                            <h3>Project Title 2</h3>
+                            <p>Description of your second project. Highlight the technical challenges you overcame and the impact of your work.</p>
+                            <div class="project-tags">
+                                <span class="tag">JavaScript</span>
+                                <span class="tag">React</span>
+                                <span class="tag">Web Development</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card fade-in">
+                        <div class="project-image">
+                            P3
+                        </div>
+                        <div class="project-content">
+                            <h3>Project Title 3</h3>
+                            <p>Your third significant project or research contribution. Focus on what makes this work unique and meaningful.</p>
+                            <div class="project-tags">
+                                <span class="tag">C++</span>
+                                <span class="tag">Algorithm Design</span>
+                                <span class="tag">Optimization</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Get In Touch</h2>
+                    <div class="underline"></div>
+                </div>
+                <div class="contact-content">
+                    <p>I'm always open to discussing research opportunities, collaborations, or just connecting with fellow students and researchers. Feel free to reach out!</p>
+                    <div class="contact-links">
+                        <a href="mailto:your.email@university.edu" class="contact-link">
+                            📧 Email
+                        </a>
+                        <a href="https://linkedin.com/in/yourprofile" class="contact-link" target="_blank">
+                            💼 LinkedIn
+                        </a>
+                        <a href="https://github.com/yourusername" class="contact-link" target="_blank">
+                            💻 GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Your Name. Built with dedication for graduate school applications.</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach((el) => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
