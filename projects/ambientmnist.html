@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="ambientMNIST — MNIST digit classification on a microcontroller over UART — Kevin Na">
+<title>ambientMNIST — Kevin Na</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nav-inner">
+    <a class="brand" href="../index.html">Kevin Na</a>
+    <button class="menu-btn" aria-label="menu" onclick="document.getElementById('nl').classList.toggle('open')">&#9776;</button>
+    <div class="nav-links" id="nl">
+      <a href="../index.html#about">About</a>
+      <a href="../index.html#news">News</a>
+      <a href="../index.html#research">Research</a>
+      <a href="../index.html#projects">Projects</a>
+      <a href="../blog.html">Blog</a>
+      <a href="../index.html#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<article class="article">
+  <a class="back" href="../index.html#projects">&#8592; Back to projects</a>
+
+  <div class="pdate">Embedded ML &nbsp;·&nbsp; C &nbsp;·&nbsp; UART &nbsp;·&nbsp; MNIST</div>
+  <h1>ambientMNIST</h1>
+
+  <p>
+    MNIST digit classification running entirely on a microcontroller — no Python, no host GPU, no ML framework.
+    A 28×28 grayscale image is quantized to 5-bit pixel values, streamed over UART at 115200 baud, and the
+    MCU returns a score vector over all 10 digit classes in real time.
+  </p>
+
+  <h2>Demo</h2>
+
+  <figure class="article-figure">
+    <video src="ambientMNIST/demo.mp4" autoplay loop muted playsinline></video>
+    <figcaption>Live inference on the microcontroller — digit images sent over serial, per-class scores returned.</figcaption>
+  </figure>
+
+  <h2>How it works</h2>
+
+  <div class="article-media-row">
+    <figure class="article-figure">
+      <img src="ambientMNIST/input2.png" alt="28×28 MNIST digit '0' — the raw image fed to the MCU">
+      <figcaption>Input: 28×28 digit image (here, a '0')</figcaption>
+    </figure>
+    <figure class="article-figure">
+      <img src="ambientMNIST/input1.png" alt="5-bit quantized pixel values printed over UART">
+      <figcaption>Pixel values printed over UART — quantized to 5 bits for MCU efficiency</figcaption>
+    </figure>
+  </div>
+
+  <p>
+    On the host side, a Python script reads a test image from the MNIST dataset, quantizes each pixel
+    from 8-bit (0–255) down to 5-bit (0–31), and transmits the 784 values over USB serial using
+    <code>screen /dev/tty.usbmodem* 115200</code>. The MCU receives the stream, runs the classifier
+    weights baked into flash memory, and prints the 10-class score vector back to the terminal.
+  </p>
+
+  <figure class="article-figure">
+    <img src="ambientMNIST/output1.png" alt="Per-class scores: class 0 → 247, highest score">
+    <figcaption>Output: class 0 scores 247 — the highest — correctly classifying the digit.</figcaption>
+  </figure>
+
+  <h2>Serial terminal</h2>
+
+  <figure class="article-figure">
+    <img src="ambientMNIST/demovideo.gif" alt="Serial terminal session via screen at 115200 baud">
+    <figcaption><code>screen /dev/tty.usbmodem143303 115200</code> — the MCU's UART output viewed in real time.</figcaption>
+  </figure>
+
+  <h2>Why on-device?</h2>
+  <p>
+    Sending images to a cloud API for digit classification is trivial. Doing the full forward pass in
+    C on a microcontroller with no OS, no heap allocations, and integer-only arithmetic is the interesting
+    constraint. The 5-bit quantization cuts memory bandwidth by 37% vs. 8-bit while preserving enough
+    precision to maintain classification accuracy. This project explored how far you can push a simple
+    linear classifier at the edge — and how little you need to get MNIST right.
+  </p>
+
+  <h2>Stack</h2>
+  <p>C · UART / USB Serial · Python (host-side data prep) · 5-bit quantization · Linear classifier · MNIST dataset</p>
+</article>
+
+<footer>
+  <div class="footer-inner">
+    <span>&copy; 2026 Kevin Na</span>
+    <span>&middot;</span>
+    <a href="../index.html#projects">All projects</a>
+  </div>
+</footer>
+
+<script src="../assets/main.js"></script>
+</body>
+</html>
