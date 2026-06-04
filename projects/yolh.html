@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="YOLH: You Only Learn from Humans — Kevin Na">
+<title>YOLH — Kevin Na</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nav-inner">
+    <a class="brand" href="../index.html">Kevin Na</a>
+    <button class="menu-btn" aria-label="menu" onclick="document.getElementById('nl').classList.toggle('open')">&#9776;</button>
+    <div class="nav-links" id="nl">
+      <a href="../index.html#about">About</a>
+      <a href="../index.html#news">News</a>
+      <a href="../index.html#research">Research</a>
+      <a href="../index.html#projects">Projects</a>
+      <a href="../blog.html">Blog</a>
+      <a href="../index.html#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<article class="article">
+  <a class="back" href="../index.html#projects">&#8592; Back to projects</a>
+
+  <div class="pdate">Diffusion Policy &nbsp;·&nbsp; RGB-D &nbsp;·&nbsp; Robot Learning</div>
+  <h1>YOLH: You Only Learn from Humans</h1>
+
+  <p>
+    Teleoperation is the standard way to collect robot demonstrations — but it's slow, requires specialized
+    hardware, and produces unnatural motions. YOLH asks a simpler question: <em>what if we just watch humans
+    do the task?</em> A person performs a manipulation task naturally, we capture it with RGB-D, and a
+    diffusion policy learns from those demonstrations directly.
+  </p>
+
+  <h2>Pipeline</h2>
+  <p>
+    The motion-capture side uses a ROS2 stack with Intel RealSense depth cameras and AprilTag fiducial
+    markers to reconstruct hand and object poses from human demonstrations at ~30 Hz. Those trajectories
+    are cleaned, retargeted to the robot's kinematic constraints, and fed into a RISE-based diffusion policy
+    as training data.
+  </p>
+  <p>
+    RISE (Residual Implicit State Estimation) conditions the denoising process on visual observations,
+    letting the policy generalize across object positions without explicit state estimation. The key insight
+    is that diffusion policies are naturally multi-modal — they can represent the distribution of valid
+    actions rather than collapsing to a single mean.
+  </p>
+
+  <h2>Platform</h2>
+  <p>
+    The target platform is a Unitree Go2W quadruped with a manipulator arm. Early experiments focus on
+    tabletop pick-and-place; longer-term we want to demonstrate whole-body manipulation tasks where the
+    locomotion and manipulation policies run simultaneously.
+  </p>
+
+  <h2>Status</h2>
+  <p>Active development at Atombots Lab (Hydrogen Group). Motion-capture pipeline is complete. Diffusion policy training is ongoing.</p>
+
+  <h2>Stack</h2>
+  <p>ROS2, Intel RealSense D435, AprilTag, PyTorch, RISE diffusion policy, Unitree Go2W.</p>
+</article>
+
+<footer>
+  <div class="footer-inner">
+    <span>&copy; 2026 Kevin Na</span>
+    <span>&middot;</span>
+    <a href="../index.html#projects">All projects</a>
+  </div>
+</footer>
+
+<script src="../assets/main.js"></script>
+</body>
+</html>

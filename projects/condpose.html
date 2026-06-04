@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Uncertainty-Gated CondPose — Kevin Na">
+<title>Uncertainty-Gated CondPose — Kevin Na</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nav-inner">
+    <a class="brand" href="../index.html">Kevin Na</a>
+    <button class="menu-btn" aria-label="menu" onclick="document.getElementById('nl').classList.toggle('open')">&#9776;</button>
+    <div class="nav-links" id="nl">
+      <a href="../index.html#about">About</a>
+      <a href="../index.html#news">News</a>
+      <a href="../index.html#research">Research</a>
+      <a href="../index.html#projects">Projects</a>
+      <a href="../blog.html">Blog</a>
+      <a href="../index.html#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<article class="article">
+  <a class="back" href="../index.html#projects">&#8592; Back to projects</a>
+
+  <div class="pdate">PyTorch &nbsp;·&nbsp; Conformal Prediction &nbsp;·&nbsp; Surgical AI</div>
+  <h1>Uncertainty-Gated CondPose</h1>
+
+  <p>
+    Most surgical AI models give you a best-guess answer and move on. For hand-pose estimation in the operating
+    room that's not good enough — a wrong, confident prediction downstream of an occluded hand can corrupt a
+    whole tracking sequence. This project extends CondPose with <strong>split conformal prediction</strong>
+    to give every joint a statistically-guaranteed uncertainty interval, then uses those intervals to gate
+    temporal conditioning.
+  </p>
+
+  <h2>The core idea</h2>
+  <p>
+    Split conformal prediction works by holding out a calibration set, measuring the model's residual errors on
+    it, and using that empirical distribution to size a prediction region for new inputs. The key property:
+    the region contains the true value at least 1−α of the time, with no distributional assumptions about the
+    model. Swap in any backbone, the guarantee still holds.
+  </p>
+  <p>
+    The novelty here is making this <em>per-joint</em> and <em>temporal</em>. Different fingers have very
+    different occlusion patterns. A wide interval on the index fingertip is a signal — the model is saying it
+    isn't sure — and that signal can be used to downweight that joint's contribution to the temporal state
+    update.
+  </p>
+
+  <h2>Status</h2>
+  <p>
+    Active research at the VIGIL Lab (Prof. Jason Corso, University of Michigan). Target venue: SafeSurg or
+    MICCAI workshop. Currently exploring kinematic embedding priors and surgical VLM-derived language priors
+    as additional conditioning signals.
+  </p>
+
+  <h2>Stack</h2>
+  <p>PyTorch, CondPose backbone, split conformal prediction, LSTM temporal conditioning, CholecT50 surgical video dataset.</p>
+</article>
+
+<footer>
+  <div class="footer-inner">
+    <span>&copy; 2026 Kevin Na</span>
+    <span>&middot;</span>
+    <a href="../index.html#projects">All projects</a>
+  </div>
+</footer>
+
+<script src="../assets/main.js"></script>
+</body>
+</html>

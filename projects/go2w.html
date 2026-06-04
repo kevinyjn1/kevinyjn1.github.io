@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Go2W Motion Capture Pipeline — Kevin Na">
+<title>Go2W Motion Capture — Kevin Na</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nav-inner">
+    <a class="brand" href="../index.html">Kevin Na</a>
+    <button class="menu-btn" aria-label="menu" onclick="document.getElementById('nl').classList.toggle('open')">&#9776;</button>
+    <div class="nav-links" id="nl">
+      <a href="../index.html#about">About</a>
+      <a href="../index.html#news">News</a>
+      <a href="../index.html#research">Research</a>
+      <a href="../index.html#projects">Projects</a>
+      <a href="../blog.html">Blog</a>
+      <a href="../index.html#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<article class="article">
+  <a class="back" href="../index.html#projects">&#8592; Back to projects</a>
+
+  <div class="pdate">ROS2 &nbsp;·&nbsp; RealSense &nbsp;·&nbsp; AprilTag</div>
+  <h1>Go2W Motion Capture Pipeline</h1>
+
+  <p>
+    Reliable pose ground truth is the foundation of any robot learning system. This project builds a
+    low-cost, real-time motion capture pipeline around commodity hardware — Intel RealSense depth cameras
+    and AprilTag fiducial markers — integrated with ROS2 and running on a Unitree Go2W quadruped platform.
+  </p>
+
+  <h2>Why not a commercial MoCap system?</h2>
+  <p>
+    Vicon and OptiTrack are accurate but expensive, require calibrated spaces, and don't travel well.
+    For a university robotics lab doing outdoor and multi-room experiments, a portable, self-contained
+    system is far more practical. The tradeoff is accuracy (a few mm vs. sub-mm), which is acceptable
+    for the locomotion and manipulation tasks we care about.
+  </p>
+
+  <h2>Architecture</h2>
+  <p>
+    One or more RealSense D435 cameras publish RGB-D streams as ROS2 topics. An AprilTag detector node
+    estimates 6-DoF poses of tagged objects relative to each camera frame. A multi-camera fusion node
+    (with hand-calibrated extrinsics) merges estimates and publishes a clean pose stream at ~30 Hz.
+    A separate ground-truth recorder node logs synchronized pose + joint-state data for offline replay.
+  </p>
+
+  <h2>Use cases</h2>
+  <ul>
+    <li>Providing demonstration ground truth for the YOLH diffusion policy.</li>
+    <li>Evaluating locomotion controllers in structured obstacle courses.</li>
+    <li>Multi-robot swarm experiments where relative positioning matters.</li>
+  </ul>
+
+  <h2>Stack</h2>
+  <p>ROS2 Humble, Intel RealSense SDK, apriltag_ros, Python, Unitree Go2W SDK.</p>
+</article>
+
+<footer>
+  <div class="footer-inner">
+    <span>&copy; 2026 Kevin Na</span>
+    <span>&middot;</span>
+    <a href="../index.html#projects">All projects</a>
+  </div>
+</footer>
+
+<script src="../assets/main.js"></script>
+</body>
+</html>

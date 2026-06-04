@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="CGR: Conversational Memory via Graph Retrieval — Kevin Na">
+<title>CGR — Kevin Na</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nav-inner">
+    <a class="brand" href="../index.html">Kevin Na</a>
+    <button class="menu-btn" aria-label="menu" onclick="document.getElementById('nl').classList.toggle('open')">&#9776;</button>
+    <div class="nav-links" id="nl">
+      <a href="../index.html#about">About</a>
+      <a href="../index.html#news">News</a>
+      <a href="../index.html#research">Research</a>
+      <a href="../index.html#projects">Projects</a>
+      <a href="../blog.html">Blog</a>
+      <a href="../index.html#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<article class="article">
+  <a class="back" href="../index.html#projects">&#8592; Back to projects</a>
+
+  <div class="pdate">Graph Retrieval &nbsp;·&nbsp; LLM &nbsp;·&nbsp; LoCoMo</div>
+  <h1>CGR: Conversational Graph Retrieval</h1>
+
+  <p>
+    Long-horizon conversations — sessions spanning days or weeks — break standard RAG systems because
+    flat vector search loses track of <em>why</em> something was said. CGR encodes conversation history
+    as a typed knowledge graph and retrieves relevant memories using intent-aware graph traversal rather
+    than cosine similarity alone.
+  </p>
+
+  <h2>Motivation</h2>
+  <p>
+    The LoCoMo benchmark was designed to stress-test long-term conversational memory. The MAGMA baseline
+    (which uses a memory graph) performs well on recent turns but degrades on references that require
+    chaining multiple past events. The hypothesis: a retrieval step that respects conversational intent
+    — not just semantic similarity — should do better.
+  </p>
+
+  <h2>Approach</h2>
+  <p>
+    Each conversation turn is parsed into entities, events, and relations and inserted into a graph. At
+    query time, an intent classifier routes the query to a subgraph traversal strategy: recency-weighted
+    walk for follow-up questions, entity-centric expansion for questions about a specific person or object,
+    and semantic fallback for novel topics. Retrieved subgraphs are linearized and passed to the LLM as
+    context.
+  </p>
+
+  <h2>Results</h2>
+  <p>
+    Benchmarked against MAGMA on LoCoMo. CGR improves recall on multi-hop questions while remaining
+    competitive on single-hop factual lookups. Full results to be written up.
+  </p>
+
+  <h2>Stack</h2>
+  <p>Python, NetworkX, sentence-transformers, GPT-4o, LoCoMo benchmark.</p>
+</article>
+
+<footer>
+  <div class="footer-inner">
+    <span>&copy; 2026 Kevin Na</span>
+    <span>&middot;</span>
+    <a href="../index.html#projects">All projects</a>
+  </div>
+</footer>
+
+<script src="../assets/main.js"></script>
+</body>
+</html>
