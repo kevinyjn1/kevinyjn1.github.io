@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="First post — what I'm building this summer in the VIGIL Lab.">
+<title>Welcome — Kevin Na</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<!-- note: ../ because this file lives in /posts -->
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="brand" href="../index.html">Kevin Na</a>
+    <button class="menu-btn" onclick="document.getElementById('nl').classList.toggle('open')">☰</button>
+    <div class="nav-links" id="nl">
+      <a href="../index.html#about">About</a>
+      <a href="../index.html#research">Research</a>
+      <a href="../index.html#projects">Projects</a>
+      <a href="../blog.html">Blog</a>
+      <a href="../index.html#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<article class="article">
+  <a class="back" href="../blog.html">← Back to blog</a>
+  <div class="pdate" style="margin-top:30px">May 20, 2026</div>
+  <h1>Welcome — and what I'm building this summer</h1>
+
+  <p>
+    This is the first post on my new site. I wanted a place to write things down that are longer than a
+    tweet but shorter than a paper — half lab notebook, half thinking-out-loud.
+  </p>
+
+  <p>
+    This summer I'm in the VIGIL Lab at Michigan working on surgical video understanding. The core question
+    I keep coming back to is deceptively simple: <em>when should a model be allowed to say "I don't know"?</em>
+    In most ML benchmarks a confident wrong answer and an uncertain wrong answer score the same. In an
+    operating room they very much do not.
+  </p>
+
+  <h2>What's on deck</h2>
+  <p>
+    A few things I expect to write about over the coming weeks:
+  </p>
+  <ul style="color:#2c2e33;font-size:1.12rem;line-height:1.85;margin:0 0 24px 20px">
+    <li>Conformal prediction and why calibrated uncertainty beats raw accuracy in safety-critical settings.</li>
+    <li>What I'm learning about surgical VLMs and procedural priors.</li>
+    <li>The unglamorous reality of getting a MICCAI workshop submission together before July 1.</li>
+  </ul>
+
+  <p>
+    If any of that sounds interesting, the <a href="../blog.html" style="border-bottom:1px solid #171a20">blog index</a>
+    is the place to follow along. Thanks for reading.
+  </p>
+
+  <p style="margin-top:50px"><a class="back" href="../blog.html">← Back to blog</a></p>
+</article>
+
+<footer>© 2026 KEVIN NA · BUILT WITH HTML · HOSTED ON GITHUB PAGES</footer>
+</body>
+</html>

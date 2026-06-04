@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Why calibrated uncertainty matters more than raw accuracy in surgical AI.">
+<title>Why surgical AI needs to know when it's wrong — Kevin Na</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="brand" href="../index.html">Kevin Na</a>
+    <button class="menu-btn" onclick="document.getElementById('nl').classList.toggle('open')">☰</button>
+    <div class="nav-links" id="nl">
+      <a href="../index.html#about">About</a>
+      <a href="../index.html#research">Research</a>
+      <a href="../index.html#projects">Projects</a>
+      <a href="../blog.html">Blog</a>
+      <a href="../index.html#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<article class="article">
+  <a class="back" href="../blog.html">← Back to blog</a>
+  <div class="pdate" style="margin-top:30px">May 28, 2026</div>
+  <h1>Why surgical AI needs to know when it's wrong</h1>
+
+  <p>
+    Most machine learning models are trained to be accurate. Fewer are trained to be <em>honest</em> about
+    how accurate they are on any given input. For a model that recommends a movie, that gap doesn't matter
+    much. For a model tracking a surgeon's hands during an operation, it matters enormously.
+  </p>
+
+  <h2>The problem with a single number</h2>
+  <p>
+    A typical pose estimator outputs a best-guess coordinate for each joint. Maybe it's right to within a
+    millimeter; maybe it's off by a centimeter because the instrument occluded the hand for three frames.
+    The output looks identical either way — just coordinates. The downstream system has no principled way
+    to tell the confident predictions from the shaky ones.
+  </p>
+
+  <blockquote>
+    A confident wrong answer and an uncertain wrong answer score the same on most benchmarks. In an OR they
+    are not remotely the same.
+  </blockquote>
+
+  <h2>What conformal prediction buys you</h2>
+  <p>
+    Conformal prediction is a framework for turning any model's outputs into <em>prediction sets</em> (or
+    intervals) that come with a finite-sample coverage guarantee. Instead of "the joint is here," you get
+    "the joint is within this region, and that region contains the true location 90% of the time."
+  </p>
+  <p>
+    The split-conformal version is simple enough to describe in a sentence: hold out a calibration set,
+    measure how wrong the model tends to be on it, and use that empirical error distribution to size the
+    prediction region for new inputs. No retraining, no distributional assumptions about the model.
+  </p>
+
+  <pre>calibration_scores = |y_true - y_pred|   # on held-out data
+q = quantile(calibration_scores, 0.90)   # the 90% threshold
+interval = y_pred ± q                     # guaranteed coverage</pre>
+
+  <p>
+    The piece I'm working on is making this <em>per-joint</em> and <em>temporal</em> — different fingers have
+    different uncertainty, and that uncertainty changes frame to frame as the hand moves in and out of view.
+    A wide interval becomes a useful signal: it's the model raising its hand to say it isn't sure.
+  </p>
+
+  <h2>Why it's the right primitive for safety</h2>
+  <p>
+    Once uncertainty is calibrated, you can build on it: gate a downstream action when the interval is too
+    wide, flag frames for human review, or weight a temporal model toward the confident observations. The
+    guarantee is what makes it trustworthy rather than just another heuristic.
+  </p>
+
+  <p>
+    That's the thread running through most of what I'm building this summer. More soon.
+  </p>
+
+  <p style="margin-top:50px"><a class="back" href="../blog.html">← Back to blog</a></p>
+</article>
+
+<footer>© 2026 KEVIN NA · BUILT WITH HTML · HOSTED ON GITHUB PAGES</footer>
+</body>
+</html>
