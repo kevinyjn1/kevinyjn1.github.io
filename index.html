@@ -7,7 +7,7 @@
 <title>Kevin Na</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter+Tight:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
@@ -15,125 +15,144 @@
 <!-- NAV -->
 <nav id="nav">
   <div class="nav-inner">
-    <a class="brand" href="index.html">KN</a>
+    <a class="brand" href="index.html">Kevin Na</a>
     <button class="menu-btn" aria-label="menu" onclick="document.getElementById('nl').classList.toggle('open')">&#9776;</button>
     <div class="nav-links" id="nl">
       <a href="#about">About</a>
+      <a href="#news">News</a>
       <a href="#research">Research</a>
       <a href="#projects">Projects</a>
-      <a href="#stack">Stack</a>
       <a href="blog.html">Blog</a>
       <a href="#contact">Contact</a>
     </div>
   </div>
 </nav>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-content">
-    <div class="hero-eyebrow">Computer Science · University of Michigan</div>
-    <div class="name">Kevin&nbsp;Na</div>
-    <div class="sub">Building perception systems that know when they might be wrong — surgical AI, medical vision, robot learning.</div>
-    <div class="meta">ANN ARBOR, MI &nbsp;·&nbsp; VIGIL LAB &nbsp;·&nbsp; ATOMBOTS</div>
-    <div class="hero-cta">
-      <a class="btn btn-solid" href="#research">View Research</a>
-      <a class="btn btn-ghost" href="blog.html">Read the Blog</a>
+<!-- PROFILE -->
+<section class="profile-section" id="about">
+  <div class="profile-inner">
+    <div class="profile-photo">
+      <div class="avatar-placeholder">KN</div>
+    </div>
+    <div class="profile-bio">
+      <h1 class="profile-name">Kevin Na</h1>
+      <div class="profile-title">B.S. Computer Science · University of Michigan</div>
+      <div class="profile-subtitle">VIGIL LAB &nbsp;·&nbsp; ATOMBOTS &nbsp;·&nbsp; ALGOVERSE FELLOW</div>
+      <p class="profile-desc">
+        I research <strong>surgical video understanding</strong> — building perception systems that know when they
+        might be wrong. My focus is uncertainty-aware hand-pose tracking, conformal prediction, and language-grounded
+        surgical AI. Beyond the OR, I care about <strong>diffusion policies</strong> and <strong>robot learning</strong>.
+      </p>
+      <div class="profile-interests">
+        <span class="interest-tag">Surgical AI</span>
+        <span class="interest-tag">Conformal Prediction</span>
+        <span class="interest-tag">Robot Learning</span>
+        <span class="interest-tag">Medical Vision</span>
+        <span class="interest-tag">Embodied AI</span>
+        <span class="interest-tag">Multimodal Perception</span>
+      </div>
+      <div class="profile-links">
+        <a href="mailto:kevinyjna@gmail.com" class="profile-link">Email</a>
+        <a href="https://github.com/kevinyjn1" target="_blank" rel="noopener" class="profile-link">GitHub</a>
+        <a href="#" target="_blank" rel="noopener" class="profile-link">LinkedIn</a>
+        <a href="#" target="_blank" rel="noopener" class="profile-link">Scholar</a>
+        <a href="resume.pdf" target="_blank" class="profile-link btn-cv">CV &rarr;</a>
+      </div>
     </div>
   </div>
-  <div class="scroll-hint">Scroll</div>
 </section>
 
-<div class="wrap">
+<main class="main-content">
 
-  <!-- ABOUT -->
-  <section id="about">
-    <div class="sec-label reveal">01 — About</div>
-    <div class="about-grid">
-      <div>
-        <h2 class="reveal">Perception<br>you can trust.</h2>
-        <p class="lead reveal d1">
-          I research <b>surgical video understanding</b> in the <b>VIGIL Lab</b> under Prof. Jason Corso —
-          building models that perceive the operating room and, just as importantly, know when they might be wrong.
-        </p>
-        <p class="lead reveal d2" style="margin-top:22px">
-          My focus is <b>uncertainty-aware perception</b>: extending surgical hand-pose tracking with conformal
-          prediction and temporal conditioning, and studying how procedural priors from surgical VLMs can make these
-          systems safer. Beyond the OR, I care about <b>multimodal perception</b>, <b>robot learning</b>, and
-          <b>embodied AI</b>.
-        </p>
+  <!-- NEWS -->
+  <section id="news" class="content-section">
+    <h2 class="section-title">News</h2>
+    <div class="news-list">
+      <div class="news-item reveal">
+        <span class="news-date">Jun 2026</span>
+        <span class="news-text">Joined <strong>VIGIL Lab</strong> (Prof. Jason Corso) to research uncertainty-gated surgical hand-pose tracking with conformal prediction.</span>
       </div>
-      <div class="about-stats reveal d2">
-        <div class="stat">
-          <div class="stat-num">3</div>
-          <div class="stat-label">Research Labs</div>
-        </div>
-        <div class="stat">
-          <div class="stat-num">1</div>
-          <div class="stat-label">NeurIPS Workshop Paper</div>
-        </div>
-        <div class="stat">
-          <div class="stat-num">∞</div>
-          <div class="stat-label">Things to Learn</div>
-        </div>
+      <div class="news-item reveal d1">
+        <span class="news-date">2025</span>
+        <span class="news-text">Co-authored a <strong>NeurIPS 2025 workshop paper</strong> on LLM post-training strategies as an Algoverse AI Research Fellow.</span>
+      </div>
+      <div class="news-item reveal d1">
+        <span class="news-date">2025</span>
+        <span class="news-text">Became <strong>Motion Capture Task Team Co-Lead</strong> at Atombots — building YOLH, a diffusion policy learned from human RGB-D demonstrations.</span>
+      </div>
+      <div class="news-item reveal d2">
+        <span class="news-date">Prior</span>
+        <span class="news-text">Undergraduate researcher at <strong>Digital Water Lab</strong> (Dr. Kerkez) and <strong>Dynamic PM Lab</strong> (Dr. Lee), building sensor dashboards and construction-safety analytics.</span>
       </div>
     </div>
   </section>
 
   <!-- RESEARCH -->
-  <section id="research">
-    <div class="sec-label reveal">02 — Research &amp; Experience</div>
-    <h2 class="reveal">Where I've worked.</h2>
-    <div class="timeline">
+  <section id="research" class="content-section">
+    <h2 class="section-title">Research &amp; Experience</h2>
 
-      <div class="tl-item reveal">
-        <div class="tl-when">2026 — Present</div>
-        <h3 class="tl-org">VIGIL Lab · Prof. Jason Corso</h3>
-        <div class="tl-role">Undergraduate Researcher — Surgical Video Understanding</div>
-        <ul>
-          <li>Extending the CondPose surgical hand-pose system with uncertainty-gated temporal conditioning and split conformal prediction per joint.</li>
-          <li>Exploring kinematic embedding priors and language priors via surgical VLMs (target: SafeSurg / MICCAI workshop).</li>
-        </ul>
+    <div class="pub-list">
+
+      <div class="pub-item reveal">
+        <div class="pub-year">2026 –<br>now</div>
+        <div>
+          <div class="pub-title">Uncertainty-Gated Surgical Hand Pose</div>
+          <div class="pub-venue">VIGIL Lab · Prof. Jason Corso · University of Michigan</div>
+          <p class="pub-desc">Extending the CondPose surgical hand-pose system with split conformal prediction per joint and uncertainty-gated temporal conditioning. Exploring kinematic embedding priors and language priors via surgical VLMs, targeting SafeSurg / MICCAI workshop venues.</p>
+          <div class="pub-badges">
+            <span class="pub-badge">Undergraduate Researcher</span>
+            <span class="pub-badge badge-alt">In Progress</span>
+          </div>
+        </div>
       </div>
 
-      <div class="tl-item reveal">
-        <div class="tl-when">2025 — Present</div>
-        <h3 class="tl-org">Atombots Lab · Hydrogen Group</h3>
-        <div class="tl-role">Motion Capture Task Team Co-Lead</div>
-        <ul>
-          <li>Built a motion-capture pipeline with ROS2, Intel RealSense, and AprilTag tracking on a Go2W quadruped.</li>
-          <li>Developing YOLH ("You Only Learn from Humans") — a RISE-based diffusion policy trained from human RGB-D demonstrations.</li>
-        </ul>
+      <div class="pub-item reveal">
+        <div class="pub-year">2025 –<br>now</div>
+        <div>
+          <div class="pub-title">YOLH: You Only Learn from Humans</div>
+          <div class="pub-venue">Atombots Lab · Hydrogen Group</div>
+          <p class="pub-desc">A RISE-based diffusion policy trained from human RGB-D demonstrations on a Go2W quadruped — no teleoperation, just watching people work. Also built the motion-capture pipeline (ROS2 + Intel RealSense + AprilTag tracking).</p>
+          <div class="pub-badges">
+            <span class="pub-badge">MoCap Task Team Co-Lead</span>
+          </div>
+        </div>
       </div>
 
-      <div class="tl-item reveal">
-        <div class="tl-when">2025</div>
-        <h3 class="tl-org">Algoverse AI Fellowship</h3>
-        <div class="tl-role">Research Fellow — LLM Post-Training</div>
-        <ul>
-          <li>Co-authored a NeurIPS 2025 workshop paper on LLM fine-tuning strategies.</li>
-        </ul>
+      <div class="pub-item reveal">
+        <div class="pub-year">2025</div>
+        <div>
+          <div class="pub-title">LLM Post-Training Strategies</div>
+          <div class="pub-venue">NeurIPS 2025 Workshop · Algoverse AI Fellowship</div>
+          <p class="pub-desc">Co-authored a workshop paper investigating fine-tuning strategies — DPO, GRPO, and Step-DPO — for aligning large language models.</p>
+          <div class="pub-badges">
+            <span class="pub-badge">NeurIPS Workshop</span>
+            <span class="pub-badge">Research Fellow</span>
+          </div>
+        </div>
       </div>
 
-      <div class="tl-item reveal">
-        <div class="tl-when">Prior</div>
-        <h3 class="tl-org">Digital Water Lab &amp; Dynamic PM Lab</h3>
-        <div class="tl-role">Undergraduate Researcher</div>
-        <ul>
-          <li>Real-time sensor dashboards (Dr. Branko Kerkez) and construction-site safety analytics (Dr. SangHyun Lee).</li>
-        </ul>
+      <div class="pub-item reveal">
+        <div class="pub-year">Prior</div>
+        <div>
+          <div class="pub-title">Environmental &amp; Construction Analytics</div>
+          <div class="pub-venue">Digital Water Lab &amp; Dynamic PM Lab · University of Michigan</div>
+          <p class="pub-desc">Built real-time sensor dashboards for water-quality monitoring (Dr. Branko Kerkez) and ML-based construction-site safety analytics (Dr. SangHyun Lee).</p>
+          <div class="pub-badges">
+            <span class="pub-badge">Undergraduate Researcher</span>
+          </div>
+        </div>
       </div>
 
     </div>
   </section>
 
   <!-- PROJECTS -->
-  <section id="projects">
-    <div class="sec-label reveal">03 — Projects</div>
-    <h2 class="reveal">Selected work.</h2>
+  <section id="projects" class="content-section">
+    <h2 class="section-title">Selected Projects</h2>
     <div class="projects-grid">
 
       <div class="proj-card reveal">
-        <div class="proj-num">01</div>
+        <div class="proj-accent"></div>
         <h3>Uncertainty-Gated CondPose</h3>
         <p>Surgical hand-pose tracking augmented with split conformal prediction and temporal conditioning for calibrated, joint-level uncertainty estimates.</p>
         <div class="proj-tags">
@@ -144,9 +163,9 @@
       </div>
 
       <div class="proj-card reveal d1">
-        <div class="proj-num">02</div>
+        <div class="proj-accent"></div>
         <h3>YOLH — You Only Learn from Humans</h3>
-        <p>A manipulation policy learned from human RGB-D demonstrations via a RISE-based diffusion policy. No teleoperation — just watching people work.</p>
+        <p>Manipulation policy from human RGB-D demonstrations via a RISE-based diffusion policy. No teleoperation — just watching people work.</p>
         <div class="proj-tags">
           <span class="tag">Diffusion Policy</span>
           <span class="tag">RGB-D</span>
@@ -155,7 +174,7 @@
       </div>
 
       <div class="proj-card reveal">
-        <div class="proj-num">03</div>
+        <div class="proj-accent"></div>
         <h3>CGR — Conversational Memory</h3>
         <p>Intent-aware graph retrieval for long-term conversational memory, benchmarked against the MAGMA baseline on the LoCoMo benchmark.</p>
         <div class="proj-tags">
@@ -166,9 +185,9 @@
       </div>
 
       <div class="proj-card reveal d1">
-        <div class="proj-num">04</div>
+        <div class="proj-accent"></div>
         <h3>Go2W Motion Capture</h3>
-        <p>A ROS2 + RealSense + AprilTag tracking stack feeding a Go2W quadruped platform for locomotion and multi-robot swarm experiments.</p>
+        <p>ROS2 + RealSense + AprilTag tracking stack feeding a Go2W quadruped for locomotion and multi-robot swarm experiments.</p>
         <div class="proj-tags">
           <span class="tag">ROS2</span>
           <span class="tag">RealSense</span>
@@ -179,42 +198,34 @@
     </div>
   </section>
 
-</div>
-
-<!-- STACK (dark section, full-bleed) -->
-<div class="stack-dark" id="stack">
-  <div class="wrap">
-    <div class="sec-label reveal">04 — Stack</div>
-    <h2 class="reveal">Tools &amp; methods.</h2>
-    <div class="skills">
-      <div class="skill reveal">
-        <h4>Languages &amp; Tools</h4>
-        <p>Python, C++, LaTeX, Git, Linux, ROS2, CUDA basics</p>
+  <!-- STACK -->
+  <section id="stack" class="content-section">
+    <h2 class="section-title">Tools &amp; Methods</h2>
+    <div class="skills-grid">
+      <div class="skill-card reveal">
+        <h4>Languages &amp; Infrastructure</h4>
+        <p>Python, C++, LaTeX, Git, Linux, CUDA, ROS2</p>
       </div>
-      <div class="skill reveal d1">
+      <div class="skill-card reveal d1">
         <h4>ML / Deep Learning</h4>
-        <p>PyTorch, transformers &amp; diffusion models, conformal prediction, VLMs (CLIP, Flamingo, LLaVA, Qwen), DPO / GRPO / Step-DPO, RL / RLHF</p>
+        <p>PyTorch, transformers, diffusion models, conformal prediction, VLMs (CLIP, LLaVA, Qwen), DPO / GRPO / RLHF</p>
       </div>
-      <div class="skill reveal">
+      <div class="skill-card reveal">
         <h4>Robotics &amp; Perception</h4>
-        <p>ROS2, Intel RealSense, AprilTag tracking, diffusion policies, RGB-D demonstration learning, motion capture</p>
+        <p>ROS2, Intel RealSense, AprilTag, diffusion policies, RGB-D demonstration learning, motion capture</p>
       </div>
-      <div class="skill reveal d1">
-        <h4>Graphics &amp; Vision</h4>
-        <p>Ray tracing, NeRF, Gaussian splatting, generative models, surgical video understanding</p>
+      <div class="skill-card reveal d1">
+        <h4>3D Vision &amp; Graphics</h4>
+        <p>NeRF, Gaussian splatting, ray tracing, generative models, surgical video understanding</p>
       </div>
     </div>
-  </div>
-</div>
-
-<div class="wrap">
+  </section>
 
   <!-- CONTACT -->
-  <section id="contact">
-    <div class="sec-label reveal">05 — Contact</div>
-    <h2 class="reveal">Let's connect.</h2>
-    <p class="lead reveal d1">Always glad to hear from researchers, collaborators, and curious people — especially around surgical AI, multimodal perception, and robot learning.</p>
-    <div class="contact-links reveal d2">
+  <section id="contact" class="content-section">
+    <h2 class="section-title">Contact</h2>
+    <p class="contact-desc">Always glad to hear from researchers, collaborators, and curious people — especially around surgical AI, multimodal perception, and robot learning.</p>
+    <div class="contact-links">
       <a href="mailto:kevinyjna@gmail.com">kevinyjna@gmail.com</a>
       <a href="https://github.com/kevinyjn1" target="_blank" rel="noopener">GitHub</a>
       <a href="#" target="_blank" rel="noopener">LinkedIn</a>
@@ -223,9 +234,17 @@
     </div>
   </section>
 
-</div>
+</main>
 
-<footer>&copy; 2026 KEVIN NA &nbsp;·&nbsp; HOSTED ON GITHUB PAGES</footer>
+<footer>
+  <div class="footer-inner">
+    <span>&copy; 2026 Kevin Na</span>
+    <span>&middot;</span>
+    <span>CS @ University of Michigan</span>
+    <span>&middot;</span>
+    <a href="https://github.com/kevinyjn1/kevinyjn1.github.io" target="_blank" rel="noopener">Source</a>
+  </div>
+</footer>
 
 <script src="assets/main.js"></script>
 </body>
