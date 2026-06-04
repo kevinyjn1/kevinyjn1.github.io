@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="HydroSense — water-level tracker using SVM and embedded audio — Kevin Na">
+<title>HydroSense — Kevin Na</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nav-inner">
+    <a class="brand" href="../index.html">Kevin Na</a>
+    <button class="menu-btn" aria-label="menu" onclick="document.getElementById('nl').classList.toggle('open')">&#9776;</button>
+    <div class="nav-links" id="nl">
+      <a href="../index.html#about">About</a>
+      <a href="../index.html#news">News</a>
+      <a href="../index.html#research">Research</a>
+      <a href="../index.html#projects">Projects</a>
+      <a href="../blog.html">Blog</a>
+      <a href="../index.html#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<article class="article">
+  <a class="back" href="../index.html#projects">&#8592; Back to projects</a>
+
+  <div class="pdate">EECS 373 &nbsp;·&nbsp; STM32 &nbsp;·&nbsp; SVM &nbsp;·&nbsp; Embedded Systems</div>
+  <h1>HydroSense</h1>
+
+  <figure class="article-figure">
+    <img src="hydrosense/grouppicture.jpg" alt="HydroSense team presenting at the EECS 373 poster session">
+    <figcaption>Poster session — Saideep Kasipathy, Yunjong (Kevin) Na, Min Park</figcaption>
+  </figure>
+
+  <p>
+    HydroSense is a low-cost, bottle-agnostic water-level tracker built on an STM32 microcontroller.
+    The core insight: pouring water produces an audio signature that changes predictably with the amount
+    of water in the bottle. We classify these signatures with an SVM — no camera, no ultrasonic sensor,
+    just a bone-conduction microphone attached to the bottle.
+  </p>
+  <p>
+    The system targets anyone who needs to track their water intake without expensive or specialized
+    hardware. It runs on-board (STM32 + Nucleo-L4R5ZI-P) and maps the SVM output directly to a
+    NeoPixel LED strip for real-time feedback.
+  </p>
+
+  <h2>System poster</h2>
+
+  <figure class="article-figure">
+    <img src="hydrosense/hydrosense-poster.jpg" alt="HydroSense EECS 373 system poster">
+    <figcaption>Full system poster — EECS 373 Introduction to Embedded System Design</figcaption>
+  </figure>
+
+  <h2>Demo — 300 mL bottle</h2>
+  <figure class="article-figure">
+    <video src="hydrosense/300mL.mp4" autoplay loop muted playsinline></video>
+    <figcaption>Live classification on a 300 mL bottle — NeoPixel strip updates with each detected level.</figcaption>
+  </figure>
+
+  <h2>Demo — 700 mL bottle</h2>
+  <figure class="article-figure">
+    <video src="hydrosense/700mL.mp4" autoplay loop muted playsinline></video>
+    <figcaption>Same pipeline generalising to a 700 mL bottle — no re-training required.</figcaption>
+  </figure>
+
+  <h2>How it works</h2>
+  <p>
+    A Sonion VPU14DB01A bone-conduction microphone captures audio via PDM at 44.1 kHz. The STM32
+    converts PDM to PCM, then streams 3-second WAV frames over UART to a Python host. The host extracts
+    13 MFCCs × 4 statistics = 52 features per frame and runs them through a linear SVM classifier.
+    The predicted class is sent back over UART and the STM32 maps it to a colour on the NeoPixel strip.
+  </p>
+  <p>
+    The main engineering challenges were (1) configuring STM32's timer DMA as memory-to-peripheral —
+    the half-word constraint required working around conflicting peripheral documentation — and (2)
+    tuning DFSDM's PDM-to-PCM conversion to hit the optimal oversampling ratio for accurate resolution.
+  </p>
+
+  <h2>Stack</h2>
+  <p>STM32 (Nucleo-L4R5ZI-P) · LSM6DSO32 IMU · Sonion VPU14DB01A VPU microphone · NeoPixel LED strip · UART · PDM/PCM · MFCC feature extraction · Linear SVM · Python (librosa) · Figma (UI mockup)</p>
+</article>
+
+<footer>
+  <div class="footer-inner">
+    <span>&copy; 2026 Kevin Na</span>
+    <span>&middot;</span>
+    <a href="../index.html#projects">All projects</a>
+  </div>
+</footer>
+
+<script src="../assets/main.js"></script>
+</body>
+</html>

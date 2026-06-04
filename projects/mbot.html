@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="MBot Autonomous Navigation — Kevin Na">
+<title>MBot — Kevin Na</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nav-inner">
+    <a class="brand" href="../index.html">Kevin Na</a>
+    <button class="menu-btn" aria-label="menu" onclick="document.getElementById('nl').classList.toggle('open')">&#9776;</button>
+    <div class="nav-links" id="nl">
+      <a href="../index.html#about">About</a>
+      <a href="../index.html#news">News</a>
+      <a href="../index.html#research">Research</a>
+      <a href="../index.html#projects">Projects</a>
+      <a href="../blog.html">Blog</a>
+      <a href="../index.html#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<article class="article">
+  <a class="back" href="../index.html#projects">&#8592; Back to projects</a>
+
+  <div class="pdate">EECS 467 &nbsp;·&nbsp; C++ &nbsp;·&nbsp; ROS2 &nbsp;·&nbsp; SLAM &nbsp;·&nbsp; Motion Control</div>
+  <h1>MBot Autonomous Navigation</h1>
+
+  <p>
+    Built a full autonomous navigation stack for the MBot differential-drive robot — from low-level motion
+    control and odometry to particle-filter SLAM and obstacle-aware path planning — in C++ with ROS2,
+    as part of EECS 467 (Autonomous Robotics with Design Experience) at the University of Michigan.
+  </p>
+
+  <h2>RTR Motion Controller &amp; Odometry</h2>
+  <p>
+    Implemented a rotate-translate-rotate (RTR) motion controller that sequences precise turns and straight
+    segments to follow waypoint paths. Odometry is computed from wheel encoder ticks and validated against
+    ground-truth waypoints; the plots below show actual vs. ideal trajectories at two speeds.
+  </p>
+
+  <div class="article-media-row">
+    <figure class="article-figure">
+      <img src="mbot/odom_slow.png" alt="Odometry at slow speed (0.2 m/s) — final position error 0.039 m">
+      <figcaption>Slow speed (0.2 m/s, π/4 rad/s) — position error 0.039 m</figcaption>
+    </figure>
+    <figure class="article-figure">
+      <img src="mbot/odom_fast.png" alt="Odometry at fast speed — actual vs ideal path">
+      <figcaption>Fast speed — actual vs. ideal path overlay</figcaption>
+    </figure>
+  </div>
+
+  <h2>Speed test runs</h2>
+  <p>Videos of the robot executing the waypoint path at slow and fast speeds. The RTR controller maintains
+  tight tracking even at the higher velocity.</p>
+
+  <div class="article-media-row">
+    <figure class="article-figure">
+      <video src="mbot/slow_speed.mp4" controls preload="metadata"></video>
+      <figcaption>Slow speed run</figcaption>
+    </figure>
+    <figure class="article-figure">
+      <video src="mbot/fast_speed.mp4" controls preload="metadata"></video>
+      <figcaption>Fast speed run</figcaption>
+    </figure>
+  </div>
+
+  <h2>SLAM — Mapping &amp; Localization</h2>
+  <p>
+    Implemented simultaneous localization and mapping from scratch in C++: a 2D occupancy grid built from
+    LIDAR scans, an action model based on odometry noise, a beam-model sensor model, and a particle filter
+    for real-time localization. The system handles loop closure and recovers from momentary sensor drop-outs.
+  </p>
+
+  <h2>Stack</h2>
+  <p>C++ · ROS2 · MBot (differential drive) · LIDAR · Wheel encoders · Particle filter · Occupancy grid SLAM · Gazebo simulation</p>
+</article>
+
+<footer>
+  <div class="footer-inner">
+    <span>&copy; 2026 Kevin Na</span>
+    <span>&middot;</span>
+    <a href="../index.html#projects">All projects</a>
+  </div>
+</footer>
+
+<script src="../assets/main.js"></script>
+</body>
+</html>

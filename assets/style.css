@@ -332,6 +332,46 @@ nav.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.08); }
 }
 
 /* ============================================================
+   PROJECT CARD THUMBNAILS
+   ============================================================ */
+.proj-thumb {
+  width: 100%; height: 160px; object-fit: cover;
+  border-radius: 6px; margin-bottom: 14px;
+  border: 1px solid var(--border); display: block;
+  transition: opacity .25s var(--ease), transform .32s var(--ease);
+}
+.proj-card:hover .proj-thumb { opacity: 0.92; }
+
+/* ============================================================
+   ARTICLE MEDIA — project & blog post pages
+   ============================================================ */
+.article-hero {
+  margin: 0 0 36px; border-radius: 10px; overflow: hidden;
+  border: 1px solid var(--border);
+}
+.article-hero img {
+  width: 100%; display: block; background: var(--bg-soft);
+}
+.article-hero video {
+  width: 100%; display: block; background: #000;
+}
+.article-figure {
+  margin: 28px 0;
+}
+.article-figure img, .article-figure video {
+  width: 100%; border-radius: 8px; border: 1px solid var(--border); display: block;
+  background: var(--bg-soft);
+}
+.article-figure figcaption {
+  font-family: var(--mono); font-size: .68rem; color: var(--ink-faint);
+  margin-top: 8px; text-align: center; letter-spacing: .04em; line-height: 1.5;
+}
+.article-media-row {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 28px 0;
+}
+.article-media-row .article-figure { margin: 0; }
+
+/* ============================================================
    FOOTER
    ============================================================ */
 footer {
@@ -490,6 +530,7 @@ footer {
   .pub-year { padding-top: 0; font-size: .75rem; }
   .news-item { grid-template-columns: 76px 1fr; gap: 14px; }
   .content-section { padding: 44px 0; }
+  .article-media-row { grid-template-columns: 1fr; }
   .nav-links { display: none; }
   .nav-links.open {
     display: flex; position: absolute; top: 64px; left: 0; right: 0;
