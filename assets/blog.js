@@ -6,18 +6,7 @@
    ================================================================= */
 
 const POSTS = [
-  {
-    title: "Why surgical AI needs to know when it's wrong",
-    date:  "2026-05-28",
-    file:  "posts/conformal-prediction.html",
-    blurb: "A short intro to conformal prediction and why calibrated uncertainty matters more than raw accuracy in the operating room."
-  },
-  {
-    title: "Welcome — and what I'm building this summer",
-    date:  "2026-05-20",
-    file:  "posts/welcome.html",
-    blurb: "First post. What I'm working on in the VIGIL Lab, why I started this blog, and what to expect here."
-  },
+  // Add posts here
 ];
 
 function fmtDate(iso) {
