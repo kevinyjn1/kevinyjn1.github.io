@@ -30,20 +30,70 @@
 <article class="article">
   <a class="back" href="../index.html#projects">&#8592; Back to projects</a>
 
-  <div class="pdate">EECS 467 &nbsp;·&nbsp; C++ &nbsp;·&nbsp; ROS2 &nbsp;·&nbsp; SLAM &nbsp;·&nbsp; Motion Control</div>
+  <div class="pdate">EECS 467 &nbsp;·&nbsp; C++ &nbsp;·&nbsp; ROS2 &nbsp;·&nbsp; SLAM &nbsp;·&nbsp; A* &nbsp;·&nbsp; Motion Control</div>
   <h1>MBot Autonomous Navigation</h1>
 
   <p>
-    Built a full autonomous navigation stack for the MBot differential-drive robot — from low-level motion
-    control and odometry to particle-filter SLAM and obstacle-aware path planning — in C++ with ROS2,
-    as part of EECS 467 (Autonomous Robotics with Design Experience) at the University of Michigan.
+    Built a full autonomous navigation stack for the MBot differential-drive robot across three checkpoints —
+    from low-level motion control and odometry through particle-filter SLAM, finishing with full A* path
+    planning and obstacle-aware autonomous navigation. Implemented entirely in C++ with ROS2 as part of
+    EECS 467 (Autonomous Robotics with Design Experience) at the University of Michigan.
   </p>
 
-  <h2>RTR Motion Controller &amp; Odometry</h2>
+  <!-- ─── CHECKPOINT 3 ─────────────────────────────────── -->
+  <h2>Checkpoint 3 — A* Path Planning &amp; Autonomous Navigation</h2>
+  <p>
+    The capstone checkpoint: given a pre-built occupancy grid map, the robot plans collision-free paths
+    to goal poses using A* search over the grid, then executes them autonomously using the SLAM localizer
+    from Checkpoint 2. The nav demo below shows the full pipeline running end-to-end.
+  </p>
+
+  <figure class="article-figure">
+    <video src="mbot/cp3_nav_demo.mp4" controls preload="metadata"></video>
+    <figcaption>Autonomous navigation demo — robot plans and executes a path to a goal pose in a mapped environment.</figcaption>
+  </figure>
+
+  <div class="article-media-row">
+    <figure class="article-figure">
+      <img src="mbot/cp3_map1.png" alt="Occupancy grid map with planned path overlay (green line)">
+      <figcaption>Occupancy grid map with planned A* path (green)</figcaption>
+    </figure>
+    <figure class="article-figure">
+      <img src="mbot/cp3_map2.png" alt="Particle filter pose estimates (pink arrows) on the occupancy grid">
+      <figcaption>Particle filter pose estimates (pink) on the SLAM map</figcaption>
+    </figure>
+  </div>
+
+  <figure class="article-figure">
+    <video src="mbot/cp3_31_video.mp4" controls preload="metadata"></video>
+    <figcaption>Section 3.1 — path planning run recorded live.</figcaption>
+  </figure>
+
+  <div class="article-media-row">
+    <figure class="article-figure">
+      <video src="mbot/cp3_31_explanation.mp4" controls preload="metadata"></video>
+      <figcaption>3.1 walkthrough — A* implementation explained</figcaption>
+    </figure>
+    <figure class="article-figure">
+      <video src="mbot/cp3_33_explanation.mp4" controls preload="metadata"></video>
+      <figcaption>3.3 walkthrough — navigation stack integration</figcaption>
+    </figure>
+  </div>
+
+  <h3 style="font-family:var(--display);font-size:1.1rem;font-weight:600;margin:32px 0 12px;color:var(--ink)">Checkpoint 3 Report</h3>
+  <div class="article-pdf-wrap">
+    <iframe src="mbot/cp3_report.pdf" title="EECS 467 Checkpoint 3 Report"></iframe>
+    <p class="article-pdf-fallback">
+      Can't see the embed? <a href="mbot/cp3_report.pdf" target="_blank">Open PDF &rarr;</a>
+    </p>
+  </div>
+
+  <!-- ─── CHECKPOINT 1 ─────────────────────────────────── -->
+  <h2>Checkpoint 1 — RTR Motion Controller &amp; Odometry</h2>
   <p>
     Implemented a rotate-translate-rotate (RTR) motion controller that sequences precise turns and straight
-    segments to follow waypoint paths. Odometry is computed from wheel encoder ticks and validated against
-    ground-truth waypoints; the plots below show actual vs. ideal trajectories at two speeds.
+    segments to follow waypoint paths. Odometry is dead-reckoned from wheel encoder ticks and validated
+    against ground-truth waypoints; the plots show actual vs. ideal trajectories at two speeds.
   </p>
 
   <div class="article-media-row">
@@ -57,10 +107,6 @@
     </figure>
   </div>
 
-  <h2>Speed test runs</h2>
-  <p>Videos of the robot executing the waypoint path at slow and fast speeds. The RTR controller maintains
-  tight tracking even at the higher velocity.</p>
-
   <div class="article-media-row">
     <figure class="article-figure">
       <video src="mbot/slow_speed.mp4" controls preload="metadata"></video>
@@ -72,15 +118,36 @@
     </figure>
   </div>
 
-  <h2>SLAM — Mapping &amp; Localization</h2>
+  <h3 style="font-family:var(--display);font-size:1.1rem;font-weight:600;margin:32px 0 12px;color:var(--ink)">Checkpoint 1 Report</h3>
+  <div class="article-pdf-wrap">
+    <iframe src="mbot/cp1_report.pdf" title="EECS 467 Checkpoint 1 Report"></iframe>
+    <p class="article-pdf-fallback">
+      Can't see the embed? <a href="mbot/cp1_report.pdf" target="_blank">Open PDF &rarr;</a>
+    </p>
+  </div>
+
+  <!-- ─── CHECKPOINT 2 ─────────────────────────────────── -->
+  <h2>Checkpoint 2 — SLAM: Mapping &amp; Localization</h2>
   <p>
-    Implemented simultaneous localization and mapping from scratch in C++: a 2D occupancy grid built from
-    LIDAR scans, an action model based on odometry noise, a beam-model sensor model, and a particle filter
-    for real-time localization. The system handles loop closure and recovers from momentary sensor drop-outs.
+    Implemented simultaneous localization and mapping from scratch in C++: a 2D occupancy grid built
+    incrementally from LIDAR scans, an odometry-based action model with calibrated noise, a beam-model
+    sensor model, and a particle filter for real-time localization. The localizer handles loop closure
+    and recovers from momentary sensor drop-outs. Code covers the full SLAM pipeline including
+    <code>mapping.cpp</code>, <code>particle_filter.cpp</code>, <code>sensor_model.cpp</code>,
+    <code>action_model.cpp</code>, and <code>obstacle_distance_grid.cpp</code>.
   </p>
 
+  <h3 style="font-family:var(--display);font-size:1.1rem;font-weight:600;margin:32px 0 12px;color:var(--ink)">Checkpoint 2 Report</h3>
+  <div class="article-pdf-wrap">
+    <iframe src="mbot/cp2_report.pdf" title="EECS 467 Checkpoint 2 Report"></iframe>
+    <p class="article-pdf-fallback">
+      Can't see the embed? <a href="mbot/cp2_report.pdf" target="_blank">Open PDF &rarr;</a>
+    </p>
+  </div>
+
+  <!-- ─── STACK ─────────────────────────────────────────── -->
   <h2>Stack</h2>
-  <p>C++ · ROS2 · MBot (differential drive) · LIDAR · Wheel encoders · Particle filter · Occupancy grid SLAM · Gazebo simulation</p>
+  <p>C++ · ROS2 · MBot (differential drive) · LIDAR · Wheel encoders · Particle filter · Occupancy grid SLAM · A* path planning · Gazebo simulation</p>
 </article>
 
 <footer>
