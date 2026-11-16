@@ -210,13 +210,22 @@ window.__revealObserver = revealObserver;   // blog.js uses this
 
   const pts = sphere.map(p => p.slice());
   let from = 0, to = 0, morphT = 1, lastSwitch = performance.now();
-  let rotY = 0, tx = 0, ty = 0, mx = 0, my = 0;
+  let rotY = 0, tx = 0, ty = 0, mx = 0, my = 0, px = -9999, py = -9999;
   const rotX0 = -0.35;
+  const offX = new Float32Array(N), offY = new Float32Array(N);   // scatter offsets
+  let burst = 0;                                                   // click shockwave
 
   addEventListener('pointermove', e => {
     mx = e.clientX / innerWidth - .5;
     my = e.clientY / innerHeight - .5;
+    const r = canvas.getBoundingClientRect();
+    px = e.clientX - r.left; py = e.clientY - r.top;
   }, { passive: true });
+  document.addEventListener('pointerleave', () => { px = py = -9999; });
+  canvas.closest('.hero')?.addEventListener('pointerdown', e => {
+    if (e.target.closest('a, button')) return;
+    burst = 1;
+  });
 
   const css = name => getComputedStyle(document.documentElement).getPropertyValue(name).trim();
   let colA = css('--accent') || '#ffcb05', colB = css('--ink') || '#eceef4';
@@ -256,9 +265,145 @@ window.__revealObserver = revealObserver;   // blog.js uses this
       ctx.globalAlpha = 0.10 + depth * 0.75;
       ctx.fillStyle = hot ? colA : colB;
       const s = (hot ? 2.3 : 1.4) * persp;
-      ctx.fillRect(cx + x * scale * persp, cy + y * scale * persp, s, s);
+      let sx = cx + x * scale * persp, sy = cy + y * scale * persp;
+      // dots scatter away from the mouse, then drift back
+      const dx = sx - px, dy = sy - py, d2 = dx * dx + dy * dy, R = 120;
+      let gx = 0, gy = 0;
+      if (d2 < R * R) { const d = Math.sqrt(d2) || 1, f = (1 - d / R) * 46; gx = dx / d * f; gy = dy / d * f; }
+      if (burst > 0) { const d = Math.hypot(sx - cx, sy - cy) || 1; gx += (sx - cx) / d * burst * 140; gy += (sy - cy) / d * burst * 140; }
+      offX[i] += (gx - offX[i]) * 0.12; offY[i] += (gy - offY[i]) * 0.12;
+      ctx.fillRect(sx + offX[i], sy + offY[i], s, s);
     }
     ctx.globalAlpha = 1;
+    if (burst > 0) burst = Math.max(0, burst - 0.04);
   };
   requestAnimationFrame(draw);
+})();
+
+/* =================================================================
+   EXTRA MOTION
+   Patterns borrowed from well-loved portfolios: a custom cursor,
+   a mouse spotlight, letter-by-letter titles, scramble text,
+   magnetic buttons and scroll-linked effects.
+   ================================================================= */
+const finePointer = matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+/* ---------- hero name: split into letters that rise in ---------- */
+(function splitTitle() {
+  const h = document.querySelector('.split');
+  if (!h) return;
+  let i = 0;
+  h.querySelectorAll('.line').forEach(line => {
+    const text = line.textContent; line.textContent = '';
+    [...text].forEach(c => {
+      const s = document.createElement('span');
+      s.className = 'ch'; s.textContent = c; s.style.setProperty('--i', i++);
+      line.appendChild(s);
+    });
+  });
+  requestAnimationFrame(() => h.classList.add('go'));
+})();
+
+/* ---------- custom cursor + page spotlight ---------- */
+(function cursor() {
+  const spot = document.querySelector('.spotlight');
+  if (!finePointer || reduceMotion) return;
+  const dot = document.createElement('div'), ring = document.createElement('div');
+  dot.className = 'cursor-dot'; ring.className = 'cursor-ring';
+  ring.innerHTML = '<span>VIEW</span>';
+  document.body.append(dot, ring);
+  document.documentElement.classList.add('has-cursor');
+  let x = -100, y = -100, rx = -100, ry = -100;
+  addEventListener('pointermove', e => {
+    x = e.clientX; y = e.clientY;
+    dot.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+    if (spot) { spot.style.setProperty('--sx', x + 'px'); spot.style.setProperty('--sy', y + 'px'); }
+    const card = e.target.closest('.card');
+    ring.classList.toggle('view', !!(card && card.querySelector('a.cover')));
+    ring.classList.toggle('link', !card && !!e.target.closest('a, button'));
+  }, { passive: true });
+  addEventListener('pointerdown', () => ring.classList.add('down'));
+  addEventListener('pointerup', () => ring.classList.remove('down'));
+  document.addEventListener('pointerleave', () => { x = y = -100; dot.style.transform = 'translate3d(-100px,-100px,0)'; });
+  (function loop() {
+    rx += (x - rx) * 0.18; ry += (y - ry) * 0.18;
+    ring.style.transform = `translate3d(${rx}px, ${ry}px, 0)`;
+    requestAnimationFrame(loop);
+  })();
+})();
+
+/* ---------- magnetic buttons: they lean toward the cursor ---------- */
+(function magnetic() {
+  if (!finePointer || reduceMotion) return;
+  document.querySelectorAll('.btn, .nav-cta, .theme-btn, .filter').forEach(b => {
+    b.addEventListener('pointermove', e => {
+      const r = b.getBoundingClientRect();
+      const dx = e.clientX - (r.left + r.width / 2), dy = e.clientY - (r.top + r.height / 2);
+      b.style.transform = `translate(${dx * 0.25}px, ${dy * 0.35}px)`;
+    });
+    b.addEventListener('pointerleave', () => { b.style.transform = ''; });
+  });
+})();
+
+/* ---------- section titles decode like a terminal ---------- */
+(function scramble() {
+  const glyphs = '!<>-_\\/[]{}=+*^?#01';
+  const titles = document.querySelectorAll('.section-title');
+  if (reduceMotion || !titles.length) return;
+  const run = el => {
+    const final = el.textContent;
+    el.dataset.scrambling = '';
+    let frame = 0;
+    const total = 26;
+    const tick = () => {
+      let out = '';
+      for (let i = 0; i < final.length; i++) {
+        const settleAt = (i / final.length) * total * 0.7 + 6;
+        if (frame >= settleAt || final[i] === ' ') out += final[i];
+        else out += `<span class="scr">${glyphs[(Math.random() * glyphs.length) | 0].replace('<', '&lt;').replace('>', '&gt;')}</span>`;
+      }
+      el.innerHTML = out;
+      if (++frame <= total) requestAnimationFrame(tick);
+      else { el.textContent = final; delete el.dataset.scrambling; }
+    };
+    tick();
+  };
+  const io = new IntersectionObserver(entries => entries.forEach(e => {
+    if (e.isIntersecting) { run(e.target); io.unobserve(e.target); }
+  }), { threshold: 0.6 });
+  titles.forEach(t => io.observe(t));
+})();
+
+/* ---------- scroll-linked: hero drifts away, timeline fills, marquee leans ---------- */
+(function scrollFx() {
+  if (reduceMotion) return;
+  const heroWrap = document.querySelector('.hero .wrap');
+  const canvas = document.getElementById('field');
+  const tl = document.querySelector('.timeline');
+  const track = document.querySelector('.marquee-track');
+  let lastY = scrollY, skew = 0, ticking = false;
+  const update = () => {
+    ticking = false;
+    const y = scrollY, vh = innerHeight;
+    if (heroWrap && y < vh * 1.2) {
+      const p = Math.min(1, y / vh);
+      heroWrap.style.transform = `translateY(${y * 0.25}px)`;
+      heroWrap.style.opacity = String(1 - p * 1.1);
+      if (canvas) canvas.style.transform = `translateY(${y * 0.45}px) scale(${1 + p * 0.15})`;
+    }
+    if (tl) {
+      const r = tl.getBoundingClientRect();
+      const p = Math.min(1, Math.max(0, (vh * 0.6 - r.top) / r.height));
+      tl.style.setProperty('--tl', p.toFixed(3));
+    }
+    if (track) {
+      skew += ((y - lastY) * 0.15 - skew) * 0.3;
+      skew = Math.max(-8, Math.min(8, skew));
+      track.style.setProperty('--skew', skew.toFixed(2) + 'deg');
+      clearTimeout(update.t); update.t = setTimeout(() => track.style.setProperty('--skew', '0deg'), 120);
+    }
+    lastY = y;
+  };
+  addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
+  update();
 })();

@@ -327,7 +327,8 @@ section.block { padding: 120px 0 30px; }
 .filter:hover { color: var(--ink); border-color: var(--border-2); }
 .filter.on { background: var(--ink); color: var(--bg); border-color: var(--ink); }
 .filter .n { opacity: .55; margin-left: 4px; }
-.proj-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.proj-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; grid-auto-flow: dense; }
+.card.wide { grid-column: span 2; }
 .card {
   position: relative; display: flex; flex-direction: column;
   border-radius: var(--radius); overflow: hidden;
@@ -421,9 +422,9 @@ footer { padding: 60px 0 40px; }
 }
 .toast.show { opacity: 1; transform: translate(-50%, 0); }
 
-/* reveal on scroll */
-.reveal { opacity: 0; transform: translateY(26px); transition: opacity .8s var(--ease), transform .8s var(--ease); }
-.reveal.show { opacity: 1; transform: none; }
+/* reveal on scroll (only hidden when JavaScript runs, so the page never stays blank) */
+.js .reveal { opacity: 0; transform: translateY(26px); transition: opacity .8s var(--ease), transform .8s var(--ease); }
+.js .reveal.show { opacity: 1; transform: none; }
 .d1 { transition-delay: .08s; } .d2 { transition-delay: .16s; } .d3 { transition-delay: .24s; }
 
 /* hero entrance */
@@ -502,6 +503,7 @@ footer { padding: 60px 0 40px; }
    RESPONSIVE
    ============================================================ */
 @media (max-width: 980px) {
+  .card.wide { grid-column: auto; }
   .proj-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .skills { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .about-grid { grid-template-columns: 260px 1fr; gap: 36px; }
@@ -538,6 +540,71 @@ footer { padding: 60px 0 40px; }
   .article-pdf-wrap iframe { height: 480px; }
   .blog-hero { padding: 120px 16px 20px; }
   .blog-main { padding: 0 16px 70px; }
+}
+
+/* ============================================================
+   EXTRA MOTION (all of it is switched on by main.js)
+   ============================================================ */
+
+/* custom cursor: a dot plus a trailing ring that grows over links */
+.has-cursor, .has-cursor * { cursor: none !important; }
+.cursor-dot, .cursor-ring {
+  position: fixed; left: 0; top: 0; z-index: 1000; pointer-events: none; border-radius: 50%;
+  transform: translate3d(-100px, -100px, 0);
+}
+.cursor-dot { width: 6px; height: 6px; margin: -3px 0 0 -3px; background: var(--accent); }
+.cursor-ring {
+  width: 38px; height: 38px; margin: -19px 0 0 -19px; border: 1px solid var(--ink-faint);
+  display: grid; place-items: center;
+  transition: width .3s var(--ease), height .3s var(--ease), margin .3s var(--ease), background .3s, border-color .3s;
+}
+.cursor-ring span {
+  font-family: var(--mono); font-size: .66rem; font-weight: 600; letter-spacing: .08em; color: var(--on-accent);
+  opacity: 0; transition: opacity .2s;
+}
+.cursor-ring.link { width: 56px; height: 56px; margin: -28px 0 0 -28px; border-color: var(--accent); background: var(--accent-soft); }
+.cursor-ring.view { width: 78px; height: 78px; margin: -39px 0 0 -39px; background: var(--accent); border-color: var(--accent); }
+.cursor-ring.view span { opacity: 1; }
+.cursor-ring.down { width: 30px; height: 30px; margin: -15px 0 0 -15px; }
+
+/* a soft light that follows the mouse across the whole page */
+.spotlight {
+  position: fixed; inset: 0; z-index: -1; pointer-events: none;
+  background: radial-gradient(520px circle at var(--sx, 50%) var(--sy, -20%), var(--accent-soft), transparent 60%);
+  transition: opacity .4s;
+}
+
+/* hero name: letters rise one by one */
+.split .ch { display: inline-block; transform: translateY(105%) rotate(6deg); opacity: 0; }
+.split .line { display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: .04em; }
+.split.go .ch { animation: letter-in .9s var(--ease) forwards; animation-delay: calc(var(--i) * 45ms + 150ms); }
+@keyframes letter-in { to { transform: none; opacity: 1; } }
+.hero h1 .ch:hover { color: var(--accent); -webkit-text-stroke-color: var(--accent); transition: color .15s; }
+
+/* images wipe in instead of fading */
+.js .portrait.reveal { opacity: 1; transform: none; clip-path: inset(100% 0 0 0 round var(--radius)); transition: clip-path 1.2s var(--ease), transform .4s var(--ease); }
+.js .portrait.reveal.show { clip-path: inset(0 0 0 0 round var(--radius)); }
+.js .card.reveal .card-media img { clip-path: inset(0 0 100% 0); transition: clip-path 1s var(--ease) .15s, transform .6s var(--ease); }
+.js .card.reveal.show .card-media img { clip-path: inset(0 0 0 0); }
+
+/* timeline line fills in as you scroll */
+.timeline::before {
+  content: ""; position: absolute; left: -1px; top: 0; width: 1px; height: 100%;
+  background: linear-gradient(var(--accent), var(--accent-2));
+  transform-origin: top; transform: scaleY(var(--tl, 0));
+}
+
+/* marquee leans with scroll speed */
+.marquee-track { transform: skewX(var(--skew, 0deg)); transition: transform .2s; }
+
+/* section titles get a scramble effect; keep their width steady */
+.section-title[data-scrambling] { font-variant-ligatures: none; }
+.scr { color: var(--accent-ink); opacity: .7; }
+
+@media (prefers-reduced-motion: reduce) {
+  .split .ch { transform: none; opacity: 1; }
+  .js .portrait.reveal, .js .card.reveal .card-media img { clip-path: none; }
+  .spotlight, .cursor-dot, .cursor-ring { display: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {

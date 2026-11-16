@@ -17,7 +17,7 @@ GitHub Pages publishes whatever is on the `main` branch.
 | Animations | `assets/main.js` | each effect is its own commented block |
 | Resume | replace `resume.pdf` with the new file, same name |
 
-A project card's picture is `assets/thumbs/<name>.webp`, and the clip that plays on hover is `assets/clips/<name>.mp4`. A card without them uses a text "glyph" instead (see CondPose).
+A project card's picture is `assets/thumbs/<name>.webp`, and the clip that plays on hover is `assets/clips/<name>.mp4`. A card without them uses a text "glyph" instead (see OneFlip).
 
 ## Preview on your laptop
 
