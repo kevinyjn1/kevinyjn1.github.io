@@ -23,10 +23,12 @@ resume.pdf          # served statically
 
 ## Design system
 
-- **Colors**: `--ink` (#171a20), `--bg` (#fff), `--dark` (#0d0d0d) — monochrome only
-- **Type**: Oswald (display/headings), Inter Tight (body), JetBrains Mono (meta/code)
-- **Nav**: transparent over dark hero, transitions to frosted glass on scroll (`.scrolled` class toggled by `main.js`)
-- **Animations**: `.reveal` elements fade up on scroll via IntersectionObserver; hero elements use CSS `fade-up` keyframe
+- **Colors**: CSS variables in `:root` of `assets/style.css`; dark by default, `[data-theme="light"]` for the light theme (toggle remembered in localStorage). Accent `--accent` is Michigan maize (#ffcb05).
+- **Type**: Space Grotesk (display), Inter (body), JetBrains Mono (meta/code)
+- **Hero**: canvas 3D point cloud (sphere → torus → helix) in `main.js`, typing rotator, count-up stats
+- **Projects**: filterable cards (`data-cat`), mouse-follow glow, hover-to-play clips from `assets/clips/`
+- **Animations**: `.reveal` fade-up on scroll; all motion is disabled under prefers-reduced-motion
+- Subpages (`projects/*.html`, `blog.html`) share the same nav, stylesheet and `main.js`
 
 ## Adding a blog post
 

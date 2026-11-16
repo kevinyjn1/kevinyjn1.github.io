@@ -3,316 +3,423 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Kevin Na — CS @ University of Michigan. Surgical video understanding, medical AI, robot learning.">
-<title>Kevin Na</title>
+<title>Kevin Na · Surgical AI &amp; Robot Learning</title>
+<meta name="description" content="Kevin Na: CS at the University of Michigan. Research on surgical video understanding, vision-language model post-training, and robot learning.">
+<meta name="theme-color" content="#07080c">
+<meta property="og:title" content="Kevin Na · Surgical AI & Robot Learning">
+<meta property="og:description" content="CS at the University of Michigan. Surgical video understanding, VLM post-training, and robot learning.">
+<meta property="og:image" content="https://kevinyjn1.github.io/assets/og.jpg">
+<meta property="og:url" content="https://kevinyjn1.github.io/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%2307080c'/><rect x='11' y='11' width='10' height='10' rx='3' fill='%23ffcb05'/></svg>">
+<script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
 
-<!-- NAV -->
-<nav id="nav">
+<div class="progress"></div>
+
+<!-- ============ NAV ============ -->
+<nav>
   <div class="nav-inner">
-    <a class="brand" href="index.html">Kevin Na</a>
-    <button class="menu-btn" aria-label="menu" onclick="document.getElementById('nl').classList.toggle('open')">&#9776;</button>
+    <a class="brand" href="#top">Kevin Na</a>
     <div class="nav-links" id="nl">
       <a href="#about">About</a>
       <a href="#news">News</a>
-      <a href="#research">Research</a>
+      <a href="#papers">Papers</a>
+      <a href="#experience">Experience</a>
       <a href="#projects">Projects</a>
       <a href="blog.html">Blog</a>
-      <a href="#contact">Contact</a>
+      <a class="nav-cta" href="resume.pdf" target="_blank" rel="noopener">Resume</a>
     </div>
+    <button class="theme-btn" aria-label="Switch light or dark theme">☀</button>
+    <button class="menu-btn" aria-label="Open menu">☰</button>
   </div>
 </nav>
 
-<!-- PROFILE -->
-<section class="profile-section" id="about">
-  <div class="profile-inner">
-    <div class="profile-photo">
-      <img src="assets/profile.jpg" alt="Kevin Na" class="profile-img">
+<!-- ============ HERO ============ -->
+<header class="hero" id="top">
+  <canvas id="field" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <div class="status-pill rise"><span class="status-dot"></span>Open to 2027 ML &amp; robotics roles</div>
+    <h1 class="rise r1">Kevin<br><span class="outline">Na</span><span class="dot">.</span></h1>
+    <p class="hero-sub rise r2">
+      <strong>CS @ University of Michigan.</strong> I build AI that can
+      <span class="rotator" data-words='["understand surgical video.","reason through a procedure.","learn from human demos.","remember what it cannot see."]'></span>
+    </p>
+    <div class="hero-actions rise r3">
+      <a class="btn btn-primary" href="#projects">See my work <span class="arr">→</span></a>
+      <a class="btn" href="resume.pdf" target="_blank" rel="noopener">Resume</a>
+      <a class="btn" href="#contact">Get in touch</a>
     </div>
-    <div class="profile-bio">
-      <h1 class="profile-name">Kevin Na</h1>
-      <div class="profile-title">B.S. Computer Science · University of Michigan</div>
-      <div class="profile-subtitle">CORSO GROUP &nbsp;·&nbsp; ATOMBOT &nbsp;·&nbsp; ALGOVERSE FELLOW</div>
-      <p class="profile-desc">
-        I research <strong>surgical video understanding</strong> at the Corso Group — focusing on post-training
-        surgical vision-language models with preference optimization (DPO, GRPO, Step-DPO) to improve
-        procedural reasoning and temporal consistency. Beyond the OR, I care about <strong>diffusion policies</strong>
-        and <strong>robot learning</strong>.
-      </p>
-      <div class="profile-interests">
-        <span class="interest-tag">Surgical AI</span>
-        <span class="interest-tag">Vision-Language Models</span>
-        <span class="interest-tag">Procedural Reasoning</span>
-        <span class="interest-tag">Robot Learning</span>
-        <span class="interest-tag">Medical Vision</span>
-        <span class="interest-tag">Preference Optimization</span>
+    <div class="hero-stats rise r4">
+      <div class="stat"><div class="stat-num" data-count="3">3</div><div class="stat-label">Papers</div></div>
+      <div class="stat"><div class="stat-num" data-count="2">2</div><div class="stat-label">Research labs</div></div>
+      <div class="stat"><div class="stat-num" data-count="8">8</div><div class="stat-label">Projects</div></div>
+      <div class="stat"><div class="stat-num" data-count="2" data-suffix="×">2×</div><div class="stat-label">1st place</div></div>
+    </div>
+  </div>
+  <div class="scroll-cue">SCROLL<span></span></div>
+</header>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Vision-Language Models</span><span>GRPO · DPO · Step-DPO</span><span>Surgical Video</span><span>Imitation Learning</span><span>ROS 2</span><span>PyTorch</span><span>SAM 3</span><span>LeRobot</span><span>Motion Capture</span><span>Embedded ML</span>
+    <span>Vision-Language Models</span><span>GRPO · DPO · Step-DPO</span><span>Surgical Video</span><span>Imitation Learning</span><span>ROS 2</span><span>PyTorch</span><span>SAM 3</span><span>LeRobot</span><span>Motion Capture</span><span>Embedded ML</span>
+  </div>
+</div>
+
+<main>
+
+<!-- ============ ABOUT ============ -->
+<section class="block" id="about">
+  <div class="wrap">
+    <div class="section-head reveal"><span class="section-num">01</span><h2 class="section-title">About</h2></div>
+    <div class="about-grid">
+      <div class="portrait reveal">
+        <picture>
+          <source srcset="assets/profile-portrait.webp" type="image/webp">
+          <img src="assets/profile-portrait.jpg" alt="Kevin Na at the Grand Canyon in a Michigan jersey" width="800" height="1000" loading="lazy">
+        </picture>
+        <span class="portrait-tag">Seoul → Ann Arbor</span>
       </div>
-      <div class="profile-links">
-        <a href="mailto:kevinyjna@gmail.com" class="profile-link">Email</a>
-        <a href="https://github.com/kevinyjn1" target="_blank" rel="noopener" class="profile-link">GitHub</a>
-        <a href="https://www.linkedin.com/in/kevin-yunjong-na-542730204/" target="_blank" rel="noopener" class="profile-link">LinkedIn</a>
-        <a href="#" target="_blank" rel="noopener" class="profile-link">Scholar</a>
-        <a href="resume.pdf" target="_blank" class="profile-link btn-cv">CV &rarr;</a>
+      <div class="about-text reveal d1">
+        <p>
+          I'm a Computer Science student at the <strong>University of Michigan</strong>, graduating in May 2027.
+          I grew up in Seoul, and I do research in two labs.
+        </p>
+        <p>
+          In Prof. Jason Corso's <strong>COG Lab</strong>, I work on <strong>surgical video understanding</strong>:
+          post-training vision-language models with DPO, Step-DPO and GRPO so they follow the steps of an operation,
+          and benchmarking frontier models on surgical skill assessment.
+        </p>
+        <p>
+          At the <strong>Extreme Robotics (Atombots) Lab</strong>, I work on <strong>robot learning</strong>:
+          imitation-learning datasets and policies, robot arms, and a multi-camera motion-capture system.
+        </p>
+        <div class="facts">
+          <div class="fact"><div class="fact-k">Degree</div><div class="fact-v">B.S. Computer Science, May 2027</div></div>
+          <div class="fact"><div class="fact-k">Based in</div><div class="fact-v">Ann Arbor, Michigan</div></div>
+          <div class="fact"><div class="fact-k">Focus</div><div class="fact-v">Surgical AI · Robot learning</div></div>
+          <div class="fact"><div class="fact-k">Languages</div><div class="fact-v">Korean (native) · English (fluent)</div></div>
+        </div>
+        <div class="chips">
+          <span class="chip">Surgical AI</span><span class="chip">Vision-Language Models</span><span class="chip">Preference Optimization</span>
+          <span class="chip">Procedural Reasoning</span><span class="chip">Imitation Learning</span><span class="chip">Medical Vision</span>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<main class="main-content">
-
-  <!-- NEWS -->
-  <section id="news" class="content-section">
-    <h2 class="section-title">News</h2>
-    <div class="news-list">
-      <div class="news-item reveal">
-        <span class="news-date">Jun 2026</span>
-        <span class="news-text">Joined <strong>Corso Group</strong> (Prof. Jason Corso) to research post-training methods for surgical VLMs — applying DPO/GRPO-style preference optimization to procedural reasoning over open surgery videos.</span>
+<!-- ============ NEWS ============ -->
+<section class="block" id="news">
+  <div class="wrap">
+    <div class="section-head reveal"><span class="section-num">02</span><h2 class="section-title">News</h2></div>
+    <div class="timeline">
+      <div class="tl-item reveal">
+        <div class="tl-date">Fall 2026</div>
+        <div class="tl-text">Submitted <strong>Lift One, Know All</strong> to RSS 2027. I built the ManiSkill3 simulation, dataset, metrics and baselines.</div>
       </div>
-      <div class="news-item reveal d1">
-        <span class="news-date">2025</span>
-        <span class="news-text">Published <strong>Liminal Training</strong> — characterizing and mitigating subliminal learning in LLMs — at the NeurIPS 2025 ResponsibleFM workshop as an Algoverse Fellow.</span>
+      <div class="tl-item reveal">
+        <div class="tl-date">Oct 2026</div>
+        <div class="tl-text">Co-authored <strong>Do Graph Memories Use Their Edges?</strong>, now under review at ACL Rolling Review.</div>
       </div>
-      <div class="news-item reveal d1">
-        <span class="news-date">2025</span>
-        <span class="news-text">Co-leading a 5-member task team at <strong>Atombot (Extreme Robotics Lab)</strong> — multi-camera AprilTag MoCap system for Cookiebot swarm experiments and YOLH diffusion policy from human RGB-D demos.</span>
+      <div class="tl-item reveal">
+        <div class="tl-date">May 2026</div>
+        <div class="tl-text">Joined the <strong>COG Lab</strong> (Prof. Jason Corso) to post-train surgical vision-language models.</div>
       </div>
-      <div class="news-item reveal d2">
-        <span class="news-date">Prior</span>
-        <span class="news-text">Undergraduate researcher at <strong>Digital Water Lab</strong> (Dr. Kerkez) and <strong>Dynamic PM Lab</strong> (Dr. Lee), building sensor dashboards and construction-safety analytics.</span>
+      <div class="tl-item reveal past">
+        <div class="tl-date">2025</div>
+        <div class="tl-text"><strong>Liminal Training</strong> accepted at the NeurIPS 2025 ResponsibleFM workshop, as an Algoverse Fellow.</div>
+      </div>
+      <div class="tl-item reveal past">
+        <div class="tl-date">Jan 2025</div>
+        <div class="tl-text">Joined the <strong>Extreme Robotics (Atombots) Lab</strong> to work on swarm robotics and robot learning.</div>
+      </div>
+      <div class="tl-item reveal past">
+        <div class="tl-date">Sep 2024</div>
+        <div class="tl-text">Won <strong>first place</strong> at the MIT IDSS Data Science &amp; ML hackathon (2-person team).</div>
+      </div>
+      <div class="tl-item reveal past">
+        <div class="tl-date">2023 – 2024</div>
+        <div class="tl-text">Served 18 months in the <strong>Republic of Korea Army</strong> as a Reserve Force Administrative Specialist.</div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- RESEARCH -->
-  <section id="research" class="content-section">
-    <h2 class="section-title">Research &amp; Experience</h2>
-
-    <div class="pub-list">
-
-      <div class="pub-item reveal">
-        <div class="pub-year">2026 –<br>now</div>
+<!-- ============ PAPERS ============ -->
+<section class="block" id="papers">
+  <div class="wrap">
+    <div class="section-head reveal"><span class="section-num">03</span><h2 class="section-title">Papers</h2></div>
+    <div class="pubs">
+      <article class="pub reveal">
         <div>
-          <div class="pub-title">Post-Training Surgical VLMs for Procedural Reasoning</div>
-          <div class="pub-venue">Corso Group · Prof. Jason Corso · University of Michigan</div>
-          <p class="pub-desc">
-            Researching DPO/GRPO-style preference optimization methods to align surgical vision-language models
-            with procedural step order, temporal consistency, and phase progression in open surgery. Training
-            data is a large-scale dataset of 6,182 YouTube-scraped open surgery videos with human annotations.
-            Separately contributing to coronary artery bypass grafting (CABG) surgical skill assessment and benchmarking (OSATS) using
-            partner-hospital data from Michigan Medicine, Cleveland Clinic, MGH, and Beth Israel.
-            Target: journal publication.
-          </p>
-          <div class="pub-badges">
-            <span class="pub-badge">Undergraduate Researcher</span>
-            <span class="pub-badge badge-alt">In Progress → Journal</span>
-          </div>
+          <div class="pub-venue-tag">RSS 2027</div>
+          <span class="pub-status">Under review</span>
         </div>
-      </div>
-
-      <div class="pub-item reveal">
-        <div class="pub-year">2025 –<br>now</div>
         <div>
-          <div class="pub-title">YOLH: You Only Learn from Humans</div>
-          <div class="pub-venue">Atombot · Extreme Robotics Lab</div>
-          <p class="pub-desc">Co-leading a 5-member task team building a multi-camera AprilTag motion-capture system for Cookiebot swarm experiments; validated RealSense tracking pipeline with MAE benchmarks. Also developing YOLH — a diffusion policy trained from human RGB-D demonstrations.</p>
-          <div class="pub-badges">
-            <span class="pub-badge">Swarm Robotics Researcher</span>
-          </div>
+          <h3>Lift One, Know All: What a Robot Can Remember About Objects Shuffled Out of Sight</h3>
+          <div class="pub-meta">Team paper · ROB 498/599 3D Robot Perception</div>
+          <p>My part: I built the ManiSkill3 simulation environment, the dataset, the evaluation metrics and the baselines.</p>
         </div>
-      </div>
-
-      <div class="pub-item reveal">
-        <div class="pub-year">2025</div>
+      </article>
+      <article class="pub reveal d1">
         <div>
-          <div class="pub-title">Liminal Training: Characterizing and Mitigating Subliminal Learning in LLMs</div>
-          <div class="pub-venue">NeurIPS 2025 · Workshop on Socially Responsible and Trustworthy Foundation Models (ResponsibleFM)</div>
-          <p class="pub-desc">Characterized subliminal learning — the unintended transmission of misalignment or preference through semantically unrelated fine-tuning data — finding that trait acquisition spikes sharply in the first 10–20 training steps. Proposed <em>liminal training</em>, an annealed KL regularizer that provably prevents the acquisition of unwanted traits.</p>
-          <div class="pub-badges">
-            <span class="pub-badge">NeurIPS 2025</span>
-            <span class="pub-badge">Algoverse Fellow</span>
-          </div>
+          <div class="pub-venue-tag">ACL Rolling Review</div>
+          <span class="pub-status">Under review</span>
         </div>
-      </div>
-
-      <div class="pub-item reveal">
-        <div class="pub-year">Prior</div>
         <div>
-          <div class="pub-title">Environmental &amp; Construction Analytics</div>
-          <div class="pub-venue">Digital Water Lab &amp; Dynamic PM Lab · University of Michigan</div>
-          <p class="pub-desc">Built real-time sensor dashboards for water-quality monitoring (Dr. Branko Kerkez) and ML-based construction-site safety analytics (Dr. SangHyun Lee).</p>
-          <div class="pub-badges">
-            <span class="pub-badge">Undergraduate Researcher</span>
-          </div>
+          <h3>Do Graph Memories Use Their Edges? Separating Routing from Content with Text-Fixed Tests</h3>
+          <div class="pub-meta">Co-author</div>
         </div>
-      </div>
-
+      </article>
+      <article class="pub reveal d2">
+        <div>
+          <div class="pub-venue-tag">NeurIPS 2025 Workshop</div>
+          <span class="pub-status live">Published</span>
+        </div>
+        <div>
+          <h3>Liminal Training: Characterizing and Mitigating Subliminal Learning in Large Language Models</h3>
+          <div class="pub-meta">Workshop on Socially Responsible and Trustworthy Foundation Models (ResponsibleFM) · Algoverse Fellow</div>
+          <p>Studies subliminal learning, where fine-tuning on unrelated data quietly transmits a trait or misalignment, finds that trait acquisition spikes in the first 10–20 training steps, and proposes liminal training, an annealed KL regularizer that prevents it.</p>
+        </div>
+      </article>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- PROJECTS -->
-  <section id="projects" class="content-section">
-    <h2 class="section-title">Selected Projects</h2>
-    <div class="projects-grid">
-
-      <div class="proj-card reveal">
-        <div class="proj-accent"></div>
-        <h3>Uncertainty-Gated CondPose</h3>
-        <p>Surgical hand-pose tracking augmented with split conformal prediction and temporal conditioning for calibrated, joint-level uncertainty estimates.</p>
-        <div class="proj-tags">
-          <span class="tag">PyTorch</span>
-          <span class="tag">Conformal Prediction</span>
-          <span class="tag">Surgical AI</span>
+<!-- ============ EXPERIENCE ============ -->
+<section class="block" id="experience">
+  <div class="wrap">
+    <div class="section-head reveal"><span class="section-num">04</span><h2 class="section-title">Experience</h2></div>
+    <div class="exp-list">
+      <div class="exp reveal">
+        <div class="exp-when">May 2026 – Now</div>
+        <div>
+          <h3>Undergraduate Researcher</h3>
+          <div class="exp-org">COG Lab (Corso Group) · Prof. Jason Corso · University of Michigan</div>
+          <ul>
+            <li>Post-trained a Qwen2.5-VL vision-language model for surgical video understanding with DPO, Step-DPO and GRPO, designing step-level rewards for step correctness, step order and grounding.</li>
+            <li>Benchmarked GPT-5.1, Gemini, Qwen3-VL and InternVL on surgical skill classification against the lab's 70.7% baseline; reproduced that five-stage baseline on a Slurm GPU cluster and fixed a frame-rate bug in it.</li>
+            <li>Built a SAM 3 segmentation pipeline that de-identifies surgical videos for a dataset release.</li>
+          </ul>
         </div>
-        <a class="proj-link" href="projects/condpose.html">View project &rarr;</a>
       </div>
-
-      <div class="proj-card reveal d1">
-        <div class="proj-accent"></div>
-        <img src="projects/yoloh/YOLH-2048x711.webp" alt="YOLH pipeline" class="proj-thumb">
-        <h3>YOLH — You Only Learn from Humans</h3>
-        <p>Manipulation policy from human RGB-D demonstrations via a RISE-based diffusion policy. No teleoperation — just watching people work.</p>
-        <div class="proj-tags">
-          <span class="tag">Diffusion Policy</span>
-          <span class="tag">RGB-D</span>
-          <span class="tag">Robot Learning</span>
+      <div class="exp reveal">
+        <div class="exp-when">Jan 2025 – Now</div>
+        <div>
+          <h3>Robot Learning Researcher</h3>
+          <div class="exp-org">Extreme Robotics (Atombots) Lab · University of Michigan</div>
+          <ul>
+            <li>Curated a 90-episode SO-101 manipulation dataset, 40 episodes with mid-grasp disturbances, to study how imitation policies (ACT, SmolVLA via LeRobot) recover from failure.</li>
+            <li>Co-lead a 5-person team building a multi-camera AprilTag motion-capture system; validated RealSense pose accuracy against a ground-truth grid by mean absolute error.</li>
+            <li>Building a wheel-legged quadruped with ROS 2 on NVIDIA Jetson.</li>
+          </ul>
         </div>
-        <a class="proj-link" href="projects/yolh.html">View project &rarr;</a>
       </div>
-
-      <div class="proj-card reveal">
-        <div class="proj-accent"></div>
-        <h3>CGR — Conversational Memory</h3>
-        <p>Intent-aware graph retrieval for long-term conversational memory, benchmarked against the MAGMA baseline on the LoCoMo benchmark.</p>
-        <div class="proj-tags">
-          <span class="tag">Graph Retrieval</span>
-          <span class="tag">LLM</span>
-          <span class="tag">LoCoMo</span>
+      <div class="exp reveal">
+        <div class="exp-when">Nov 2022 – 2023</div>
+        <div>
+          <h3>Research Assistant</h3>
+          <div class="exp-org">Dynamic Project Management Lab · Dr. SangHyun Lee</div>
+          <ul>
+            <li>Labeled construction-site video and wearable sensor data (fall risk, stride timing, EDA, IMU) to train worker-fatigue models.</li>
+          </ul>
         </div>
-        <a class="proj-link" href="projects/cgr.html">View project &rarr;</a>
       </div>
-
-      <div class="proj-card reveal d1">
-        <div class="proj-accent"></div>
-        <h3>Go2W Motion Capture</h3>
-        <p>ROS2 + RealSense + AprilTag tracking stack feeding a Go2W quadruped for locomotion and multi-robot swarm experiments.</p>
-        <div class="proj-tags">
-          <span class="tag">ROS2</span>
-          <span class="tag">RealSense</span>
-          <span class="tag">AprilTag</span>
+      <div class="exp reveal">
+        <div class="exp-when">Dec 2021 – 2022</div>
+        <div>
+          <h3>User Experience Researcher</h3>
+          <div class="exp-org">Digital Water Lab · Dr. Branko Kerkez</div>
+          <ul>
+            <li>Built a Python, Plotly Dash and Grafana dashboard giving Huron River and Clinton River community groups live sensor data on flooding, water quality and algal blooms.</li>
+          </ul>
         </div>
-        <a class="proj-link" href="projects/go2w.html">View project &rarr;</a>
-      </div>
-
-      <div class="proj-card reveal">
-        <div class="proj-accent"></div>
-        <img src="projects/mbot/odom_fast.png" alt="MBot odometry plot" class="proj-thumb">
-        <h3>MBot Autonomous Navigation</h3>
-        <p>RTR motion controller, particle-filter SLAM, and occupancy-grid mapping built from scratch in C++ with ROS2 for a differential-drive robot.</p>
-        <div class="proj-tags">
-          <span class="tag">C++</span>
-          <span class="tag">ROS2</span>
-          <span class="tag">SLAM</span>
-        </div>
-        <a class="proj-link" href="projects/mbot.html">View project &rarr;</a>
-      </div>
-
-      <div class="proj-card reveal d1">
-        <div class="proj-accent"></div>
-        <img src="projects/hydrosense/grouppicture.jpg" alt="HydroSense team" class="proj-thumb" style="object-position: center 20%">
-        <h3>HydroSense</h3>
-        <p>Bottle-agnostic water-level tracker using a bone-conduction mic, MFCC features, and an SVM on an STM32 — no camera or ultrasonic sensor needed.</p>
-        <div class="proj-tags">
-          <span class="tag">STM32</span>
-          <span class="tag">SVM</span>
-          <span class="tag">Embedded</span>
-        </div>
-        <a class="proj-link" href="projects/hydrosense.html">View project &rarr;</a>
-      </div>
-
-      <div class="proj-card reveal">
-        <div class="proj-accent"></div>
-        <img src="projects/ambientMNIST/input2.png" alt="MNIST digit 0 fed to the MCU" class="proj-thumb" style="object-fit: contain; background:#0d1117; padding:12px">
-        <h3>ambientMNIST</h3>
-        <p>MNIST digit classification running entirely on a microcontroller — 5-bit quantized pixels streamed over UART at 115200 baud, per-class scores returned in real time.</p>
-        <div class="proj-tags">
-          <span class="tag">Embedded ML</span>
-          <span class="tag">C</span>
-          <span class="tag">UART</span>
-        </div>
-        <a class="proj-link" href="projects/ambientmnist.html">View project &rarr;</a>
-      </div>
-
-      <div class="proj-card reveal">
-        <div class="proj-accent"></div>
-        <div style="width:100%;height:160px;border-radius:6px;margin-bottom:14px;border:1px solid var(--border);background:#0a0a0a;display:flex;align-items:center;justify-content:center">
-          <span style="font-family:var(--display);font-size:2rem;font-weight:700;color:#fff;letter-spacing:-.02em">OneFlip</span>
-        </div>
-        <h3>OneFlip — One-Handed Spice Jar</h3>
-        <p>3D-printed spice jar designed for single-hand operation while cooking. Won Best Design (1st Place) at the University of Michigan Thunderdome Innovation Contest.</p>
-        <div class="proj-tags">
-          <span class="tag">3D Printing</span>
-          <span class="tag">Product Design</span>
-          <span class="tag">🏆 1st Place</span>
-        </div>
-        <a class="proj-link" href="projects/oneflip.html">View project &rarr;</a>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- STACK -->
-  <section id="stack" class="content-section">
-    <h2 class="section-title">Tools &amp; Methods</h2>
-    <div class="skills-grid">
-      <div class="skill-card reveal">
-        <h4>Languages &amp; Infrastructure</h4>
-        <p>Python, C++, LaTeX, Git, Linux, CUDA, ROS2</p>
-      </div>
-      <div class="skill-card reveal d1">
-        <h4>ML / Deep Learning</h4>
-        <p>PyTorch, transformers, diffusion models, conformal prediction, VLMs (CLIP, LLaVA, Qwen), DPO / GRPO / RLHF</p>
-      </div>
-      <div class="skill-card reveal">
-        <h4>Robotics &amp; Perception</h4>
-        <p>ROS2, Intel RealSense, AprilTag, diffusion policies, RGB-D demonstration learning, motion capture</p>
-      </div>
-      <div class="skill-card reveal d1">
-        <h4>3D Vision &amp; Graphics</h4>
-        <p>NeRF, Gaussian splatting, ray tracing, generative models, surgical video understanding</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- CONTACT -->
-  <section id="contact" class="content-section">
-    <h2 class="section-title">Contact</h2>
-    <p class="contact-desc">Always glad to hear from researchers, collaborators, and curious people — especially around surgical AI, multimodal perception, and robot learning.</p>
-    <div class="contact-links">
-      <a href="mailto:kevinyjna@gmail.com">kevinyjna@gmail.com</a>
-      <a href="https://github.com/kevinyjn1" target="_blank" rel="noopener">GitHub</a>
-      <a href="https://www.linkedin.com/in/kevin-yunjong-na-542730204/" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="#" target="_blank" rel="noopener">Google Scholar</a>
-      <a href="resume.pdf" target="_blank">CV (PDF)</a>
+<!-- ============ PROJECTS ============ -->
+<section class="block" id="projects">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="section-num">05</span><h2 class="section-title">Projects</h2>
+      <p class="section-sub">Hover a card to see it move. Click for the full write-up, videos and reports.</p>
     </div>
-  </section>
+    <div class="filters reveal">
+      <button class="filter on" data-filter="all">All</button>
+      <button class="filter" data-filter="robotics">Robotics</button>
+      <button class="filter" data-filter="ml">ML &amp; AI</button>
+      <button class="filter" data-filter="embedded">Embedded</button>
+      <button class="filter" data-filter="design">Design</button>
+    </div>
+
+    <div class="proj-grid">
+
+      <article class="card reveal" data-cat="robotics ml">
+        <div class="card-media">
+          <img src="assets/thumbs/yolh.webp" alt="YOLH point cloud and robot evaluation" loading="lazy">
+          <video muted loop playsinline preload="none" data-src="assets/clips/yolh.mp4"></video>
+        </div>
+        <div class="card-body">
+          <div class="card-kicker">Atombots · Robot learning</div>
+          <h3>YOLH: You Only Learn from Humans</h3>
+          <p>A manipulation policy learned from human RGB-D demonstrations with a RISE-based diffusion policy. No teleoperation, just watching people work.</p>
+          <div class="tags"><span class="tag">Diffusion Policy</span><span class="tag">RGB-D</span><span class="tag">SAM2</span></div>
+          <span class="card-link">View project</span>
+        </div>
+        <a class="cover" href="projects/yolh.html" aria-label="YOLH project"></a>
+      </article>
+
+      <article class="card reveal d1" data-cat="robotics">
+        <div class="card-media">
+          <img src="assets/thumbs/mbot.webp" alt="MBot driving through a maze" loading="lazy">
+          <video muted loop playsinline preload="none" data-src="assets/clips/mbot.mp4"></video>
+        </div>
+        <div class="card-body">
+          <div class="card-kicker">EECS 467 · Autonomy</div>
+          <h3>MBot Autonomous Navigation</h3>
+          <p>Motion control, particle-filter SLAM, occupancy-grid mapping and A* planning, built from scratch in C++ with ROS 2.</p>
+          <div class="tags"><span class="tag">C++</span><span class="tag">ROS 2</span><span class="tag">SLAM</span><span class="tag">A*</span></div>
+          <span class="card-link">View project</span>
+        </div>
+        <a class="cover" href="projects/mbot.html" aria-label="MBot project"></a>
+      </article>
+
+      <article class="card reveal d2" data-cat="ml">
+        <div class="card-media pattern"><div class="glyph">CondPose<small>calibrated uncertainty</small></div></div>
+        <div class="card-body">
+          <div class="card-kicker">Surgical AI</div>
+          <h3>Uncertainty-Gated CondPose</h3>
+          <p>Surgical hand-pose tracking with split conformal prediction and temporal conditioning for calibrated, joint-level uncertainty.</p>
+          <div class="tags"><span class="tag">PyTorch</span><span class="tag">Conformal Prediction</span></div>
+          <span class="card-link">View project</span>
+        </div>
+        <a class="cover" href="projects/condpose.html" aria-label="CondPose project"></a>
+      </article>
+
+      <article class="card reveal" data-cat="embedded ml">
+        <div class="card-media">
+          <img src="assets/thumbs/hydrosense.webp" alt="HydroSense water bottle sensor demo" loading="lazy">
+          <video muted loop playsinline preload="none" data-src="assets/clips/hydrosense.mp4"></video>
+        </div>
+        <div class="card-body">
+          <div class="card-kicker">EECS 373 · Embedded</div>
+          <h3>HydroSense</h3>
+          <p>A bottle-agnostic water-level tracker: a bone-conduction mic, MFCC features and an SVM on an STM32. No camera, no ultrasonic sensor.</p>
+          <div class="tags"><span class="tag">STM32</span><span class="tag">MFCC</span><span class="tag">SVM</span></div>
+          <span class="card-link">View project</span>
+        </div>
+        <a class="cover" href="projects/hydrosense.html" aria-label="HydroSense project"></a>
+      </article>
+
+      <article class="card reveal d1" data-cat="embedded ml">
+        <div class="card-media">
+          <img src="assets/thumbs/ambient.webp" alt="Microcontroller running MNIST classification" loading="lazy">
+          <video muted loop playsinline preload="none" data-src="assets/clips/ambient.mp4"></video>
+        </div>
+        <div class="card-body">
+          <div class="card-kicker">Embedded ML</div>
+          <h3>ambientMNIST</h3>
+          <p>MNIST digit classification running entirely on a microcontroller: 5-bit quantized pixels streamed over UART, per-class scores back in real time.</p>
+          <div class="tags"><span class="tag">C</span><span class="tag">Quantization</span><span class="tag">UART</span></div>
+          <span class="card-link">View project</span>
+        </div>
+        <a class="cover" href="projects/ambientmnist.html" aria-label="ambientMNIST project"></a>
+      </article>
+
+      <article class="card reveal d2" data-cat="robotics">
+        <div class="card-media pattern"><div class="glyph">Go2W<small>AprilTag · RealSense · ROS 2</small></div></div>
+        <div class="card-body">
+          <div class="card-kicker">Atombots · Perception</div>
+          <h3>Go2W Motion Capture</h3>
+          <p>A ROS 2 + RealSense + AprilTag tracking stack feeding a Go2W quadruped for locomotion and multi-robot swarm experiments.</p>
+          <div class="tags"><span class="tag">ROS 2</span><span class="tag">RealSense</span><span class="tag">AprilTag</span></div>
+          <span class="card-link">View project</span>
+        </div>
+        <a class="cover" href="projects/go2w.html" aria-label="Go2W project"></a>
+      </article>
+
+      <article class="card reveal" data-cat="design">
+        <span class="award">🏆 1st Place</span>
+        <div class="card-media pattern"><div class="glyph">OneFlip<small>one-handed spice jar</small></div></div>
+        <div class="card-body">
+          <div class="card-kicker">ENTR 390 · Product design</div>
+          <h3>OneFlip</h3>
+          <p>A 3D-printed spice jar you can open with one hand while cooking. Best Design (1st place) at U-M's Thunderdome Innovation Contest.</p>
+          <div class="tags"><span class="tag">3D Printing</span><span class="tag">Product Design</span><span class="tag">Fabrication</span></div>
+          <span class="card-link">View project</span>
+        </div>
+        <a class="cover" href="projects/oneflip.html" aria-label="OneFlip project"></a>
+      </article>
+
+      <article class="card reveal d1" data-cat="ml">
+        <div class="card-media pattern"><div class="glyph">83.6%<small>test accuracy · 0.92 ROC-AUC</small></div></div>
+        <div class="card-body">
+          <div class="card-kicker">EECS 398 · Data science</div>
+          <h3>League of Legends Match Predictor</h3>
+          <p>Logistic regression on gold, XP and kill differences at 25 minutes, engineered from 10K+ match logs, with Plotly visualizations.</p>
+          <div class="tags"><span class="tag">Python</span><span class="tag">Logistic Regression</span><span class="tag">Plotly</span></div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ SKILLS ============ -->
+<section class="block" id="skills">
+  <div class="wrap">
+    <div class="section-head reveal"><span class="section-num">06</span><h2 class="section-title">Toolbox</h2></div>
+    <div class="skills">
+      <div class="skill reveal"><div class="skill-icon">{ code }</div><h4>Languages &amp; Infra</h4><p>Python, C++, C, Git, Linux, Docker, Slurm GPU clusters, CUDA</p></div>
+      <div class="skill reveal d1"><div class="skill-icon">∇ ml</div><h4>Machine Learning</h4><p>PyTorch, VLMs (Qwen-VL, InternVL), DPO / Step-DPO / GRPO, diffusion models, conformal prediction</p></div>
+      <div class="skill reveal d2"><div class="skill-icon">⚙ robots</div><h4>Robotics</h4><p>ROS 2, Gazebo, ManiSkill3, LeRobot, Intel RealSense, AprilTag, imitation learning</p></div>
+      <div class="skill reveal d3"><div class="skill-icon">◉ vision</div><h4>Vision &amp; Data</h4><p>SAM 3, video segmentation, pose estimation, Plotly Dash, Grafana, Figma</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="block" id="contact">
+  <div class="wrap">
+    <div class="contact-card reveal">
+      <h2>Let's build<br>something<span class="accent">.</span></h2>
+      <p>I'm always glad to hear from researchers, recruiters and curious people, especially about surgical AI, multimodal perception and robot learning.</p>
+      <div class="contact-row">
+        <a class="btn btn-primary" href="mailto:kevinyjna@gmail.com">Email me <span class="arr">→</span></a>
+        <button class="btn copy-email" data-email="kevinyjna@gmail.com">kevinyjna@gmail.com ⧉</button>
+      </div>
+      <div class="contact-row" style="margin-top:12px">
+        <a class="btn" href="https://github.com/kevinyjn1" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn" href="https://www.linkedin.com/in/kevinyjna/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn" href="https://openreview.net/profile?id=~Yunjong_Na1" target="_blank" rel="noopener">OpenReview</a>
+        <a class="btn" href="resume.pdf" target="_blank" rel="noopener">Resume (PDF)</a>
+      </div>
+    </div>
+  </div>
+</section>
 
 </main>
 
 <footer>
   <div class="footer-inner">
-    <span>&copy; 2026 Kevin Na</span>
-    <span>&middot;</span>
-    <span>CS @ University of Michigan</span>
-    <span>&middot;</span>
+    <span>© 2026 Kevin Na</span>
+    <span>·</span>
+    <span>Made in Ann Arbor</span>
+    <span>·</span>
     <a href="https://github.com/kevinyjn1/kevinyjn1.github.io" target="_blank" rel="noopener">Source</a>
   </div>
 </footer>
 
+<div class="toast" role="status">Email copied</div>
 <script src="assets/main.js"></script>
 </body>
 </html>
