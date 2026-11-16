@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="OneFlip: A Handy Spice Jar — Best Design, Thunderdome Innovation Contest — Kevin Na">
+<meta name="description" content="OneFlip, a one-handed spice jar. Best Design at U-M Thunderdome Innovation Contest. Kevin Na">
 <title>OneFlip — Kevin Na</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%2307080c'/><rect x='11' y='11' width='10' height='10' rx='3' fill='%23ffcb05'/></svg>">
 <script>document.documentElement.classList.add('js');try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}</script>
@@ -11,6 +11,74 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/style.css">
+<style>
+.of { max-width: 1000px; }
+.of-hero { position: relative; margin: 6px 0 36px; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border); background: #200e00; }
+.of-hero img { width: 100%; display: block; transform: scale(1.04); transition: transform 1.6s var(--ease); }
+.of-hero.show img { transform: scale(1); }
+.of-badge { display: inline-flex; align-items: center; gap: 12px; background: var(--accent-soft); border: 1px solid var(--accent); border-radius: 14px; padding: 12px 18px; margin: 4px 0 30px; }
+.of-badge b { display: block; font-family: var(--display); font-weight: 600; font-size: .98rem; color: var(--ink); }
+.of-badge small { font-family: var(--mono); font-size: .68rem; color: var(--ink-soft); letter-spacing: .05em; }
+.of-lead { font-size: 1.2rem !important; color: var(--ink) !important; max-width: 760px; }
+.of-facts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 34px 0 10px; }
+.of-fact { border: 1px solid var(--border); border-radius: 14px; padding: 14px 16px; background: var(--surface); }
+.of-fact span { display: block; font-family: var(--mono); font-size: .66rem; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 6px; }
+.of-fact div { font-size: .93rem; color: var(--ink); line-height: 1.45; }
+.of-kick { font-family: var(--mono); font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent-ink); margin: 64px 0 -38px; }
+/* reach, hold, open, pour */
+.of-flow { border: 1px solid var(--border); border-radius: var(--radius); padding: 22px; margin: 26px 0; background: var(--surface); }
+.of-row { display: grid; grid-template-columns: 120px 1fr; align-items: center; gap: 14px; margin: 10px 0; }
+.of-row > span { font-family: var(--mono); font-size: .72rem; letter-spacing: .06em; color: var(--ink-faint); text-transform: uppercase; }
+.of-steps { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.of-step { padding: 9px 14px; border-radius: 10px; border: 1px solid var(--border-2); font-family: var(--display); font-weight: 600; font-size: .95rem; color: var(--ink); background: var(--bg-2); }
+.of-step.two { border-color: color-mix(in srgb, #ff5d5d 60%, transparent); }
+.of-step.one { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+.of-step small { display: block; font-family: var(--mono); font-weight: 400; font-size: .62rem; opacity: .8; margin-top: 2px; }
+.of-arrow { color: var(--ink-faint); }
+.js .of-flow.reveal .of-step { opacity: 0; transform: translateY(8px); transition: opacity .5s var(--ease), transform .5s var(--ease); }
+.js .of-flow.reveal.show .of-step { opacity: 1; transform: none; }
+.of-flow .of-step:nth-of-type(2) { transition-delay: .1s } .of-flow .of-step:nth-of-type(3) { transition-delay: .2s } .of-flow .of-step:nth-of-type(4) { transition-delay: .3s }
+/* study bars */
+.of-bars { margin: 24px 0 10px; display: grid; gap: 14px; }
+.of-bar { display: grid; grid-template-columns: 76px 1fr; align-items: center; gap: 14px; }
+.of-bar .n { font-family: var(--display); font-weight: 700; font-size: 1.7rem; color: var(--ink); text-align: right; }
+.of-bar .t { position: relative; height: 38px; border-radius: 10px; background: var(--surface-2); overflow: hidden; }
+.of-bar .t i { position: absolute; inset: 0 auto 0 0; width: var(--w); background: linear-gradient(90deg, var(--accent), color-mix(in srgb, var(--accent) 55%, transparent)); border-radius: 10px; transition: width 1.3s var(--ease); }
+.js .of-bars.reveal .of-bar .t i { width: 0; }
+.js .of-bars.reveal.show .of-bar .t i { width: var(--w); }
+.of-bar .t em { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); font-style: normal; font-size: .9rem; color: var(--ink); mix-blend-mode: normal; z-index: 1; }
+.of-note { font-size: .84rem !important; color: var(--ink-faint) !important; }
+/* galleries */
+.of-views { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 26px 0; }
+.of-views figure { margin: 0; border-radius: 14px; overflow: hidden; background: #200e00; border: 1px solid var(--border); }
+.of-views img { width: 100%; aspect-ratio: 3 / 4; object-fit: contain; padding: 10px; transition: transform .5s var(--ease); }
+.of-views figure:hover img { transform: scale(1.06) rotate(-1.5deg); }
+.of-views figcaption, .of-split figcaption { font-family: var(--mono); font-size: .68rem; letter-spacing: .08em; text-transform: uppercase; color: #e9c9a3; padding: 0 12px 12px; }
+.of-split { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: center; margin: 26px 0; }
+.of-split figure { margin: 0; border-radius: var(--radius); overflow: hidden; background: #200e00; border: 1px solid var(--border); }
+.of-split figure img { width: 100%; display: block; }
+.of-points { list-style: none; margin: 0 !important; padding: 0; display: grid; gap: 10px; counter-reset: p; }
+.of-points li { counter-increment: p; border: 1px solid var(--border); border-radius: 14px; padding: 12px 14px 12px 52px; position: relative; background: var(--surface); margin: 0; transition: border-color .25s, transform .25s; }
+.of-points li:hover { border-color: var(--accent); transform: translateX(4px); }
+.of-points li::before { content: counter(p); position: absolute; left: 14px; top: 12px; width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; background: var(--accent); color: var(--on-accent); font-family: var(--mono); font-size: .75rem; font-weight: 600; }
+.of-points b { display: block; color: var(--ink); font-family: var(--display); }
+.of-points span { font-size: .93rem; }
+.of-wide { margin: 26px 0; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border); }
+.of-wide img { width: 100%; display: block; }
+.of-wide figcaption { font-size: .84rem; color: var(--ink-faint); padding: 10px 14px; }
+.of-iter { display: grid; grid-template-columns: 1.35fr 1fr; gap: 14px; margin: 26px 0; }
+.of-iter figure { margin: 0; position: relative; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border); }
+.of-iter img { width: 100%; height: 100%; object-fit: cover; display: block; filter: grayscale(1) contrast(1.05); transition: filter .6s var(--ease); }
+.of-iter figure:hover img { filter: none; }
+.of-iter figcaption { position: absolute; left: 12px; top: 12px; font-family: var(--mono); font-size: .68rem; letter-spacing: .08em; text-transform: uppercase; background: rgba(0,0,0,.6); color: #fff; padding: 4px 9px; border-radius: 999px; }
+.of-chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 6px 0 20px; }
+.of-chips span { font-family: var(--mono); font-size: .78rem; border: 1px solid var(--accent); color: var(--ink); border-radius: 999px; padding: 6px 12px; background: var(--accent-soft); }
+@media (max-width: 760px) {
+  .of-facts, .of-views { grid-template-columns: 1fr 1fr; }
+  .of-split, .of-iter { grid-template-columns: 1fr; }
+  .of-row { grid-template-columns: 1fr; gap: 6px; }
+}
+</style>
 </head>
 <body>
 
@@ -33,65 +101,118 @@
   </div>
 </nav>
 
-<article class="article">
+<article class="article of">
   <a class="back" href="../index.html#projects">&#8592; Back to projects</a>
 
   <div class="pdate">ENTR 390 &nbsp;·&nbsp; 3D Printing &nbsp;·&nbsp; Product Design &nbsp;·&nbsp; Fabrication</div>
   <h1>OneFlip: A Handy Spice Jar</h1>
 
-  <div style="display:inline-flex;align-items:center;gap:10px;background:var(--accent-soft);border:1px solid var(--accent);border-radius:12px;padding:12px 18px;margin-bottom:32px">
-    <span style="font-size:1.3rem">🏆</span>
-    <div>
-      <div style="font-family:var(--display);font-weight:600;font-size:.95rem;color:var(--ink)">Best Design — 1st Place</div>
-      <div style="font-family:var(--mono);font-size:.68rem;color:var(--ink-soft);letter-spacing:.05em">Thunderdome Innovation Contest · University of Michigan</div>
-    </div>
+  <div class="of-badge">
+    <span style="font-size:1.4rem">🏆</span>
+    <div><b>Best Design, 1st Place</b><small>Thunderdome Innovation Contest · University of Michigan</small></div>
   </div>
 
+  <figure class="of-hero reveal"><img src="oneflip/img/hero.webp" alt="Three renders of the OneFlip spice jar on a warm brown background"></figure>
+
+  <p class="of-lead">A spice jar you can open and pour with one hand, so the other hand never has to leave the pan.</p>
   <p>
-    OneFlip is a one-handed spice jar designed for cooks who can't put down their spatula. Collaborating
-    with Harry Ye and Brian Khuu in ENTR 390 (3D Printing), we designed, iterated, and fabricated a spice
-    container that lets you reach, open, and pour with a single hand — freeing the other to stay on the pan.
-    The project won Best Design at the University of Michigan's Thunderdome Innovation Contest.
+    I built OneFlip with Harry Ye and Brian Khuu in ENTR 390 (3D Printing). We designed, iterated on and
+    fabricated a spice container that lets you reach, open and pour with a single hand. It won Best Design
+    at the University of Michigan's Thunderdome Innovation Contest.
   </p>
 
-  <h2>The Problem</h2>
-  <p>
-    Standard spice jars demand two hands at every step: reach, hold, open, then pour. When you're cooking,
-    one hand is always occupied. We found that in a study of 750 adults aged 20–94, only about 48% of people
-    over 50 had no problems opening jars — and around 16% had significant difficulty. OneFlip targets the
-    gap between grip strength and jar design, using leverage and ergonomics rather than brute force.
-  </p>
+  <div class="of-facts reveal">
+    <div class="of-fact"><span>Course</span><div>ENTR 390, 3D Printing</div></div>
+    <div class="of-fact"><span>Team</span><div>Harry Ye, Brian Khuu, Yunjong Na</div></div>
+    <div class="of-fact"><span>Award</span><div>Best Design, 1st place</div></div>
+    <div class="of-fact"><span>Tools</span><div>Fusion 360, FDM printing</div></div>
+  </div>
 
-  <h2>Design</h2>
+  <div class="of-kick">01 · The problem</div>
+  <h2>Two hands, all the time</h2>
   <p>
-    After sketching and ideating various single-hand forms, we converged on an organic bottle shape with a
-    flip-trigger cap mechanism. Four ergonomic principles guide the final design:
+    Imagine you're cooking dinner: beef and veggies in the pan, spatula in one hand, the pan in the other.
+    Then you need a seasoning right now, before the meat overcooks. Most ingredient containers need two hands
+    at every step.
   </p>
-  <ul>
-    <li><strong>Grip Region</strong> — textured body creates stable 4-finger contact while holding</li>
-    <li><strong>Sloped Back</strong> — slight convex inward surface gives the thumb a natural resting position</li>
-    <li><strong>Well-Positioned Trigger</strong> — the flip tab falls precisely within thumb range when gripping correctly</li>
-    <li><strong>Force-Saving Lever</strong> — extended pressing region minimises the force needed to actuate the cap</li>
-  </ul>
-  <p>
-    The appearance was designed to be minimal yet functional: a curved organic form that's safe to grab
-    without full attention, a transparent body so remaining spice level is always visible, a wider base
-    for stability when stacked, and a 3-component assembly that's cheap to produce.
-  </p>
+  <div class="of-flow reveal">
+    <div class="of-row"><span>Normal jar</span>
+      <div class="of-steps">
+        <div class="of-step">Reach</div><span class="of-arrow">→</span>
+        <div class="of-step two">Hold<small>two hands</small></div><span class="of-arrow">→</span>
+        <div class="of-step two">Open<small>two hands</small></div><span class="of-arrow">→</span>
+        <div class="of-step">Pour</div>
+      </div>
+    </div>
+    <div class="of-row"><span>OneFlip</span>
+      <div class="of-steps">
+        <div class="of-step">Reach</div><span class="of-arrow">→</span>
+        <div class="of-step one">Hold + Open<small>one hand</small></div><span class="of-arrow">→</span>
+        <div class="of-step">Pour</div>
+      </div>
+    </div>
+  </div>
+  <p>OneFlip merges the "hold" and "open" steps into one single-handed motion, so the other hand stays free to stir.</p>
 
-  <h2>Fabrication &amp; Iteration</h2>
-  <p>
-    We printed multiple iterations using FDM, refining dimensions and structural integrity each time.
-    OneFlip 2.0 — the final competition version — was sized precisely to a 12 cm hand width, shelled
-    to 0.5 mm wall thickness to function as a real container, and featured a stabilised cap structure
-    that mates cleanly with the bottle threads.
-  </p>
+  <h2>Who struggles with jars</h2>
+  <p>We did desk research on how people use everyday kitchen items, with a focus on older adults. One study of 750 adults aged 20 to 94 found this among people over 50:</p>
+  <div class="of-bars reveal">
+    <div class="of-bar"><div class="n"><span data-count="48" data-suffix="%">48%</span></div><div class="t"><i style="--w:48%"></i><em>had no problems opening jars</em></div></div>
+    <div class="of-bar"><div class="n"><span data-count="16" data-suffix="%">16%</span></div><div class="t"><i style="--w:16%"></i><em>had great difficulty</em></div></div>
+    <div class="of-bar"><div class="n">~<span data-count="4" data-suffix="%">4%</span></div><div class="t"><i style="--w:4%"></i><em>couldn't open a jar at all without help</em></div></div>
+  </div>
+  <p>OneFlip aims for an "easy to open for almost everyone" zone, using grip, leverage and a one-hand design instead of brute force.</p>
 
-  <h2>Presentation Deck</h2>
+  <div class="of-kick">02 · Ideation</div>
+  <h2>Many shapes on paper</h2>
+  <p>We sketched many forms that could support single-hand control before settling on an organic bottle with a flip-trigger cap.</p>
+  <figure class="of-wide reveal"><img src="oneflip/img/sketches.webp" alt="Pencil sketches of many spice jar shapes" loading="lazy"><figcaption>Early ideation sketches.</figcaption></figure>
+
+  <div class="of-kick">03 · Design</div>
+  <h2>Four views of the final form</h2>
+  <div class="of-views reveal">
+    <figure><img src="oneflip/img/view-34.webp" alt="OneFlip three-quarter view render" loading="lazy"><figcaption>Three-quarter</figcaption></figure>
+    <figure><img src="oneflip/img/view-front.webp" alt="OneFlip front view render" loading="lazy"><figcaption>Front</figcaption></figure>
+    <figure><img src="oneflip/img/view-side.webp" alt="OneFlip side view render" loading="lazy"><figcaption>Side</figcaption></figure>
+    <figure><img src="oneflip/img/view-top.webp" alt="OneFlip top view render showing the flip cap" loading="lazy"><figcaption>Top</figcaption></figure>
+  </div>
+
+  <h2>Ergonomics</h2>
+  <div class="of-split reveal">
+    <figure><img src="oneflip/img/cap.webp" alt="Close-up render of the OneFlip flip cap and lever" loading="lazy"></figure>
+    <ol class="of-points">
+      <li><b>Grip region</b><span>Creates more stable contact with four fingers while holding.</span></li>
+      <li><b>Sloped back</b><span>A slight inward curve gives the thumb a natural place to rest.</span></li>
+      <li><b>Well-positioned trigger</b><span>When you hold it correctly, the flip trigger falls right within thumb range.</span></li>
+      <li><b>Force-saving lever</b><span>An extended pressing region opens the cap with minimal pressure.</span></li>
+    </ol>
+  </div>
+
+  <h2>Appearance</h2>
+  <div class="of-split reveal">
+    <ol class="of-points">
+      <li><b>Organic form</b><span>A curved, smooth surface that's safe to grab without full attention.</span></li>
+      <li><b>Transparency</b><span>You can always see how much spice is left.</span></li>
+      <li><b>Heavier bottom</b><span>A larger contact area keeps stacked jars from tipping over in the kitchen.</span></li>
+      <li><b>Three components</b><span>Easy to assemble and cheap to produce.</span></li>
+    </ol>
+    <figure><img src="oneflip/img/render.webp" alt="Render of the transparent OneFlip bottle" loading="lazy"></figure>
+  </div>
+
+  <div class="of-kick">04 · Fabrication</div>
+  <h2>Printed, tested, printed again</h2>
+  <p>We printed several iterations with FDM, refining the dimensions and structure each time. OneFlip 2.0, the competition version:</p>
+  <div class="of-chips"><span>Fits a 12 cm hand</span><span>Shelled to 0.5 mm as a real container</span><span>Stabilized cap structure</span></div>
+  <div class="of-iter reveal">
+    <figure><img src="oneflip/img/prints-before-after.webp" alt="Two 3D-printed OneFlip prototypes, before and after" loading="lazy"><figcaption>Before &amp; after</figcaption></figure>
+    <figure><img src="oneflip/img/print-2.webp" alt="3D-printed OneFlip 2.0 with its cap" loading="lazy"><figcaption>OneFlip 2.0</figcaption></figure>
+  </div>
+
+  <h2>Presentation deck</h2>
   <div class="article-pdf-wrap">
-    <iframe src="oneflip/report.pdf" title="OneFlip — ENTR 390 Final Project Presentation"></iframe>
+    <iframe src="oneflip/report.pdf" title="OneFlip, ENTR 390 final project presentation" loading="lazy"></iframe>
     <p class="article-pdf-fallback">
-      Can't see the embed? <a href="oneflip/report.pdf" target="_blank">Open PDF &rarr;</a>
+      Can't see the embed? <a href="oneflip/report.pdf" target="_blank" rel="noopener">Open the PDF &rarr;</a>
     </p>
   </div>
 
