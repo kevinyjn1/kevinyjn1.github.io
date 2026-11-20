@@ -3,21 +3,26 @@
 Kevin Na's personal site. Plain HTML, CSS and JavaScript: no build step.
 GitHub Pages publishes whatever is on the `main` branch.
 
+Why it looks the way it does: see [DESIGN.md](DESIGN.md).
+
 ## How to edit it
+
+Every section of `index.html` starts with a comment like `<!-- ============ RESEARCH ============ -->`, so search for the section name.
 
 | I want to change... | Open this file | Look for |
 |---|---|---|
-| Any text on the homepage | `index.html` | the section's comment, like `<!-- ============ NEWS ============ -->` |
-| Add a news line | `index.html` | copy one `<div class="tl-item reveal">…</div>` block and edit it (add `past` to the class for older items) |
-| Add a paper | `index.html` | copy one `<article class="pub reveal">…</article>` block |
-| Add a project card | `index.html` | copy one `<article class="card …">` block; `data-cat` picks which filter buttons show it (`robotics`, `ml`, `embedded`, `design`) |
-| The words the hero types out | `index.html` | `data-words='[...]'` on the `rotator` line |
-| The green "Open to…" line | `index.html` | `status-pill` |
-| Colors | `assets/style.css` | the `:root` block at the top (`--accent` is the maize yellow) |
+| The one-line intro | `index.html` | `class="lede"` |
+| The four highlights next to my name | `index.html` | `class="ledger"`, one `<li>` each |
+| Add a paper | `index.html` | copy one `<article class="paper reveal">…</article>` block |
+| Add a big project | `index.html` | copy one `<article class="work reveal">…</article>` block. Add `flip` to the class to put the picture on the right |
+| Add a small project | `index.html` | copy one `<div class="row reveal">…</div>` block in MORE BUILDS |
+| Add a job or award | `index.html` | copy one `<div class="step reveal">…</div>` in PATH. Add `honor` to the class for an award |
+| Colors and fonts | `assets/style.css` | the `:root` block at the top |
 | Animations | `assets/main.js` | each effect is its own commented block |
 | Resume | replace `resume.pdf` with the new file, same name |
+| The hero video | replace `assets/hero.mp4` (and `assets/hero.jpg`, its still) |
 
-A project card's picture is `assets/thumbs/<name>.webp`, and the clip that plays on hover is `assets/clips/<name>.mp4`. A card without them uses a text "glyph" instead (see OneFlip).
+A big project's picture is `assets/thumbs/<name>.webp`, and the clip that plays on hover is `assets/clips/<name>.mp4`.
 
 ## Preview on your laptop
 
