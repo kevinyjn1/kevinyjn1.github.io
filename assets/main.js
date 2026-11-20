@@ -1,70 +1,46 @@
 /* =================================================================
    Kevin Na: site behavior (small on purpose)
-   - header turns solid after you scroll
+   - page fades in once it's loaded
    - mobile menu
    - sections fade in once as you reach them
-   - project footage plays when you hover it
-   - hero footage plays unless the visitor prefers less motion
+   - project footage plays when you hover a card
    - number count-ups (used on the OneFlip page)
    - copy-email button
    ================================================================= */
 const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-/* header */
-(function header() {
-  const top = document.querySelector('.top');
-  if (!top) return;
-  const onScroll = () => top.classList.toggle('scrolled', scrollY > 40);
-  onScroll(); addEventListener('scroll', onScroll, { passive: true });
+/* entrance */
+requestAnimationFrame(() => document.documentElement.classList.add('ready'));
 
-  const btn = document.querySelector('.menu-btn'), links = document.querySelector('.links');
-  if (btn && links) {
-    btn.addEventListener('click', () => {
-      const open = links.classList.toggle('open');
-      btn.textContent = open ? 'Close' : 'Menu';
-    });
-    links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-      links.classList.remove('open'); btn.textContent = 'Menu';
-    }));
-  }
-
-  // highlight the section you're in
-  const navLinks = [...document.querySelectorAll('.links a[href^="#"]')];
-  const io = new IntersectionObserver(es => es.forEach(e => {
-    if (!e.isIntersecting) return;
-    navLinks.forEach(a => a.classList.toggle('on', a.getAttribute('href') === '#' + e.target.id));
-  }), { rootMargin: '-45% 0px -50% 0px' });
-  navLinks.forEach(a => { const s = document.querySelector(a.getAttribute('href')); if (s) io.observe(s); });
+/* mobile menu */
+(function menu() {
+  const side = document.querySelector('.side'), btn = document.querySelector('.menu-btn');
+  if (!side || !btn) return;
+  btn.addEventListener('click', () => {
+    const open = side.classList.toggle('open');
+    btn.textContent = open ? 'Close' : 'Menu';
+    btn.setAttribute('aria-expanded', open);
+  });
 })();
 
 /* reveal on scroll (blog.js also uses this) */
 const revealObserver = new IntersectionObserver(es => es.forEach(e => {
   if (e.isIntersecting) { e.target.classList.add('show'); revealObserver.unobserve(e.target); }
-}), { rootMargin: '0px 0px -8% 0px' });
+}), { rootMargin: '0px 0px -6% 0px' });
 document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 window.__revealObserver = revealObserver;
 
-/* hero footage */
-(function hero() {
-  const v = document.querySelector('.hero-media video');
-  if (!v) return;
-  if (reduceMotion) { v.removeAttribute('autoplay'); v.pause(); return; }
-  v.play().catch(() => {});
-  // pause when scrolled away, to save battery
-  new IntersectionObserver(([e]) => e.isIntersecting ? v.play().catch(() => {}) : v.pause()).observe(v);
-})();
-
-/* project footage on hover */
+/* project footage on hover: <video data-src="..."> inside a .card */
 (function hoverClips() {
   if (reduceMotion || !matchMedia('(hover: hover)').matches) return;
-  document.querySelectorAll('.work').forEach(w => {
-    const f = w.querySelector('.frame'), v = f && f.querySelector('video[data-src]');
+  document.querySelectorAll('.card').forEach(c => {
+    const v = c.querySelector('video[data-src]');
     if (!v) return;
-    w.addEventListener('pointerenter', () => {
+    c.addEventListener('pointerenter', () => {
       if (!v.src) v.src = v.dataset.src;
-      f.classList.add('playing'); v.play().catch(() => {});
+      c.classList.add('playing'); v.play().catch(() => {});
     });
-    w.addEventListener('pointerleave', () => { f.classList.remove('playing'); v.pause(); });
+    c.addEventListener('pointerleave', () => { c.classList.remove('playing'); v.pause(); });
   });
 })();
 

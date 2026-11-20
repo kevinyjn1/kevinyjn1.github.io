@@ -5,31 +5,52 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="CGR: Conversational Memory via Graph Retrieval — Kevin Na">
 <title>CGR — Kevin Na</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%230b0a09'/><text x='16' y='23' font-family='Georgia,serif' font-size='19' text-anchor='middle' fill='%23ffcb05'>K</text></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='16' fill='%2300274c'/><text x='16' y='22.5' font-family='Georgia,serif' font-size='18' font-weight='700' text-anchor='middle' fill='%23ffcb05'>K</text></svg>">
 <script>document.documentElement.classList.add('js');</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 
-<header class="top">
-  <div class="top-inner">
-    <a class="mark" href="../index.html">Kevin Na</a>
-    <nav class="links" aria-label="Main">
-      <a href="../index.html#research">Research</a>
-      <a href="../index.html#work">Work</a>
-      <a href="../index.html#path">Path</a>
-      <a href="../index.html#about">About</a>
-      <a class="btn-sm" href="../resume.pdf" target="_blank" rel="noopener">Resume</a>
-    </nav>
-    <button class="menu-btn" aria-label="Open menu">Menu</button>
+
+<!-- ============ SIDEBAR (the same on every page) ============ -->
+<aside class="side">
+  <div class="side-top">
+    <div>
+      <p class="eyebrow">U-M · CS '27</p>
+      <a class="side-name" href="../index.html">Kevin Na</a>
+    </div>
+    <button class="menu-btn" aria-label="Open menu" aria-expanded="false">Menu</button>
   </div>
-</header>
+  <p class="side-role">Robot learning · Surgical video AI · Embedded ML</p>
+  <picture>
+    <source srcset="../assets/profile-portrait.webp" type="image/webp">
+    <img class="side-photo" src="../assets/profile-portrait.jpg" alt="Kevin Na" width="116" height="116">
+  </picture>
+  <nav class="side-nav" aria-label="Main">
+      <a href="../index.html">Home</a>
+      <a href="../research.html">Research</a>
+      <a href="../projects.html" class="on" aria-current="page">Projects</a>
+      <a href="../about.html">About</a>
+      <a href="../about.html#contact">Contact</a>
+  </nav>
+  <div class="side-links">
+    <a href="../resume.pdf" target="_blank" rel="noopener">Resume</a>
+    <a href="https://github.com/kevinyjn1" target="_blank" rel="noopener">GitHub</a>
+    <a href="https://www.linkedin.com/in/kevinyjna/" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://openreview.net/profile?id=~Yunjong_Na1" target="_blank" rel="noopener">OpenReview</a>
+  </div>
+  <p class="status"><i></i>Open to 2027 roles</p>
+</aside>
+
+<div class="page">
+<main class="main" id="main">
 
 <article class="article">
-  <a class="back" href="../index.html#work">&#8592; Back to work</a>
+  <a class="back" href="../projects.html">&#8592; All projects</a>
 
   <div class="pdate">Graph Retrieval &nbsp;·&nbsp; LLM &nbsp;·&nbsp; LoCoMo</div>
   <h1>CGR: Conversational Graph Retrieval</h1>
@@ -68,14 +89,26 @@
   <p>Python, NetworkX, sentence-transformers, GPT-4o, LoCoMo benchmark.</p>
 </article>
 
-<footer>
-  <div class="footer-inner">
-    <span>&copy; 2026 Kevin Na</span>
-    <span>&middot;</span>
-    <a href="../index.html#work">All projects</a>
-  </div>
-</footer>
+</main>
 
+<!-- ============ FOOTER ============ -->
+<footer class="foot">
+  <div><p class="eyebrow">Portfolio</p><p class="who">Kevin Na</p></div>
+  <nav aria-label="Footer">
+    <a href="../research.html">Research</a>
+    <a href="../projects.html">Projects</a>
+    <a href="../about.html#contact">Contact</a>
+  </nav>
+  <div class="icons">
+    <a href="https://github.com/kevinyjn1" target="_blank" rel="noopener">GitHub</a>
+    <a href="https://www.linkedin.com/in/kevinyjna/" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="mailto:kevinyjna@gmail.com">Email</a>
+  </div>
+  <div class="small"><span>© 2026 Kevin Na · Ann Arbor, Michigan</span><a href="https://github.com/kevinyjn1/kevinyjn1.github.io" target="_blank" rel="noopener">Plain HTML and CSS, on GitHub Pages</a></div>
+</footer>
+</div>
+
+<div class="toast" role="status">Email copied</div>
 <script src="../assets/main.js"></script>
 </body>
 </html>

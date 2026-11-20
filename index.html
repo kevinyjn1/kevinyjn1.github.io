@@ -5,342 +5,127 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kevin Na · Robot learning, surgical video AI, embedded ML</title>
 <meta name="description" content="Kevin (Yun Jong) Na, University of Michigan CS '27. I build AI for the physical world: robots that learn from people, vision-language models for surgical video, and ML that runs on microcontrollers.">
-<meta property="og:title" content="Kevin Na">
-<meta property="og:description" content="Robot learning, surgical video AI and embedded ML. University of Michigan CS '27.">
+<meta property="og:title" content="Kevin Na · Robot learning, surgical video AI, embedded ML">
+<meta property="og:description" content="Kevin (Yun Jong) Na, University of Michigan CS '27. I build AI for the physical world: robots that learn from people, vision-language models for surgical video, and ML that runs on microcontrollers.">
 <meta property="og:image" content="https://kevinyjn1.github.io/assets/og.jpg">
-<meta property="og:type" content="website">
-<meta name="theme-color" content="#0b0a09">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%230b0a09'/><text x='16' y='23' font-family='Georgia,serif' font-size='19' text-anchor='middle' fill='%23ffcb05'>K</text></svg>">
+<meta name="theme-color" content="#00274c">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='16' fill='%2300274c'/><text x='16' y='22.5' font-family='Georgia,serif' font-size='18' font-weight='700' text-anchor='middle' fill='%23ffcb05'>K</text></svg>">
 <script>document.documentElement.classList.add('js');</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 
-<header class="top">
-  <div class="top-inner">
-    <a class="mark" href="#">Kevin Na</a>
-    <nav class="links" aria-label="Main">
-      <a href="#research">Research</a>
-      <a href="#work">Work</a>
-      <a href="#path">Path</a>
-      <a href="#about">About</a>
-      <a class="btn-sm" href="resume.pdf" target="_blank" rel="noopener">Resume</a>
-    </nav>
-    <button class="menu-btn" aria-label="Open menu">Menu</button>
+<!-- ============ SIDEBAR (the same on every page) ============ -->
+<aside class="side">
+  <div class="side-top">
+    <div>
+      <p class="eyebrow">U-M · CS '27</p>
+      <a class="side-name" href="index.html">Kevin Na</a>
+    </div>
+    <button class="menu-btn" aria-label="Open menu" aria-expanded="false">Menu</button>
   </div>
-</header>
-
-<!-- ============ HERO ============ -->
-<section class="hero">
-  <div class="hero-media" aria-hidden="true">
-    <video autoplay muted loop playsinline preload="auto" poster="assets/hero.jpg">
-      <source src="assets/hero.mp4" type="video/mp4">
-    </video>
+  <p class="side-role">Robot learning · Surgical video AI · Embedded ML</p>
+  <picture>
+    <source srcset="assets/profile-portrait.webp" type="image/webp">
+    <img class="side-photo" src="assets/profile-portrait.jpg" alt="Kevin Na" width="116" height="116">
+  </picture>
+  <nav class="side-nav" aria-label="Main">
+      <a href="index.html" class="on" aria-current="page">Home</a>
+      <a href="research.html">Research</a>
+      <a href="projects.html">Projects</a>
+      <a href="about.html">About</a>
+      <a href="about.html#contact">Contact</a>
+  </nav>
+  <div class="side-links">
+    <a href="resume.pdf" target="_blank" rel="noopener">Resume</a>
+    <a href="https://github.com/kevinyjn1" target="_blank" rel="noopener">GitHub</a>
+    <a href="https://www.linkedin.com/in/kevinyjna/" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://openreview.net/profile?id=~Yunjong_Na1" target="_blank" rel="noopener">OpenReview</a>
   </div>
+  <p class="status"><i></i>Open to 2027 roles</p>
+</aside>
 
-  <div class="wrap hero-inner">
-    <div class="hero-grid">
-      <div class="hero-left">
-        <p class="mono legal-name in">Yun Jong (Kevin) Na &nbsp;·&nbsp; University of Michigan CS '27</p>
-        <h1 class="name in d1">Kevin<br>Na<em>.</em></h1>
-        <p class="lede in d2">I build AI for the physical world: robots that learn from people, vision-language models that follow a surgery, and machine learning small enough to run on a microcontroller.</p>
-        <div class="cta in d3">
-          <a class="btn solid" href="resume.pdf" target="_blank" rel="noopener">Resume (PDF)</a>
-          <a class="btn" href="mailto:kevinyjna@gmail.com">kevinyjna@gmail.com</a>
-        </div>
+<div class="page">
+<main class="main" id="main">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div>
+      <p class="eyebrow in">Computer Science · University of Michigan</p>
+      <h1 class="hello in d1">Hello, I'm <span class="big"><span class="hl">Kevin Na</span>.</span></h1>
+      <p class="lede in d2">I build AI for the physical world: robots that learn from people, vision-language models that follow a surgery, and machine learning small enough to run on a microcontroller.</p>
+      <div class="cta in d3">
+        <a class="btn primary" href="resume.pdf" target="_blank" rel="noopener">Resume <span class="ar">↗</span></a>
+        <a class="btn" href="about.html#contact">Get in touch <span class="ar">→</span></a>
       </div>
-
-      <ol class="ledger hero-right in d4" aria-label="Highlights">
-        <li><span class="k">01</span><div><b>Under review at RSS 2027</b><span>Lift One, Know All. I built the simulation, dataset, metrics and baselines.</span></div></li>
-        <li><span class="k">02</span><div><b>Under review at ACL Rolling Review</b><span>Do Graph Memories Use Their Edges? Co-author.</span></div></li>
-        <li><span class="k">03</span><div><b>NeurIPS 2025 workshop paper</b><span>Liminal Training, at ResponsibleFM, as an Algoverse Fellow.</span></div></li>
-        <li><span class="k">04</span><div><b>Two first places</b><span>MIT IDSS hackathon, and Best Design at U-M's Thunderdome contest.</span></div></li>
-      </ol>
     </div>
+    <picture>
+      <source srcset="assets/profile-portrait.webp" type="image/webp">
+      <img class="hero-photo" src="assets/profile-portrait.jpg" alt="" width="96" height="96">
+    </picture>
+  </section>
 
-    <div class="hero-foot mono in d4">
-      <span>Now: COG Lab (surgical video AI) &nbsp;·&nbsp; Atombots Lab (robot learning)</span>
-      <span>Footage: MBot · HydroSense · a SmolVLA demo · ambientMNIST</span>
-    </div>
-  </div>
-</section>
+  <!-- ============ HIGHLIGHTS: edit the four tiles here ============ -->
+  <div class="rule in d4"><span>Highlights</span></div>
+  <ul class="proof in d4">
+    <li><b>RSS 2027</b><span class="st">Under review</span><p>Lift One, Know All. I built the simulation, dataset, metrics and baselines.</p></li>
+    <li><b>ACL Rolling Review</b><span class="st">Under review</span><p>Do Graph Memories Use Their Edges? Co-author.</p></li>
+    <li><b>NeurIPS 2025</b><span class="st">Workshop paper</span><p>Liminal Training, at ResponsibleFM, as an Algoverse Fellow.</p></li>
+    <li><b>2× first place</b><span class="st">Awards</span><p>MIT IDSS DSML hackathon, and Best Design at U-M's Thunderdome.</p></li>
+  </ul>
 
-<main>
-
-<!-- ============ RESEARCH ============ -->
-<section class="sec" id="research">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <p class="mono"><i>01</i>Research</p>
-      <h2 class="sec-title">Two labs, <em>one question:</em> can a model act on what it sees?</h2>
-    </div>
-
-    <div class="labs">
-      <article class="lab reveal">
-        <p class="mono">May 2026 – now</p>
-        <h3>Surgical video understanding</h3>
-        <p class="where">COG Lab (Corso Group), with Prof. Jason Corso</p>
-        <ul>
-          <li><b>Post-training</b> a Qwen2.5-VL model with DPO, Step-DPO and GRPO, with step-level rewards for step correctness, order and grounding.</li>
-          <li><b>Benchmarking</b> GPT-5.1, Gemini, Qwen3-VL and InternVL on surgical skill classification against the lab's 70.7% baseline, which I reproduced on a Slurm GPU cluster and fixed a frame-rate bug in.</li>
-          <li><b>De-identifying</b> surgical video with a SAM 3 segmentation pipeline for a dataset release.</li>
-        </ul>
-      </article>
-      <article class="lab reveal">
-        <p class="mono">Jan 2025 – now</p>
-        <h3>Robot learning</h3>
-        <p class="where">Extreme Robotics (Atombots) Lab</p>
-        <ul>
-          <li><b>Curated</b> a 90-episode SO-101 manipulation dataset, 40 with mid-grasp disturbances, to study how ACT and SmolVLA policies recover from failure.</li>
-          <li><b>Co-lead</b> a 5-person team building a multi-camera AprilTag motion-capture system, validated against a ground-truth grid.</li>
-          <li><b>Building</b> a wheel-legged quadruped with ROS 2 on NVIDIA Jetson.</li>
-        </ul>
-      </article>
-    </div>
-
-    <div class="papers">
-      <p class="mono reveal">Papers</p>
-      <article class="paper reveal">
-        <div class="venue"><b>RSS 2027</b><span>Under review</span></div>
-        <div class="body">
-          <h4>Lift One, Know All: What a Robot Can Remember About Objects Shuffled Out of Sight</h4>
-          <p>Team paper. My part: the ManiSkill3 simulation environment, the dataset, the evaluation metrics and the baselines.</p>
-        </div>
-      </article>
-      <article class="paper reveal">
-        <div class="venue"><b>ACL Rolling Review</b><span>Under review</span></div>
-        <div class="body">
-          <h4>Do Graph Memories Use Their Edges? Separating Routing from Content with Text-Fixed Tests</h4>
-          <p>Co-author.</p>
-        </div>
-      </article>
-      <article class="paper reveal">
-        <div class="venue"><b>NeurIPS 2025 Workshop</b><span class="live">Published</span></div>
-        <div class="body">
-          <h4>Liminal Training: Characterizing and Mitigating Subliminal Learning in Large Language Models</h4>
-          <p>Fine-tuning on unrelated data can quietly pass on a trait or a misalignment. We find that this spikes in the first 10–20 training steps, and propose liminal training, an annealed KL regularizer that prevents it. ResponsibleFM workshop, as an Algoverse Fellow.</p>
-        </div>
-      </article>
-      <p class="papers-foot reveal"><a class="tlink" href="https://openreview.net/profile?id=~Yunjong_Na1" target="_blank" rel="noopener">OpenReview profile</a></p>
-    </div>
-  </div>
-</section>
-
-<!-- ============ SELECTED WORK ============ -->
-<section class="sec" id="work">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <p class="mono"><i>02</i>Selected work</p>
-      <h2 class="sec-title">Built, tested, <em>shipped to hardware.</em></h2>
-    </div>
-
-    <article class="work reveal">
-      <div class="work-media">
-        <a class="frame" href="projects/yolh.html" aria-label="YOLH write-up">
-          <img src="assets/thumbs/yolh.webp" alt="YOLH training point cloud and robot evaluation" loading="lazy">
-          <video muted loop playsinline preload="none" data-src="assets/clips/yolh.mp4"></video>
-        </a>
-        <p class="figcap"><b>Fig. 1</b>Training point cloud and evaluation, in simulation.</p>
-      </div>
-      <div class="work-text">
-        <span class="work-no">01</span>
-        <h3>YOLH: You Only Learn from Humans</h3>
-        <p class="ctx">Atombots Lab · Robot learning</p>
-        <p>A manipulation policy learned from human RGB-D demonstrations with a RISE-based diffusion policy. No teleoperation: the robot learns by watching people work.</p>
-        <p class="stack">Diffusion Policy · RGB-D · SAM2</p>
-        <div class="go"><a class="tlink int" href="projects/yolh.html">Read the write-up</a></div>
-      </div>
-    </article>
-
-    <article class="work flip reveal">
-      <div class="work-media">
-        <a class="frame" href="https://kevinyjn1.github.io/smolvla-viz-site/" target="_blank" rel="noopener" aria-label="Inside SmolVLA visualization">
-          <img src="assets/thumbs/smolvla.webp" alt="Table camera and wrist camera views from one robot demonstration" loading="lazy">
-        </a>
-        <p class="figcap"><b>Fig. 2</b>Table and wrist cameras from one demonstration.</p>
-      </div>
-      <div class="work-text">
-        <span class="work-no">02</span>
+  <!-- ============ RECENT WORK: three cards ============ -->
+  <div class="rule reveal"><span>Recent work</span></div>
+  <div class="grid3">
+      <a class="card reveal" href="https://kevinyjn1.github.io/smolvla-viz-site/" target="_blank" rel="noopener">
+        <div class="media"><img src="assets/thumbs/smolvla.webp" alt="Table and wrist camera views from one robot demonstration" loading="lazy"></div>
+        <p class="tags">Atombots Lab · SmolVLA · LeRobot</p>
         <h3>Inside SmolVLA</h3>
-        <p class="ctx">Atombots Lab · Learning by doing</p>
-        <p>A 3D walkthrough of one forward pass of a fine-tuned SmolVLA robot policy, with the real numbers at every step: two camera images, through the vision-language model and the action expert, to 5 seconds of joint angles for a Unitree D1 arm.</p>
-        <p class="stack">SmolVLA · LeRobot · three.js</p>
-        <div class="go"><a class="tlink" href="https://kevinyjn1.github.io/smolvla-viz-site/" target="_blank" rel="noopener">Open the 3D walkthrough</a></div>
-      </div>
-    </article>
-
-    <article class="work reveal">
-      <div class="work-media">
-        <a class="frame" href="projects/hydrosense.html" aria-label="HydroSense write-up">
-          <img src="assets/thumbs/hydrosense.webp" alt="HydroSense water bottle sensor demo" loading="lazy">
-          <video muted loop playsinline preload="none" data-src="assets/clips/hydrosense.mp4"></video>
-        </a>
-        <p class="figcap"><b>Fig. 3</b>Live demo, from the project page.</p>
-      </div>
-      <div class="work-text">
-        <span class="work-no">03</span>
+        <p>A 3D walkthrough of one forward pass of a fine-tuned SmolVLA robot policy, with the real numbers at every step, from two camera images to 5 seconds of joint angles.</p>
+      </a>
+      <a class="card reveal" href="projects/yolh.html">
+        <div class="media"><img src="assets/thumbs/yolh.webp" alt="YOLH training point cloud and evaluation" loading="lazy"><video muted loop playsinline preload="none" data-src="assets/clips/yolh.mp4"></video></div>
+        <p class="tags">Atombots Lab · Diffusion policy · RGB-D</p>
+        <h3>YOLH: You Only Learn from Humans</h3>
+        <p>A manipulation policy learned from human RGB-D demonstrations with a RISE-based diffusion policy, so the robot learns by watching people.</p>
+      </a>
+      <a class="card reveal" href="projects/hydrosense.html">
+        <div class="media"><img src="assets/thumbs/hydrosense.webp" alt="HydroSense water bottle sensor demo" loading="lazy"><video muted loop playsinline preload="none" data-src="assets/clips/hydrosense.mp4"></video></div>
+        <p class="tags">EECS 373 · STM32 · MFCC</p>
         <h3>HydroSense</h3>
-        <p class="ctx">EECS 373 · Embedded systems</p>
-        <p>A bottle-agnostic water-level tracker: a bone-conduction mic, MFCC features and an SVM running on an STM32. No camera and no ultrasonic sensor.</p>
-        <p class="stack">STM32 · C · MFCC · SVM</p>
-        <div class="go">
-          <a class="tlink int" href="projects/hydrosense.html">Read the write-up</a>
-          <a class="tlink" href="https://kevinyjn1.github.io/project-viz/hydrosense/" target="_blank" rel="noopener">See it under the hood</a>
-        </div>
-      </div>
-    </article>
-
-    <article class="work flip reveal">
-      <div class="work-media">
-        <a class="frame" href="projects/mbot.html" aria-label="MBot write-up">
-          <img src="assets/thumbs/mbot.webp" alt="MBot driving through a maze" loading="lazy">
-          <video muted loop playsinline preload="none" data-src="assets/clips/mbot.mp4"></video>
-        </a>
-        <p class="figcap"><b>Fig. 4</b>Autonomous exploration of a maze.</p>
-      </div>
-      <div class="work-text">
-        <span class="work-no">04</span>
-        <h3>MBot autonomous navigation</h3>
-        <p class="ctx">EECS 467 · Autonomy</p>
-        <p>Motion control, particle-filter SLAM, occupancy-grid mapping and A* planning, built from scratch in C++ with ROS 2 and run on a real robot.</p>
-        <p class="stack">C++ · ROS 2 · SLAM · A*</p>
-        <div class="go"><a class="tlink int" href="projects/mbot.html">Read the write-up</a></div>
-      </div>
-    </article>
-
-    <article class="work reveal">
-      <div class="work-media">
-        <a class="frame" href="projects/oneflip.html" aria-label="OneFlip write-up">
-          <img src="assets/thumbs/oneflip.webp" alt="Three renders of the OneFlip spice jar" loading="lazy">
-          <video muted loop playsinline preload="none" data-src="assets/clips/oneflip.mp4"></video>
-        </a>
-        <p class="figcap"><b>Fig. 5</b>Renders of the final design.</p>
-      </div>
-      <div class="work-text">
-        <span class="work-no">05</span>
-        <h3>OneFlip <span class="award">1st place</span></h3>
-        <p class="ctx">ENTR 390 · Product design</p>
-        <p>A 3D-printed spice jar you can open and pour with one hand while cooking. Best Design at U-M's Thunderdome Innovation Contest.</p>
-        <p class="stack">Fusion 360 · FDM printing · Ergonomics</p>
-        <div class="go"><a class="tlink int" href="projects/oneflip.html">Read the write-up</a></div>
-      </div>
-    </article>
+        <p>A bottle-agnostic water-level tracker: a bone-conduction mic, MFCC features and an SVM on an STM32.</p>
+      </a>
   </div>
-</section>
+  <a class="more" href="projects.html">All projects →</a>
 
-<!-- ============ MORE BUILDS ============ -->
-<section class="sec" id="more">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <p class="mono"><i>03</i>More builds</p>
-      <h2 class="sec-title">Smaller things, <em>same care.</em></h2>
-    </div>
-    <div class="index">
-      <div class="row reveal">
-        <h4>ambientMNIST<span class="ctx">Embedded ML</span></h4>
-        <p>MNIST digit classification running entirely on a microcontroller, with 5-bit quantized pixels streamed over UART and per-class scores sent back in real time.</p>
-        <div class="go"><a class="tlink int" href="projects/ambientmnist.html">Write-up</a><a class="tlink" href="https://kevinyjn1.github.io/project-viz/ambient-mnist/" target="_blank" rel="noopener">Under the hood</a></div>
-      </div>
-      <div class="row reveal">
-        <h4>Go2W motion capture<span class="ctx">Atombots Lab · Perception</span></h4>
-        <p>A ROS 2, RealSense and AprilTag tracking stack feeding a Go2W quadruped for locomotion and multi-robot swarm experiments.</p>
-        <div class="go"><a class="tlink int" href="projects/go2w.html">Write-up</a></div>
-      </div>
-      <div class="row reveal">
-        <h4>Rectified flow from scratch<span class="ctx">Atombots Lab · Learning by doing</span></h4>
-        <p>A rectified-flow generative model in pure PyTorch: a velocity network learns to carry Gaussian noise to data along straight paths, sampled with Euler and Heun steps.</p>
-        <div class="go"><a class="tlink" href="https://github.com/kevinyjn1/rectified-flow-from-scratch" target="_blank" rel="noopener">GitHub</a></div>
-      </div>
-      <div class="row reveal">
-        <h4>League of Legends predictor<span class="ctx">EECS 398 · Data science</span></h4>
-        <p>Logistic regression on gold, XP and kill differences at 25 minutes, engineered from 10K+ match logs: 83.6% test accuracy, 0.92 ROC-AUC.</p>
-        <div class="go"><a class="tlink" href="https://kevinyjn1.github.io/project-viz/lol-predictor/" target="_blank" rel="noopener">Under the hood</a></div>
-      </div>
-    </div>
-    <p class="viz-note reveal">Curious how these work inside? <a class="tlink" href="https://kevinyjn1.github.io/project-viz/" target="_blank" rel="noopener">Step-by-step visualizations</a></p>
+  <!-- ============ FOOTAGE STRIP: pictures live in assets/strip/ ============ -->
+  <div class="strip reveal" aria-label="Footage from my projects">
+    <div class="strip-track"><img src="assets/strip/mbot.webp" alt="MBot exploring a maze" loading="lazy"><img src="assets/strip/smolvla-table.webp" alt="A robot arm demonstration for SmolVLA" loading="lazy"><img src="assets/strip/hydrosense.webp" alt="HydroSense reading a bottle" loading="lazy"><img src="assets/strip/oneflip.webp" alt="OneFlip prints before and after" loading="lazy"><img src="assets/strip/yolh.webp" alt="YOLH point cloud and evaluation" loading="lazy"><img src="assets/strip/mbot-map.webp" alt="MBot occupancy map and A* path" loading="lazy"><img src="assets/strip/ambient.webp" alt="ambientMNIST board" loading="lazy"><img src="assets/strip/oneflip-render.webp" alt="OneFlip render" loading="lazy"><img src="assets/strip/mbot-run.webp" alt="MBot on a run" loading="lazy"><img src="assets/strip/mbot.webp" alt="" aria-hidden="true" loading="lazy"><img src="assets/strip/smolvla-table.webp" alt="" aria-hidden="true" loading="lazy"><img src="assets/strip/hydrosense.webp" alt="" aria-hidden="true" loading="lazy"><img src="assets/strip/oneflip.webp" alt="" aria-hidden="true" loading="lazy"><img src="assets/strip/yolh.webp" alt="" aria-hidden="true" loading="lazy"><img src="assets/strip/mbot-map.webp" alt="" aria-hidden="true" loading="lazy"><img src="assets/strip/ambient.webp" alt="" aria-hidden="true" loading="lazy"><img src="assets/strip/oneflip-render.webp" alt="" aria-hidden="true" loading="lazy"><img src="assets/strip/mbot-run.webp" alt="" aria-hidden="true" loading="lazy"></div>
+    <a class="strip-pill" href="projects.html">From the lab <span class="ar">→</span></a>
   </div>
-</section>
-
-<!-- ============ PATH ============ -->
-<section class="sec" id="path">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <p class="mono"><i>04</i>Path</p>
-      <h2 class="sec-title">Experience <em>and honors.</em></h2>
-    </div>
-    <div class="path">
-      <div class="step reveal"><div class="when">May 2026 – now</div><div class="what"><b>Undergraduate Researcher</b><span>COG Lab (Corso Group), University of Michigan</span></div><div class="note">Vision-language models for surgical video.</div></div>
-      <div class="step reveal"><div class="when">Jan 2025 – now</div><div class="what"><b>Robot Learning Researcher</b><span>Extreme Robotics (Atombots) Lab, University of Michigan</span></div><div class="note">Imitation learning, motion capture, a wheel-legged quadruped.</div></div>
-      <div class="step honor reveal"><div class="when">2025</div><div class="what"><b>NeurIPS 2025 workshop paper</b><span>Algoverse Fellow</span></div><div class="note">Liminal Training, at ResponsibleFM.</div></div>
-      <div class="step honor reveal"><div class="when">Sep 2024</div><div class="what"><b>1st place, MIT IDSS Data Science &amp; ML hackathon</b><span>2-person team</span></div><div class="note"></div></div>
-      <div class="step reveal"><div class="when">2023 – 2024</div><div class="what"><b>Reserve Force Administrative Specialist</b><span>Republic of Korea Army, 18 months</span></div><div class="note">Records for 1,500+ reservists.</div></div>
-      <div class="step reveal"><div class="when">Nov 2022 – 2023</div><div class="what"><b>Research Assistant</b><span>Dynamic Project Management Lab, Dr. SangHyun Lee</span></div><div class="note">Labeled construction-site video and wearable sensor data for worker-fatigue models.</div></div>
-      <div class="step reveal"><div class="when">Dec 2021 – 2022</div><div class="what"><b>User Experience Researcher</b><span>Digital Water Lab, Dr. Branko Kerkez</span></div><div class="note">A live flooding and water-quality dashboard for Huron and Clinton River groups.</div></div>
-      <div class="step honor reveal"><div class="when">ENTR 390</div><div class="what"><b>Best Design (1st place), Thunderdome Innovation Contest</b><span>University of Michigan, for OneFlip</span></div><div class="note"></div></div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ ABOUT ============ -->
-<section class="sec" id="about">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <p class="mono"><i>05</i>About</p>
-      <h2 class="sec-title">Seoul <em>to</em> Ann Arbor.</h2>
-    </div>
-    <div class="about">
-      <figure class="reveal">
-        <picture>
-          <source srcset="assets/profile-portrait.webp" type="image/webp">
-          <img src="assets/profile-portrait.jpg" alt="Kevin Na at the Grand Canyon in a Michigan jersey" width="800" height="1000" loading="lazy">
-        </picture>
-      </figure>
-      <div class="txt reveal">
-        <p>I grew up in Seoul and study <b>Computer Science at the University of Michigan</b>, graduating in May 2027. Before that, I served 18 months in the Republic of Korea Army.</p>
-        <p>I like problems where a model has to deal with the real world: a robot arm that has to recover when a grasp slips, a surgical video where the order of steps matters, a sensor with a few kilobytes of memory.</p>
-        <dl class="kv">
-          <div><dt>Degree</dt><dd>B.S. Computer Science, May 2027</dd></div>
-          <div><dt>Languages</dt><dd>English and Korean, both native</dd></div>
-          <div><dt>Code</dt><dd>Python, C++, C, Linux, Docker, Git, Slurm GPU clusters, CUDA</dd></div>
-          <div><dt>ML</dt><dd>PyTorch, VLMs (Qwen-VL, InternVL), DPO, Step-DPO, GRPO, diffusion models</dd></div>
-          <div><dt>Robotics</dt><dd>ROS 2, Gazebo, ManiSkill3, LeRobot, RealSense, AprilTag</dd></div>
-          <div><dt>Vision</dt><dd>SAM 3, video segmentation, pose estimation</dd></div>
-        </dl>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ CONTACT ============ -->
-<section class="contact" id="contact">
-  <div class="wrap">
-    <h2 class="reveal">Let's talk<em>.</em></h2>
-    <p class="reveal">I'm looking for 2027 roles in machine learning and robotics, and I'm always glad to talk with researchers about surgical AI and robot learning.</p>
-    <div class="reveal">
-      <a class="mail" href="mailto:kevinyjna@gmail.com">kevinyjna@gmail.com</a>
-      <button class="copy" data-email="kevinyjna@gmail.com">Copy</button>
-    </div>
-    <div class="elsewhere reveal">
-      <a class="tlink" href="resume.pdf" target="_blank" rel="noopener">Resume</a>
-      <a class="tlink" href="https://github.com/kevinyjn1" target="_blank" rel="noopener">GitHub</a>
-      <a class="tlink" href="https://www.linkedin.com/in/kevinyjna/" target="_blank" rel="noopener">LinkedIn</a>
-      <a class="tlink" href="https://openreview.net/profile?id=~Yunjong_Na1" target="_blank" rel="noopener">OpenReview</a>
-    </div>
-  </div>
-</section>
 
 </main>
 
-<footer>
-  <div class="footer-inner">
-    <span>© 2026 Kevin Na</span>
-    <span>Ann Arbor, Michigan</span>
-    <a href="https://github.com/kevinyjn1/kevinyjn1.github.io" target="_blank" rel="noopener">Source</a>
+<!-- ============ FOOTER ============ -->
+<footer class="foot">
+  <div><p class="eyebrow">Portfolio</p><p class="who">Kevin Na</p></div>
+  <nav aria-label="Footer">
+    <a href="research.html">Research</a>
+    <a href="projects.html">Projects</a>
+    <a href="about.html#contact">Contact</a>
+  </nav>
+  <div class="icons">
+    <a href="https://github.com/kevinyjn1" target="_blank" rel="noopener">GitHub</a>
+    <a href="https://www.linkedin.com/in/kevinyjna/" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="mailto:kevinyjna@gmail.com">Email</a>
   </div>
+  <div class="small"><span>© 2026 Kevin Na · Ann Arbor, Michigan</span><a href="https://github.com/kevinyjn1/kevinyjn1.github.io" target="_blank" rel="noopener">Plain HTML and CSS, on GitHub Pages</a></div>
 </footer>
+</div>
 
 <div class="toast" role="status">Email copied</div>
 <script src="assets/main.js"></script>

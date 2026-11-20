@@ -9,30 +9,37 @@ Papers under review, first places, and robots and boards that actually run.
 
 ## Who reads it
 
-1. **Recruiters.** They have about 20 seconds. They need the name, what he does, the strongest results and the resume button, all above the fold.
-2. **PhD admissions and professors.** They read the research section: labs, advisors, papers and what *he* did on each.
+1. **Recruiters.** About 20 seconds. They need the name, what he does, the strongest results and the resume button. The resume is in the sidebar on every page and in the hero.
+2. **PhD admissions and professors.** They read the Research page: labs, advisors, papers and what *he* did on each.
 
-## Principles
+## Direction
 
-- **Lead with proof.** The hero's right column (the "ledger") holds the four strongest results. Keep it to four.
-- **Real footage, not decoration.** The hero film and every picture are his own project footage. No stock images, no generated art.
-- **Dark and quiet, one accent.** Warm black, cream text, maize yellow used only for small marks (a dot, a date, a label). No gradients on text, no glow.
-- **Editorial, not cards.** Selected work alternates left and right like a magazine. Smaller builds are plain index rows.
-- **Motion with a reason.** Things fade in once, footage plays on hover. Nothing follows the cursor. Visitors who turn off motion in their system settings get none.
-- **Honest wording.** Under review says under review. Co-author says co-author.
+Kevin pointed to jinwookshin.com as the feel he wants. What we took from it (ideas, not code or text):
+
+- **A fixed sidebar that is the identity.** Name, one-line role, round photo, page links, Resume / GitHub / LinkedIn, an "open to" status. It never scrolls away. On phones it turns into a rounded bar with a Menu button.
+- **A light, airy page next to a deep color.** The contrast between the navy sidebar and the soft off-white page is the "aura", instead of darkness.
+- **A friendly, big serif greeting.** "Hello, I'm Kevin Na." with the name as the loudest thing on the page.
+- **A short home page.** Hero, four highlights, three recent projects, a strip of real footage. Details live on Research, Projects and About.
+- **Picture-first cards.** Rounded image, small colored tags, serif title, one line.
+
+What makes it his and not a copy: Michigan colors (navy sidebar, maize highlighter under his name, maize buttons), his own robot footage in the strip, and a highlights row up top because his message is impact.
+
+## Rules
+
+- One accent: maize. On white it's only a fill (buttons, highlighter, dots), never thin text. Small colored text uses `--gold-ink`.
+- Two fonts: Fraunces (headings) and Manrope (everything else).
+- Real footage only. Projects without footage get a small drawn diagram, not stock art.
+- Motion with a reason: a fade-in once, footage plays on hover, the strip drifts. Visitors who turn off motion get none.
+- Honest wording. Under review says under review. Co-author says co-author.
 
 ## Tokens (top of `assets/style.css`)
 
 | Token | Value | Used for |
 |---|---|---|
-| `--bg` | `#0b0a09` | page background |
-| `--ink` | `#ece7de` | main text |
-| `--ink-soft` | `#b4ada1` | body text |
-| `--accent` | `#ffcb05` | Michigan maize, small marks only |
-| `--display` | Instrument Serif | big headlines |
-| `--sans` | Geist | everything else |
-| `--mono` | Geist Mono | labels, dates, small caps |
-
-## The hero film
-
-`assets/hero.mp4` is a 15-second loop cut from `projects/mbot`, `projects/hydrosense`, the SmolVLA demo and `projects/ambientMNIST` footage. The page turns it grayscale and warm, so any clip works. To swap a clip, re-cut it with ffmpeg at 1024x576 and keep it under about 1 MB. `assets/hero.jpg` is the still shown before it loads.
+| `--navy` | `#00274c` | sidebar, headings, the name |
+| `--maize` | `#ffcb05` | buttons, highlighter, dots |
+| `--gold-ink` | `#8a6200` | small colored labels and tags |
+| `--bg` | `#f6f7fa` | page background |
+| `--ink` / `--ink-soft` | `#0f1b2d` / `#4d5b72` | text |
+| `--display` | Fraunces | headings |
+| `--sans` | Manrope | everything else |
