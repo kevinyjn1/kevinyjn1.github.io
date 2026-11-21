@@ -22,20 +22,22 @@ Every section starts with a comment like `<!-- ============ PAPERS ============ 
 | I want to change... | Open this file | Look for |
 |---|---|---|
 | The one-line intro | `index.html` | `class="lede"` |
-| The four highlights | `index.html` | `class="proof"`, one `<li>` each |
-| The three projects on the home page | `index.html` | RECENT WORK |
+| The big headline | `index.html` | the `<h1>` in HERO. Words inside `<em>` turn maize |
+| The four highlights | `index.html` | SIGNALS, one `<li>` each |
+| The three "what I work on" rows | `index.html` | THREE THREADS |
+| The picture tiles on the home page | `index.html` | SELECTED WORK. Add `wide` to a tile's class to make it two columns wide |
 | Add a paper | `research.html` | copy one `<article class="paper reveal">…</article>` |
 | Add a project | `projects.html` | copy one `<a class="card reveal">…</a>` |
 | Add a job or award | `about.html` | TIMELINE, copy one `<li>`. Add `class="honor"` for an award |
-| Skills | `about.html` | SKILLS, one `<span>` each |
+| Skills | `about.html` | "Tools I use", one `<span>` each |
 | Colors and fonts | `assets/style.css` | the `:root` block at the top |
 | Animations | `assets/main.js` | each effect is its own commented block |
+| The moving point cloud | `assets/main.js` | THE FIELD. The shapes are in `SHAPES` |
 | Resume | replace `resume.pdf` with the new file, same name |
-| Pictures in the moving strip | `assets/strip/` and the FOOTAGE STRIP comment in `index.html` |
 
-**The sidebar is copied into every page.** If you change a link in it (say, a new LinkedIn URL), change it in every `.html` file. Your editor's "find and replace in files" does this in one go.
+**The corners, the bottom menu and the footer are copied into every page.** If you change a link in them (say, a new LinkedIn URL), change it in every `.html` file. Your editor's "find and replace in files" does this in one go.
 
-A project card's picture is `assets/thumbs/<name>.webp`, and the clip that plays on hover is `assets/clips/<name>.mp4`.
+A project's picture is `assets/thumbs/<name>.webp`, and the clip that plays when it's on screen is `assets/clips/<name>.mp4`. Keep clips short and small (under about 200 KB).
 
 ## Preview on your laptop
 

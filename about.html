@@ -8,65 +8,57 @@
 <meta property="og:title" content="About · Kevin Na">
 <meta property="og:description" content="About Kevin Na: University of Michigan CS '27, from Seoul, native in English and Korean.">
 <meta property="og:image" content="https://kevinyjn1.github.io/assets/og.jpg">
-<meta name="theme-color" content="#00274c">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='16' fill='%2300274c'/><text x='16' y='22.5' font-family='Georgia,serif' font-size='18' font-weight='700' text-anchor='middle' fill='%23ffcb05'>K</text></svg>">
+<meta name="theme-color" content="#06070b">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%2306070b'/><text x='16' y='22' font-family='Arial,sans-serif' font-size='15' font-weight='800' text-anchor='middle' fill='%23ffcb05'>KN</text></svg>">
 <script>document.documentElement.classList.add('js');</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 
-<!-- ============ SIDEBAR (the same on every page) ============ -->
-<aside class="side">
-  <div class="side-top">
-    <div>
-      <p class="eyebrow">U-M · CS '27</p>
-      <a class="side-name" href="index.html">Kevin Na</a>
-    </div>
-    <button class="menu-btn" aria-label="Open menu" aria-expanded="false">Menu</button>
+<!-- ============ TOP CORNERS + BOTTOM DOCK (the same on every page) ============ -->
+<header class="corner">
+  <a class="mark" href="index.html" aria-label="Kevin Na, home"><span class="kn">KN</span><span class="mark-name">Kevin Na<small>U-M · CS '27</small></span></a>
+  <div class="corner-r">
+    <span class="status"><i></i>Open to 2027 roles</span>
+    <a class="btn sm" href="resume.pdf" target="_blank" rel="noopener">Resume <span class="ar">↗</span></a>
   </div>
-  <p class="side-role">Robot learning · Surgical video AI · Embedded ML</p>
-  <picture>
-    <source srcset="assets/profile-portrait.webp" type="image/webp">
-    <img class="side-photo" src="assets/profile-portrait.jpg" alt="Kevin Na" width="116" height="116">
-  </picture>
-  <nav class="side-nav" aria-label="Main">
-      <a href="index.html">Home</a>
-      <a href="research.html">Research</a>
-      <a href="projects.html">Projects</a>
-      <a href="about.html" class="on" aria-current="page">About</a>
-      <a href="about.html#contact">Contact</a>
-  </nav>
-  <div class="side-links">
-    <a href="resume.pdf" target="_blank" rel="noopener">Resume</a>
-    <a href="https://github.com/kevinyjn1" target="_blank" rel="noopener">GitHub</a>
-    <a href="https://www.linkedin.com/in/kevinyjna/" target="_blank" rel="noopener">LinkedIn</a>
-    <a href="https://openreview.net/profile?id=~Yunjong_Na1" target="_blank" rel="noopener">OpenReview</a>
-  </div>
-  <p class="status"><i></i>Open to 2027 roles</p>
-</aside>
+</header>
+<nav class="dock" aria-label="Main">
+    <a href="index.html">Home</a>
+    <a href="research.html">Research</a>
+    <a href="projects.html">Projects</a>
+    <a href="about.html" class="on" aria-current="page">About</a>
+    <a href="about.html#contact">Contact</a>
+</nav>
 
+<main id="main">
 <div class="page">
-<main class="main" id="main">
-  <header class="phead in">
-    <p class="eyebrow">About</p>
-    <h1>Seoul to Ann Arbor.</h1>
-    <p>Computer Science at the University of Michigan, May 2027. Native in English and Korean.</p>
+  <header class="phead">
+    <p class="kicker in">About</p>
+    <h1 class="in d1">Seoul to <em>Ann Arbor.</em></h1>
+    <p class="in d2">Computer Science at the University of Michigan, May 2027. Native in English and Korean.</p>
   </header>
 
   <div class="about">
-    <div class="prose reveal">
-      <p>I grew up in Seoul and study <b>Computer Science at the University of Michigan</b>, graduating in May 2027. Before that, I served 18 months in the Republic of Korea Army as a Reserve Force Administrative Specialist.</p>
-      <p>I like problems where a model has to deal with the real world: a robot arm that has to recover when a grasp slips, a surgical video where the order of steps matters, a sensor with a few kilobytes of memory.</p>
-      <p>Right now I do research in two labs: <b>COG Lab (Corso Group)</b>, on vision-language models for surgical video, and the <b>Extreme Robotics (Atombots) Lab</b>, on robot learning. I'm looking for 2027 roles in machine learning and robotics.</p>
+    <div>
+      <picture class="portrait reveal">
+        <source srcset="assets/profile-portrait.webp" type="image/webp">
+        <img src="assets/profile-portrait.jpg" alt="Kevin Na" width="400" height="500">
+      </picture>
+      <div class="prose reveal">
+        <p>I grew up in Seoul and study <b>Computer Science at the University of Michigan</b>, graduating in May 2027. Before that, I served 18 months in the Republic of Korea Army as a Reserve Force Administrative Specialist.</p>
+        <p>I like problems where a model has to deal with the real world: a robot arm that has to recover when a grasp slips, a surgical video where the order of steps matters, a sensor with very little memory to spare.</p>
+        <p>Right now I do research in two labs: <b>COG Lab (Corso Group)</b>, on vision-language models for surgical video, and the <b>Extreme Robotics (Atombots) Lab</b>, on robot learning. I'm looking for 2027 roles in machine learning and robotics.</p>
+      </div>
     </div>
     <div>
       <!-- ============ TIMELINE: add a <li> for a new job or award ============ -->
       <section class="box reveal">
-        <h2>Timeline</h2>
+        <p class="label"><span>01</span>Timeline</p>
         <ol class="tl">
           <li><span class="y">2026 –</span><div><b>Undergraduate Researcher, COG Lab</b><span>Vision-language models for surgical video</span></div></li>
           <li><span class="y">2025 –</span><div><b>Robot Learning Researcher, Atombots Lab</b><span>Imitation learning, motion capture, a wheel-legged quadruped</span></div></li>
@@ -79,44 +71,43 @@
         </ol>
       </section>
       <section class="box reveal">
-        <h2>Skills</h2>
+        <p class="label"><span>02</span>Tools I use</p>
         <div class="chips"><span>Python</span><span>C++</span><span>C</span><span>PyTorch</span><span>ROS 2</span><span>LeRobot</span><span>ManiSkill3</span><span>Gazebo</span><span>VLMs (Qwen-VL, InternVL)</span><span>DPO / GRPO</span><span>Diffusion models</span><span>SAM 3</span><span>RealSense</span><span>AprilTag</span><span>STM32</span><span>Slurm GPU clusters</span><span>CUDA</span><span>Docker</span><span>Linux</span><span>Git</span></div>
       </section>
     </div>
   </div>
 
   <!-- ============ CONTACT ============ -->
-  <section class="contact reveal" id="contact">
-    <h2>Let's talk.</h2>
-    <p>Recruiters and researchers both welcome. I'm glad to talk about surgical AI, robot learning, or a role on your team.</p>
-    <div class="row">
-      <a class="mail" href="mailto:kevinyjna@gmail.com">kevinyjna@gmail.com</a>
-      <button class="copy" data-email="kevinyjna@gmail.com">Copy</button>
-    </div>
-    <div class="row">
-      <a class="btn primary" href="resume.pdf" target="_blank" rel="noopener">Resume <span class="ar">↗</span></a>
-      <a class="btn" href="https://www.linkedin.com/in/kevinyjna/" target="_blank" rel="noopener">LinkedIn <span class="ar">↗</span></a>
-      <a class="btn" href="https://github.com/kevinyjn1" target="_blank" rel="noopener">GitHub <span class="ar">↗</span></a>
+  <section class="closer solo reveal" id="contact">
+    <div>
+      <p class="kicker">Recruiters and researchers both welcome</p>
+      <h2>Let's talk.</h2>
+      <p class="sub">I'm glad to talk about surgical AI, robot learning, or a role on your team.</p>
+      <div class="row">
+        <a class="mail" href="mailto:kevinyjna@gmail.com">kevinyjna@gmail.com</a>
+        <button class="copy" data-email="kevinyjna@gmail.com">Copy</button>
+      </div>
+      <div class="row">
+        <a class="btn primary" href="resume.pdf" target="_blank" rel="noopener">Resume <span class="ar">↗</span></a>
+        <a class="btn" href="https://www.linkedin.com/in/kevinyjna/" target="_blank" rel="noopener">LinkedIn <span class="ar">↗</span></a>
+        <a class="btn" href="https://github.com/kevinyjn1" target="_blank" rel="noopener">GitHub <span class="ar">↗</span></a>
+      </div>
     </div>
   </section>
-</main>
 
 <!-- ============ FOOTER ============ -->
 <footer class="foot">
-  <div><p class="eyebrow">Portfolio</p><p class="who">Kevin Na</p></div>
-  <nav aria-label="Footer">
-    <a href="research.html">Research</a>
-    <a href="projects.html">Projects</a>
-    <a href="about.html#contact">Contact</a>
-  </nav>
-  <div class="icons">
+  <p class="foot-name">Kevin Na</p>
+  <div class="foot-links">
     <a href="https://github.com/kevinyjn1" target="_blank" rel="noopener">GitHub</a>
     <a href="https://www.linkedin.com/in/kevinyjna/" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://openreview.net/profile?id=~Yunjong_Na1" target="_blank" rel="noopener">OpenReview</a>
     <a href="mailto:kevinyjna@gmail.com">Email</a>
   </div>
-  <div class="small"><span>© 2026 Kevin Na · Ann Arbor, Michigan</span><a href="https://github.com/kevinyjn1/kevinyjn1.github.io" target="_blank" rel="noopener">Plain HTML and CSS, on GitHub Pages</a></div>
+  <p class="foot-small"><span>© 2026 · Ann Arbor, Michigan</span><a href="https://github.com/kevinyjn1/kevinyjn1.github.io" target="_blank" rel="noopener">Plain HTML, CSS and JS on GitHub Pages</a></p>
 </footer>
 </div>
+</main>
 
 <div class="toast" role="status">Email copied</div>
 <script src="assets/main.js"></script>

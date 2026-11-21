@@ -9,37 +9,35 @@ Papers under review, first places, and robots and boards that actually run.
 
 ## Who reads it
 
-1. **Recruiters.** About 20 seconds. They need the name, what he does, the strongest results and the resume button. The resume is in the sidebar on every page and in the hero.
+1. **Recruiters.** About 20 seconds. They need the name, what he does, the strongest results and the resume. The resume button sits in the top right corner of every page and in the hero.
 2. **PhD admissions and professors.** They read the Research page: labs, advisors, papers and what *he* did on each.
 
-## Direction
+## Direction: "a live signal"
 
-Kevin pointed to jinwookshin.com as the feel he wants. What we took from it (ideas, not code or text):
+The site should feel like looking at a sensor feed from one of his robots: dark, glowing, alive.
 
-- **A fixed sidebar that is the identity.** Name, one-line role, round photo, page links, Resume / GitHub / LinkedIn, an "open to" status. It never scrolls away. On phones it turns into a rounded bar with a Menu button.
-- **A light, airy page next to a deep color.** The contrast between the navy sidebar and the soft off-white page is the "aura", instead of darkness.
-- **A friendly, big serif greeting.** "Hello, I'm Kevin Na." with the name as the loudest thing on the page.
-- **A short home page.** Hero, four highlights, three recent projects, a strip of real footage. Details live on Research, Projects and About.
-- **Picture-first cards.** Rounded image, small colored tags, serif title, one line.
+- **The hero is a moving point cloud.** About 1,500 points start as noise and travel in straight lines to a 3D shape, then on to the next one. That is the idea behind rectified flow, one of his own projects, so the effect means something. Points move out of the way of your cursor. A small "fig. 0" caption says what it is.
+- **Aura from light, not from color blocks.** A near-black page with two slow glows (blue and maize) and a little film grain. Tiles and cards light up under your cursor.
+- **Big, tight type.** Bricolage Grotesque for headings and text, JetBrains Mono for small labels, like readouts on an instrument.
+- **No sidebar, no top bar.** His initials sit in the top left, the resume in the top right, and the menu is a floating dock at the bottom of the screen. That is also easier to reach with a thumb on a phone.
+- **Organized by what he works on.** The home page has three threads (robot learning, surgical video AI, embedded ML), each linking to its projects, then a bento grid of picture tiles whose footage plays as you scroll past.
 
-What makes it his and not a copy: Michigan colors (navy sidebar, maize highlighter under his name, maize buttons), his own robot footage in the strip, and a highlights row up top because his message is impact.
+Kevin pointed to jinwookshin.com and uynitsuj.github.io as sites he likes. We took ideas, not layout, code or words: a short, confident home page and real results up top from the first; dark mode, moving visuals in the hero and plain honest paper listings from the second. The layout, the point cloud, the dock and the thread structure are this site's own.
 
 ## Rules
 
-- One accent: maize. On white it's only a fill (buttons, highlighter, dots), never thin text. Small colored text uses `--gold-ink`.
-- Two fonts: Fraunces (headings) and Manrope (everything else).
+- Two accents: maize (warm, for things to press and for highlights) and blue (the glow, and small labels). Nothing else.
 - Real footage only. Projects without footage get a small drawn diagram, not stock art.
-- Motion with a reason: a fade-in once, footage plays on hover, the strip drifts. Visitors who turn off motion get none.
+- Motion with a reason: the point cloud, a fade-in once, footage while it's on screen, the cursor light. Visitors who turn off motion get a still page.
 - Honest wording. Under review says under review. Co-author says co-author.
 
 ## Tokens (top of `assets/style.css`)
 
 | Token | Value | Used for |
 |---|---|---|
-| `--navy` | `#00274c` | sidebar, headings, the name |
-| `--maize` | `#ffcb05` | buttons, highlighter, dots |
-| `--gold-ink` | `#8a6200` | small colored labels and tags |
-| `--bg` | `#f6f7fa` | page background |
-| `--ink` / `--ink-soft` | `#0f1b2d` / `#4d5b72` | text |
-| `--display` | Fraunces | headings |
-| `--sans` | Manrope | everything else |
+| `--bg` | `#06070b` | page background |
+| `--ink` / `--ink-soft` | `#edf0f6` / `#a4acbd` | text |
+| `--maize` | `#ffcb05` | buttons, highlights, the near points in the cloud |
+| `--blue` | `#6f97ff` | glows, small labels, the far points in the cloud |
+| `--display`, `--sans` | Bricolage Grotesque | headings and text |
+| `--mono` | JetBrains Mono | small labels |

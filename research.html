@@ -8,118 +8,104 @@
 <meta property="og:title" content="Research · Kevin Na">
 <meta property="og:description" content="Kevin Na's research: vision-language models for surgical video in the COG Lab, and robot learning in the Atombots Lab. Papers and preprints.">
 <meta property="og:image" content="https://kevinyjn1.github.io/assets/og.jpg">
-<meta name="theme-color" content="#00274c">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='16' fill='%2300274c'/><text x='16' y='22.5' font-family='Georgia,serif' font-size='18' font-weight='700' text-anchor='middle' fill='%23ffcb05'>K</text></svg>">
+<meta name="theme-color" content="#06070b">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%2306070b'/><text x='16' y='22' font-family='Arial,sans-serif' font-size='15' font-weight='800' text-anchor='middle' fill='%23ffcb05'>KN</text></svg>">
 <script>document.documentElement.classList.add('js');</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 
-<!-- ============ SIDEBAR (the same on every page) ============ -->
-<aside class="side">
-  <div class="side-top">
-    <div>
-      <p class="eyebrow">U-M · CS '27</p>
-      <a class="side-name" href="index.html">Kevin Na</a>
-    </div>
-    <button class="menu-btn" aria-label="Open menu" aria-expanded="false">Menu</button>
+<!-- ============ TOP CORNERS + BOTTOM DOCK (the same on every page) ============ -->
+<header class="corner">
+  <a class="mark" href="index.html" aria-label="Kevin Na, home"><span class="kn">KN</span><span class="mark-name">Kevin Na<small>U-M · CS '27</small></span></a>
+  <div class="corner-r">
+    <span class="status"><i></i>Open to 2027 roles</span>
+    <a class="btn sm" href="resume.pdf" target="_blank" rel="noopener">Resume <span class="ar">↗</span></a>
   </div>
-  <p class="side-role">Robot learning · Surgical video AI · Embedded ML</p>
-  <picture>
-    <source srcset="assets/profile-portrait.webp" type="image/webp">
-    <img class="side-photo" src="assets/profile-portrait.jpg" alt="Kevin Na" width="116" height="116">
-  </picture>
-  <nav class="side-nav" aria-label="Main">
-      <a href="index.html">Home</a>
-      <a href="research.html" class="on" aria-current="page">Research</a>
-      <a href="projects.html">Projects</a>
-      <a href="about.html">About</a>
-      <a href="about.html#contact">Contact</a>
-  </nav>
-  <div class="side-links">
-    <a href="resume.pdf" target="_blank" rel="noopener">Resume</a>
-    <a href="https://github.com/kevinyjn1" target="_blank" rel="noopener">GitHub</a>
-    <a href="https://www.linkedin.com/in/kevinyjna/" target="_blank" rel="noopener">LinkedIn</a>
-    <a href="https://openreview.net/profile?id=~Yunjong_Na1" target="_blank" rel="noopener">OpenReview</a>
-  </div>
-  <p class="status"><i></i>Open to 2027 roles</p>
-</aside>
+</header>
+<nav class="dock" aria-label="Main">
+    <a href="index.html">Home</a>
+    <a href="research.html" class="on" aria-current="page">Research</a>
+    <a href="projects.html">Projects</a>
+    <a href="about.html">About</a>
+    <a href="about.html#contact">Contact</a>
+</nav>
 
+<main id="main">
 <div class="page">
-<main class="main" id="main">
-  <header class="phead in">
-    <p class="eyebrow">Research</p>
-    <h1>Can a model act on what it sees?</h1>
-    <p>I work in two labs at the University of Michigan. One teaches vision-language models to follow surgical video; the other teaches robots to learn from people.</p>
+  <header class="phead">
+    <p class="kicker in">Research</p>
+    <h1 class="in d1">Can a model act on <em>what it sees?</em></h1>
+    <p class="in d2">I work in two labs at the University of Michigan. One teaches vision-language models to follow surgical video; the other teaches robots to learn from people.</p>
   </header>
 
   <!-- ============ LABS ============ -->
-  <h2 class="h2 reveal">Labs</h2>
-  <div class="labs">
-    <article class="lab reveal">
-      <p class="eyebrow">May 2026 – now</p>
-      <h3>Surgical video understanding</h3>
-      <p class="where">COG Lab (Corso Group), with Prof. Jason Corso</p>
-      <ul>
-        <li><b>Post-training</b> a Qwen2.5-VL model with DPO, Step-DPO and GRPO, with step-level rewards for step correctness, order and grounding.</li>
-        <li><b>Benchmarking</b> GPT-5.1, Gemini, Qwen3-VL and InternVL on surgical skill classification against the lab's 70.7% baseline, which I reproduced on a Slurm GPU cluster.</li>
-        <li><b>De-identifying</b> surgical video with a SAM 3 segmentation pipeline for a dataset release.</li>
-      </ul>
-    </article>
-    <article class="lab reveal">
-      <p class="eyebrow">Jan 2025 – now</p>
-      <h3>Robot learning</h3>
-      <p class="where">Extreme Robotics (Atombots) Lab</p>
-      <ul>
-        <li><b>Curated</b> a 90-episode SO-101 manipulation dataset, 40 with mid-grasp disturbances, to study how ACT and SmolVLA policies recover from failure.</li>
-        <li><b>Co-lead</b> a 5-person team building a multi-camera AprilTag motion-capture system, validated against a ground-truth grid.</li>
-        <li><b>Building</b> a wheel-legged quadruped with ROS 2 on NVIDIA Jetson.</li>
-      </ul>
-    </article>
-  </div>
+  <section class="sec">
+    <p class="label reveal"><span>01</span>Labs</p>
+    <div class="labs">
+      <article class="lab reveal">
+        <p class="k">May 2026 – now</p>
+        <h2>Surgical video understanding</h2>
+        <p class="where">COG Lab (Corso Group), with Prof. Jason Corso</p>
+        <ul>
+          <li><b>Post-training</b> a Qwen2.5-VL model with DPO, Step-DPO and GRPO, with step-level rewards for step correctness, order and grounding.</li>
+          <li><b>Benchmarking</b> GPT-5.1, Gemini, Qwen3-VL and InternVL on surgical skill classification against the lab's 70.7% baseline, which I reproduced on a Slurm GPU cluster.</li>
+          <li><b>De-identifying</b> surgical video with a SAM 3 segmentation pipeline for a dataset release.</li>
+        </ul>
+      </article>
+      <article class="lab reveal">
+        <p class="k">Jan 2025 – now</p>
+        <h2>Robot learning</h2>
+        <p class="where">Extreme Robotics (Atombots) Lab</p>
+        <ul>
+          <li><b>Curated</b> a 90-episode SO-101 manipulation dataset, 40 with mid-grasp disturbances, to study how ACT and SmolVLA policies recover from failure.</li>
+          <li><b>Co-lead</b> a 5-person team building a multi-camera AprilTag motion-capture system, validated against a ground-truth grid.</li>
+          <li><b>Building</b> a wheel-legged quadruped with ROS 2 on NVIDIA Jetson.</li>
+        </ul>
+      </article>
+    </div>
+  </section>
 
   <!-- ============ PAPERS: copy one <article class="paper"> to add one ============ -->
-  <h2 class="h2 reveal">Papers</h2>
-  <div class="papers">
+  <section class="sec">
+    <p class="label reveal"><span>02</span>Papers</p>
+    <div class="papers">
     <article class="paper reveal">
-      <div class="venue"><b>RSS 2027</b><span>Under review</span></div>
-      <div><h4>Lift One, Know All: What a Robot Can Remember About Objects Shuffled Out of Sight</h4>
+      <div class="venue"><b>RSS 2027</b><span class="st">Under review</span></div>
+      <div><h3>Lift One, Know All: What a Robot Can Remember About Objects Shuffled Out of Sight</h3>
       <p>Team paper. My part: the ManiSkill3 simulation environment, the dataset, the evaluation metrics and the baselines.</p></div>
     </article>
     <article class="paper reveal">
-      <div class="venue"><b>ACL Rolling Review</b><span>Under review</span></div>
-      <div><h4>Do Graph Memories Use Their Edges? Separating Routing from Content with Text-Fixed Tests</h4>
+      <div class="venue"><b>ACL Rolling Review</b><span class="st">Under review</span></div>
+      <div><h3>Do Graph Memories Use Their Edges? Separating Routing from Content with Text-Fixed Tests</h3>
       <p>Co-author.</p></div>
     </article>
     <article class="paper reveal">
-      <div class="venue"><b>NeurIPS 2025 Workshop</b><span class="pub">Published</span></div>
-      <div><h4>Liminal Training: Characterizing and Mitigating Subliminal Learning in Large Language Models</h4>
+      <div class="venue"><b>NeurIPS 2025 Workshop</b><span class="st pub">Published</span></div>
+      <div><h3>Liminal Training: Characterizing and Mitigating Subliminal Learning in Large Language Models</h3>
       <p>Fine-tuning on unrelated data can quietly pass on a trait or a misalignment. We find that this spikes in the first 10–20 training steps, and propose liminal training, an annealed KL regularizer that prevents it. ResponsibleFM workshop, as an Algoverse Fellow.</p></div>
     </article>
-  </div>
-  <p class="after reveal"><a class="tlink" href="https://openreview.net/profile?id=~Yunjong_Na1" target="_blank" rel="noopener">See my OpenReview profile ↗</a></p>
-</main>
+    </div>
+    <p class="after reveal"><a class="tlink" href="https://openreview.net/profile?id=~Yunjong_Na1" target="_blank" rel="noopener">See my OpenReview profile ↗</a></p>
+  </section>
 
 <!-- ============ FOOTER ============ -->
 <footer class="foot">
-  <div><p class="eyebrow">Portfolio</p><p class="who">Kevin Na</p></div>
-  <nav aria-label="Footer">
-    <a href="research.html">Research</a>
-    <a href="projects.html">Projects</a>
-    <a href="about.html#contact">Contact</a>
-  </nav>
-  <div class="icons">
+  <p class="foot-name">Kevin Na</p>
+  <div class="foot-links">
     <a href="https://github.com/kevinyjn1" target="_blank" rel="noopener">GitHub</a>
     <a href="https://www.linkedin.com/in/kevinyjna/" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://openreview.net/profile?id=~Yunjong_Na1" target="_blank" rel="noopener">OpenReview</a>
     <a href="mailto:kevinyjna@gmail.com">Email</a>
   </div>
-  <div class="small"><span>© 2026 Kevin Na · Ann Arbor, Michigan</span><a href="https://github.com/kevinyjn1/kevinyjn1.github.io" target="_blank" rel="noopener">Plain HTML and CSS, on GitHub Pages</a></div>
+  <p class="foot-small"><span>© 2026 · Ann Arbor, Michigan</span><a href="https://github.com/kevinyjn1/kevinyjn1.github.io" target="_blank" rel="noopener">Plain HTML, CSS and JS on GitHub Pages</a></p>
 </footer>
 </div>
+</main>
 
 <div class="toast" role="status">Email copied</div>
 <script src="assets/main.js"></script>

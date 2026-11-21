@@ -9,26 +9,22 @@ Static personal portfolio site for Kevin Na (CS @ University of Michigan). No bu
 ## File structure
 
 ```
-index.html          # main portfolio page
+index.html, research.html, projects.html, about.html   # main pages
+projects/*.html     # one write-up per project
 blog.html           # blog listing page
 assets/
-  style.css         # all styles (Tesla-inspired monochrome design)
-  main.js           # nav scroll behavior + scroll-reveal observer
+  style.css         # all styles; tokens in :root
+  main.js           # hero point cloud, reveals, clips, cursor glow, copy email
   blog.js           # POSTS registry + renderPostList() function
-posts/
-  welcome.html
-  conformal-prediction.html
+  thumbs/, clips/   # project pictures and short clips
 resume.pdf          # served statically
 ```
 
 ## Design system
 
-- **Colors**: CSS variables in `:root` of `assets/style.css`; dark by default, `[data-theme="light"]` for the light theme (toggle remembered in localStorage). Accent `--accent` is Michigan maize (#ffcb05).
-- **Type**: Space Grotesk (display), Inter (body), JetBrains Mono (meta/code)
-- **Hero**: canvas 3D point cloud (sphere → torus → helix) in `main.js`, typing rotator, count-up stats
-- **Projects**: filterable cards (`data-cat`), mouse-follow glow, hover-to-play clips from `assets/clips/`
-- **Animations**: `.reveal` fade-up on scroll; all motion is disabled under prefers-reduced-motion
-- Subpages (`projects/*.html`, `blog.html`) share the same nav, stylesheet and `main.js`
+See DESIGN.md. Dark only. Bricolage Grotesque + JetBrains Mono, maize and blue accents.
+The top corners, bottom dock and footer are copied into every page.
+Never list a MICCAI paper; the lab is "COG Lab (Corso Group)"; keep paper roles exactly as written.
 
 ## Adding a blog post
 

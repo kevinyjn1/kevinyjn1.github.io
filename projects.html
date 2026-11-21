@@ -8,151 +8,133 @@
 <meta property="og:title" content="Projects · Kevin Na">
 <meta property="og:description" content="Robots, embedded ML and data projects by Kevin Na: YOLH, Inside SmolVLA, HydroSense, MBot, OneFlip, ambientMNIST and more.">
 <meta property="og:image" content="https://kevinyjn1.github.io/assets/og.jpg">
-<meta name="theme-color" content="#00274c">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='16' fill='%2300274c'/><text x='16' y='22.5' font-family='Georgia,serif' font-size='18' font-weight='700' text-anchor='middle' fill='%23ffcb05'>K</text></svg>">
+<meta name="theme-color" content="#06070b">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%2306070b'/><text x='16' y='22' font-family='Arial,sans-serif' font-size='15' font-weight='800' text-anchor='middle' fill='%23ffcb05'>KN</text></svg>">
 <script>document.documentElement.classList.add('js');</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 
-<!-- ============ SIDEBAR (the same on every page) ============ -->
-<aside class="side">
-  <div class="side-top">
-    <div>
-      <p class="eyebrow">U-M · CS '27</p>
-      <a class="side-name" href="index.html">Kevin Na</a>
-    </div>
-    <button class="menu-btn" aria-label="Open menu" aria-expanded="false">Menu</button>
+<!-- ============ TOP CORNERS + BOTTOM DOCK (the same on every page) ============ -->
+<header class="corner">
+  <a class="mark" href="index.html" aria-label="Kevin Na, home"><span class="kn">KN</span><span class="mark-name">Kevin Na<small>U-M · CS '27</small></span></a>
+  <div class="corner-r">
+    <span class="status"><i></i>Open to 2027 roles</span>
+    <a class="btn sm" href="resume.pdf" target="_blank" rel="noopener">Resume <span class="ar">↗</span></a>
   </div>
-  <p class="side-role">Robot learning · Surgical video AI · Embedded ML</p>
-  <picture>
-    <source srcset="assets/profile-portrait.webp" type="image/webp">
-    <img class="side-photo" src="assets/profile-portrait.jpg" alt="Kevin Na" width="116" height="116">
-  </picture>
-  <nav class="side-nav" aria-label="Main">
-      <a href="index.html">Home</a>
-      <a href="research.html">Research</a>
-      <a href="projects.html" class="on" aria-current="page">Projects</a>
-      <a href="about.html">About</a>
-      <a href="about.html#contact">Contact</a>
-  </nav>
-  <div class="side-links">
-    <a href="resume.pdf" target="_blank" rel="noopener">Resume</a>
-    <a href="https://github.com/kevinyjn1" target="_blank" rel="noopener">GitHub</a>
-    <a href="https://www.linkedin.com/in/kevinyjna/" target="_blank" rel="noopener">LinkedIn</a>
-    <a href="https://openreview.net/profile?id=~Yunjong_Na1" target="_blank" rel="noopener">OpenReview</a>
-  </div>
-  <p class="status"><i></i>Open to 2027 roles</p>
-</aside>
+</header>
+<nav class="dock" aria-label="Main">
+    <a href="index.html">Home</a>
+    <a href="research.html">Research</a>
+    <a href="projects.html" class="on" aria-current="page">Projects</a>
+    <a href="about.html">About</a>
+    <a href="about.html#contact">Contact</a>
+</nav>
 
+<main id="main">
 <div class="page">
-<main class="main" id="main">
-  <header class="phead in">
-    <p class="eyebrow">Projects</p>
-    <h1>Things I've built.</h1>
-    <p>Robots, sensors and models, most of them run on real hardware. Hover a card to see it move.</p>
+  <header class="phead">
+    <p class="kicker in">Projects</p>
+    <h1 class="in d1">Things I've <em>built.</em></h1>
+    <p class="in d2">Robots, sensors and models, most of them run on real hardware. The footage plays as you scroll past.</p>
   </header>
 
   <!-- ============ PROJECT CARDS: copy one to add a project ============ -->
-  <div class="grid3 pcards" style="margin-top:30px">
-      <a class="card reveal" href="projects/yolh.html">
-        <div class="media"><img src="assets/thumbs/yolh.webp" alt="YOLH training point cloud and evaluation" loading="lazy"><video muted loop playsinline preload="none" data-src="assets/clips/yolh.mp4"></video></div>
-        <div class="body">
-          <h3>YOLH: You Only Learn from Humans</h3>
-          <p>A manipulation policy learned from human RGB-D demonstrations with a RISE-based diffusion policy, so the robot learns by watching people.</p>
-          <div class="chips"><span>Atombots Lab</span><span>Diffusion policy</span><span>RGB-D</span><span>SAM2</span></div>
-        </div>
-      </a>
-      <a class="card reveal" href="https://kevinyjn1.github.io/smolvla-viz-site/" target="_blank" rel="noopener">
-        <div class="media"><img src="assets/thumbs/smolvla.webp" alt="Table and wrist camera views from one robot demonstration" loading="lazy"></div>
-        <div class="body">
-          <h3>Inside SmolVLA ↗</h3>
-          <p>A 3D walkthrough of one forward pass of a fine-tuned SmolVLA robot policy, with the real numbers at every step, from two camera images to 5 seconds of joint angles.</p>
-          <div class="chips"><span>Atombots Lab</span><span>SmolVLA</span><span>LeRobot</span><span>three.js</span></div>
-        </div>
-      </a>
-      <article class="card reveal">
-        <a href="projects/hydrosense.html" aria-label="HydroSense write-up"><div class="media"><img src="assets/thumbs/hydrosense.webp" alt="HydroSense water bottle sensor demo" loading="lazy"><video muted loop playsinline preload="none" data-src="assets/clips/hydrosense.mp4"></video></div></a>
-        <div class="body">
-          <h3><a href="projects/hydrosense.html">HydroSense</a></h3>
-          <p>A bottle-agnostic water-level tracker: a bone-conduction mic, MFCC features and an SVM on an STM32.</p>
-          <div class="links2"><a href="projects/hydrosense.html">Write-up</a><a href="https://kevinyjn1.github.io/project-viz/hydrosense/" target="_blank" rel="noopener">Under the hood ↗</a></div>
-          <div class="chips"><span>EECS 373</span><span>STM32</span><span>MFCC</span><span>SVM</span></div>
-        </div>
-      </article>
-      <a class="card reveal" href="projects/mbot.html">
-        <div class="media"><img src="assets/thumbs/mbot.webp" alt="MBot driving through a maze" loading="lazy"><video muted loop playsinline preload="none" data-src="assets/clips/mbot.mp4"></video></div>
-        <div class="body">
-          <h3>MBot autonomous navigation</h3>
-          <p>Motion control, particle-filter SLAM, occupancy-grid mapping and A* planning, built from scratch in C++ with ROS 2 and run on a real robot.</p>
-          <div class="chips"><span>EECS 467</span><span>C++</span><span>ROS 2</span><span>SLAM</span></div>
-        </div>
-      </a>
-      <a class="card reveal" href="projects/oneflip.html">
-        <div class="media"><span class="badge">1st place</span><img src="assets/thumbs/oneflip.webp" alt="Renders of the OneFlip spice jar" loading="lazy"><video muted loop playsinline preload="none" data-src="assets/clips/oneflip.mp4"></video></div>
-        <div class="body">
-          <h3>OneFlip</h3>
-          <p>A 3D-printed spice jar you can open and pour with one hand while cooking. Best Design at U-M's Thunderdome Innovation Contest.</p>
-          <div class="chips"><span>ENTR 390</span><span>Fusion 360</span><span>3D printing</span></div>
-        </div>
-      </a>
-      <article class="card reveal">
-        <a href="projects/ambientmnist.html" aria-label="ambientMNIST write-up"><div class="media"><img src="assets/thumbs/ambient.webp" alt="ambientMNIST board classifying a digit" loading="lazy"><video muted loop playsinline preload="none" data-src="assets/clips/ambient.mp4"></video></div></a>
-        <div class="body">
-          <h3><a href="projects/ambientmnist.html">ambientMNIST</a></h3>
-          <p>MNIST digit classification running entirely on a microcontroller, with 5-bit quantized pixels streamed over UART.</p>
-          <div class="links2"><a href="projects/ambientmnist.html">Write-up</a><a href="https://kevinyjn1.github.io/project-viz/ambient-mnist/" target="_blank" rel="noopener">Under the hood ↗</a></div>
-          <div class="chips"><span>Embedded ML</span><span>Quantization</span><span>C</span></div>
-        </div>
-      </article>
-      <a class="card reveal" href="projects/go2w.html">
-        <div class="media"><div class="tile" aria-hidden="true"><svg viewBox="0 0 300 160"><g transform="translate(110 40)"><rect width="80" height="80" fill="#fff"/><rect x="10" y="10" width="60" height="60" fill="#00274c"/><rect x="20" y="20" width="10" height="10" fill="#fff"/><rect x="40" y="20" width="20" height="10" fill="#fff"/><rect x="20" y="40" width="20" height="20" fill="#fff"/><rect x="50" y="40" width="10" height="20" fill="#fff"/></g><g fill="none" stroke="#ffcb05" stroke-width="1.4" stroke-dasharray="4 4"><path d="M30 20 L110 40"/><path d="M270 20 L190 40"/><path d="M30 140 L110 120"/></g><g fill="#ffcb05"><circle cx="30" cy="20" r="5"/><circle cx="270" cy="20" r="5"/><circle cx="30" cy="140" r="5"/></g></svg><span class="lab">cameras find the tag</span></div></div>
-        <div class="body">
-          <h3>Go2W motion capture</h3>
-          <p>A ROS 2, RealSense and AprilTag tracking stack feeding a Go2W quadruped for locomotion and multi-robot experiments.</p>
-          <div class="chips"><span>Atombots Lab</span><span>ROS 2</span><span>RealSense</span><span>AprilTag</span></div>
-        </div>
-      </a>
-      <a class="card reveal" href="https://github.com/kevinyjn1/rectified-flow-from-scratch" target="_blank" rel="noopener">
-        <div class="media"><div class="tile" aria-hidden="true"><svg viewBox="0 0 300 160"><g fill="none" stroke="#ffcb05" stroke-width="1.4" opacity=".85"><path d="M30 30 L270 50"/><path d="M30 60 L270 40"/><path d="M30 95 L270 110"/><path d="M30 130 L270 120"/><path d="M30 78 L270 82"/></g><g fill="#9fb6d4"><circle cx="30" cy="30" r="4"/><circle cx="30" cy="60" r="4"/><circle cx="30" cy="78" r="4"/><circle cx="30" cy="95" r="4"/><circle cx="30" cy="130" r="4"/></g><g fill="#ffcb05"><circle cx="270" cy="50" r="4.5"/><circle cx="270" cy="40" r="4.5"/><circle cx="270" cy="82" r="4.5"/><circle cx="270" cy="110" r="4.5"/><circle cx="270" cy="120" r="4.5"/></g></svg><span class="lab">noise to data, in straight lines</span></div></div>
-        <div class="body">
-          <h3>Rectified flow from scratch ↗</h3>
-          <p>A rectified-flow generative model in pure PyTorch: a velocity network carries noise to data along straight paths, sampled with Euler and Heun steps.</p>
-          <div class="chips"><span>Atombots Lab</span><span>PyTorch</span><span>Generative models</span></div>
-        </div>
-      </a>
-      <a class="card reveal" href="https://kevinyjn1.github.io/project-viz/lol-predictor/" target="_blank" rel="noopener">
-        <div class="media"><div class="tile" aria-hidden="true"><svg viewBox="0 0 300 160"><path d="M20 135 H280 M20 135 V20" stroke="#5b7aa3" stroke-width="1"/><path d="M20 130 C 110 130, 120 30, 150 78 S 200 28, 280 26" fill="none" stroke="#ffcb05" stroke-width="2.4"/><g fill="#9fb6d4" opacity=".8"><circle cx="60" cy="128" r="2.6"/><circle cx="90" cy="122" r="2.6"/><circle cx="118" cy="104" r="2.6"/><circle cx="140" cy="86" r="2.6"/><circle cx="168" cy="58" r="2.6"/><circle cx="205" cy="38" r="2.6"/><circle cx="245" cy="30" r="2.6"/></g></svg><span class="lab">P(win) from gold, XP and kills</span></div></div>
-        <div class="body">
-          <h3>League of Legends predictor ↗</h3>
-          <p>Logistic regression on gold, XP and kill differences at 25 minutes, from 10K+ match logs: 83.6% test accuracy, 0.92 ROC-AUC.</p>
-          <div class="chips"><span>EECS 398</span><span>scikit-learn</span><span>Data science</span></div>
-        </div>
-      </a>
+  <div class="cards">
+    <a class="card reveal" href="projects/yolh.html">
+      <div class="media"><img src="assets/thumbs/yolh.webp" alt="YOLH training point cloud and evaluation" loading="lazy"><video muted loop playsinline preload="none" data-src="assets/clips/yolh.mp4"></video></div>
+      <div class="body">
+        <h3>YOLH: You Only Learn from Humans <span class="ar">→</span></h3>
+        <p>A manipulation policy learned from human RGB-D demonstrations with a RISE-based diffusion policy, so the robot learns by watching people.</p>
+        <div class="chips"><span>Atombots Lab</span><span>Diffusion policy</span><span>RGB-D</span><span>SAM2</span></div>
+      </div>
+    </a>
+    <a class="card reveal" href="https://kevinyjn1.github.io/smolvla-viz-site/" target="_blank" rel="noopener">
+      <div class="media"><img src="assets/thumbs/smolvla.webp" alt="Table and wrist camera views from one robot demonstration" loading="lazy"></div>
+      <div class="body">
+        <h3>Inside SmolVLA <span class="ar">↗</span></h3>
+        <p>A 3D walkthrough of one forward pass of a fine-tuned SmolVLA robot policy, with the real numbers at every step, from two camera images to 5 seconds of joint angles.</p>
+        <div class="chips"><span>Atombots Lab</span><span>SmolVLA</span><span>LeRobot</span><span>three.js</span></div>
+      </div>
+    </a>
+    <article class="card reveal">
+      <a href="projects/hydrosense.html" aria-label="HydroSense write-up"><div class="media"><img src="assets/thumbs/hydrosense.webp" alt="HydroSense water bottle sensor demo" loading="lazy"><video muted loop playsinline preload="none" data-src="assets/clips/hydrosense.mp4"></video></div></a>
+      <div class="body">
+        <h3><a href="projects/hydrosense.html">HydroSense</a></h3>
+        <p>A bottle-agnostic water-level tracker: a bone-conduction mic, MFCC features and an SVM on an STM32.</p>
+        <div class="links2"><a href="projects/hydrosense.html">Write-up →</a><a href="https://kevinyjn1.github.io/project-viz/hydrosense/" target="_blank" rel="noopener">Under the hood ↗</a></div>
+        <div class="chips"><span>EECS 373</span><span>STM32</span><span>MFCC</span><span>SVM</span></div>
+      </div>
+    </article>
+    <a class="card reveal" href="projects/mbot.html">
+      <div class="media"><img src="assets/thumbs/mbot.webp" alt="MBot driving through a maze" loading="lazy"><video muted loop playsinline preload="none" data-src="assets/clips/mbot.mp4"></video></div>
+      <div class="body">
+        <h3>MBot autonomous navigation <span class="ar">→</span></h3>
+        <p>Motion control, particle-filter SLAM, occupancy-grid mapping and A* planning, built from scratch in C++ with ROS 2 and run on a real robot.</p>
+        <div class="chips"><span>EECS 467</span><span>C++</span><span>ROS 2</span><span>SLAM</span></div>
+      </div>
+    </a>
+    <a class="card reveal" href="projects/oneflip.html">
+      <div class="media"><span class="badge">1st place</span><img src="assets/thumbs/oneflip.webp" alt="Renders of the OneFlip spice jar" loading="lazy"><video muted loop playsinline preload="none" data-src="assets/clips/oneflip.mp4"></video></div>
+      <div class="body">
+        <h3>OneFlip <span class="ar">→</span></h3>
+        <p>A 3D-printed spice jar you can open and pour with one hand while cooking. Best Design at U-M's Thunderdome Innovation Contest.</p>
+        <div class="chips"><span>ENTR 390</span><span>Fusion 360</span><span>3D printing</span></div>
+      </div>
+    </a>
+    <article class="card reveal">
+      <a href="projects/ambientmnist.html" aria-label="ambientMNIST write-up"><div class="media"><img src="assets/thumbs/ambient.webp" alt="ambientMNIST board classifying a digit" loading="lazy"><video muted loop playsinline preload="none" data-src="assets/clips/ambient.mp4"></video></div></a>
+      <div class="body">
+        <h3><a href="projects/ambientmnist.html">ambientMNIST</a></h3>
+        <p>MNIST digit classification running entirely on a microcontroller, with 5-bit quantized pixels streamed over UART.</p>
+        <div class="links2"><a href="projects/ambientmnist.html">Write-up →</a><a href="https://kevinyjn1.github.io/project-viz/ambient-mnist/" target="_blank" rel="noopener">Under the hood ↗</a></div>
+        <div class="chips"><span>Embedded ML</span><span>Quantization</span><span>C</span></div>
+      </div>
+    </article>
+    <a class="card reveal" href="projects/go2w.html">
+      <div class="media"><div class="draw" aria-hidden="true"><svg viewBox="0 0 300 160"><g transform="translate(110 40)"><rect width="80" height="80" fill="#edf0f6"/><rect x="10" y="10" width="60" height="60" fill="#06070b"/><rect x="20" y="20" width="10" height="10" fill="#edf0f6"/><rect x="40" y="20" width="20" height="10" fill="#edf0f6"/><rect x="20" y="40" width="20" height="20" fill="#edf0f6"/><rect x="50" y="40" width="10" height="20" fill="#edf0f6"/></g><g fill="none" stroke="#ffcb05" stroke-width="1.3" stroke-dasharray="4 4"><path d="M30 20 L110 40"/><path d="M270 20 L190 40"/><path d="M30 140 L110 120"/></g><g fill="#ffcb05"><circle cx="30" cy="20" r="5"/><circle cx="270" cy="20" r="5"/><circle cx="30" cy="140" r="5"/></g></svg><span class="lab">cameras find the tag</span></div></div>
+      <div class="body">
+        <h3>Go2W motion capture <span class="ar">→</span></h3>
+        <p>A ROS 2, RealSense and AprilTag tracking stack feeding a Go2W quadruped for locomotion and multi-robot experiments.</p>
+        <div class="chips"><span>Atombots Lab</span><span>ROS 2</span><span>RealSense</span><span>AprilTag</span></div>
+      </div>
+    </a>
+    <a class="card reveal" href="https://github.com/kevinyjn1/rectified-flow-from-scratch" target="_blank" rel="noopener">
+      <div class="media"><div class="draw" aria-hidden="true"><svg viewBox="0 0 300 160"><g fill="none" stroke="#ffcb05" stroke-width="1.3" opacity=".8"><path d="M30 30 L270 50"/><path d="M30 60 L270 40"/><path d="M30 95 L270 110"/><path d="M30 130 L270 120"/><path d="M30 78 L270 82"/></g><g fill="#7da2ff"><circle cx="30" cy="30" r="4"/><circle cx="30" cy="60" r="4"/><circle cx="30" cy="78" r="4"/><circle cx="30" cy="95" r="4"/><circle cx="30" cy="130" r="4"/></g><g fill="#ffcb05"><circle cx="270" cy="50" r="4.5"/><circle cx="270" cy="40" r="4.5"/><circle cx="270" cy="82" r="4.5"/><circle cx="270" cy="110" r="4.5"/><circle cx="270" cy="120" r="4.5"/></g></svg><span class="lab">noise → data, in straight lines</span></div></div>
+      <div class="body">
+        <h3>Rectified flow from scratch <span class="ar">↗</span></h3>
+        <p>A rectified-flow generative model in pure PyTorch: a velocity network carries noise to data along straight paths, sampled with Euler and Heun steps.</p>
+        <div class="chips"><span>Atombots Lab</span><span>PyTorch</span><span>Generative models</span></div>
+      </div>
+    </a>
+    <a class="card reveal" href="https://kevinyjn1.github.io/project-viz/lol-predictor/" target="_blank" rel="noopener">
+      <div class="media"><div class="draw" aria-hidden="true"><svg viewBox="0 0 300 160"><path d="M20 135 H280 M20 135 V20" stroke="#3a4660" stroke-width="1"/><path d="M20 130 C 110 130, 120 30, 150 78 S 200 28, 280 26" fill="none" stroke="#ffcb05" stroke-width="2.4"/><g fill="#7da2ff" opacity=".85"><circle cx="60" cy="128" r="2.6"/><circle cx="90" cy="122" r="2.6"/><circle cx="118" cy="104" r="2.6"/><circle cx="140" cy="86" r="2.6"/><circle cx="168" cy="58" r="2.6"/><circle cx="205" cy="38" r="2.6"/><circle cx="245" cy="30" r="2.6"/></g></svg><span class="lab">P(win) from gold, XP and kills</span></div></div>
+      <div class="body">
+        <h3>League of Legends predictor <span class="ar">↗</span></h3>
+        <p>Logistic regression on gold, XP and kill differences at 25 minutes, from 10K+ match logs: 83.6% test accuracy, 0.92 ROC-AUC.</p>
+        <div class="chips"><span>EECS 398</span><span>scikit-learn</span><span>Data science</span></div>
+      </div>
+    </a>
   </div>
   <p class="after reveal">Curious how these work inside? <a class="tlink" href="https://kevinyjn1.github.io/project-viz/" target="_blank" rel="noopener">Step-by-step visualizations ↗</a></p>
-</main>
 
 <!-- ============ FOOTER ============ -->
 <footer class="foot">
-  <div><p class="eyebrow">Portfolio</p><p class="who">Kevin Na</p></div>
-  <nav aria-label="Footer">
-    <a href="research.html">Research</a>
-    <a href="projects.html">Projects</a>
-    <a href="about.html#contact">Contact</a>
-  </nav>
-  <div class="icons">
+  <p class="foot-name">Kevin Na</p>
+  <div class="foot-links">
     <a href="https://github.com/kevinyjn1" target="_blank" rel="noopener">GitHub</a>
     <a href="https://www.linkedin.com/in/kevinyjna/" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://openreview.net/profile?id=~Yunjong_Na1" target="_blank" rel="noopener">OpenReview</a>
     <a href="mailto:kevinyjna@gmail.com">Email</a>
   </div>
-  <div class="small"><span>© 2026 Kevin Na · Ann Arbor, Michigan</span><a href="https://github.com/kevinyjn1/kevinyjn1.github.io" target="_blank" rel="noopener">Plain HTML and CSS, on GitHub Pages</a></div>
+  <p class="foot-small"><span>© 2026 · Ann Arbor, Michigan</span><a href="https://github.com/kevinyjn1/kevinyjn1.github.io" target="_blank" rel="noopener">Plain HTML, CSS and JS on GitHub Pages</a></p>
 </footer>
 </div>
+</main>
 
 <div class="toast" role="status">Email copied</div>
 <script src="assets/main.js"></script>

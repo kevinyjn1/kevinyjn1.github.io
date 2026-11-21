@@ -5,49 +5,33 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="ambientMNIST — MNIST digit classification on a microcontroller over UART — Kevin Na">
 <title>ambientMNIST — Kevin Na</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='16' fill='%2300274c'/><text x='16' y='22.5' font-family='Georgia,serif' font-size='18' font-weight='700' text-anchor='middle' fill='%23ffcb05'>K</text></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%2306070b'/><text x='16' y='22' font-family='Arial,sans-serif' font-size='15' font-weight='800' text-anchor='middle' fill='%23ffcb05'>KN</text></svg>">
 <script>document.documentElement.classList.add('js');</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-
-
-<!-- ============ SIDEBAR (the same on every page) ============ -->
-<aside class="side">
-  <div class="side-top">
-    <div>
-      <p class="eyebrow">U-M · CS '27</p>
-      <a class="side-name" href="../index.html">Kevin Na</a>
-    </div>
-    <button class="menu-btn" aria-label="Open menu" aria-expanded="false">Menu</button>
+<!-- ============ TOP CORNERS + BOTTOM DOCK (the same on every page) ============ -->
+<header class="corner">
+  <a class="mark" href="../index.html" aria-label="Kevin Na, home"><span class="kn">KN</span><span class="mark-name">Kevin Na<small>U-M · CS '27</small></span></a>
+  <div class="corner-r">
+    <span class="status"><i></i>Open to 2027 roles</span>
+    <a class="btn sm" href="../resume.pdf" target="_blank" rel="noopener">Resume <span class="ar">↗</span></a>
   </div>
-  <p class="side-role">Robot learning · Surgical video AI · Embedded ML</p>
-  <picture>
-    <source srcset="../assets/profile-portrait.webp" type="image/webp">
-    <img class="side-photo" src="../assets/profile-portrait.jpg" alt="Kevin Na" width="116" height="116">
-  </picture>
-  <nav class="side-nav" aria-label="Main">
-      <a href="../index.html">Home</a>
-      <a href="../research.html">Research</a>
-      <a href="../projects.html" class="on" aria-current="page">Projects</a>
-      <a href="../about.html">About</a>
-      <a href="../about.html#contact">Contact</a>
-  </nav>
-  <div class="side-links">
-    <a href="../resume.pdf" target="_blank" rel="noopener">Resume</a>
-    <a href="https://github.com/kevinyjn1" target="_blank" rel="noopener">GitHub</a>
-    <a href="https://www.linkedin.com/in/kevinyjna/" target="_blank" rel="noopener">LinkedIn</a>
-    <a href="https://openreview.net/profile?id=~Yunjong_Na1" target="_blank" rel="noopener">OpenReview</a>
-  </div>
-  <p class="status"><i></i>Open to 2027 roles</p>
-</aside>
+</header>
+<nav class="dock" aria-label="Main">
+    <a href="../index.html">Home</a>
+    <a href="../research.html">Research</a>
+    <a href="../projects.html" class="on" aria-current="page">Projects</a>
+    <a href="../about.html">About</a>
+    <a href="../about.html#contact">Contact</a>
+</nav>
 
+<main id="main">
 <div class="page">
-<main class="main" id="main">
 
 <article class="article">
   <a class="back" href="../projects.html">&#8592; All projects</a>
@@ -113,24 +97,20 @@
   <p>C · UART / USB Serial · Python (host-side data prep) · 5-bit quantization · Linear classifier · MNIST dataset</p>
 </article>
 
-</main>
 
 <!-- ============ FOOTER ============ -->
 <footer class="foot">
-  <div><p class="eyebrow">Portfolio</p><p class="who">Kevin Na</p></div>
-  <nav aria-label="Footer">
-    <a href="../research.html">Research</a>
-    <a href="../projects.html">Projects</a>
-    <a href="../about.html#contact">Contact</a>
-  </nav>
-  <div class="icons">
+  <p class="foot-name">Kevin Na</p>
+  <div class="foot-links">
     <a href="https://github.com/kevinyjn1" target="_blank" rel="noopener">GitHub</a>
     <a href="https://www.linkedin.com/in/kevinyjna/" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://openreview.net/profile?id=~Yunjong_Na1" target="_blank" rel="noopener">OpenReview</a>
     <a href="mailto:kevinyjna@gmail.com">Email</a>
   </div>
-  <div class="small"><span>© 2026 Kevin Na · Ann Arbor, Michigan</span><a href="https://github.com/kevinyjn1/kevinyjn1.github.io" target="_blank" rel="noopener">Plain HTML and CSS, on GitHub Pages</a></div>
+  <p class="foot-small"><span>© 2026 · Ann Arbor, Michigan</span><a href="https://github.com/kevinyjn1/kevinyjn1.github.io" target="_blank" rel="noopener">Plain HTML, CSS and JS on GitHub Pages</a></p>
 </footer>
 </div>
+</main>
 
 <div class="toast" role="status">Email copied</div>
 <script src="../assets/main.js"></script>
